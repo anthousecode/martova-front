@@ -6,13 +6,13 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div
-      class="collapse navbar-collapse"
+      class="collapse navbar-collapse d-flex flex-column"
       id="navbarSupportedContent"
     >
-      <ul>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
+      <ul class="d-flex justify-content-end col-md-6 soc-group">
+        <li><a href="#" class="soc">f</a></li>
+        <li><a href="#" class="soc">i</a></li>
+        <li><a href="#" class="soc">y</a></li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li
@@ -21,9 +21,6 @@
           class="nav-item"
         >
           <nuxt-link
-            exact
-            no-prefetch
-            active-class="active"
             class="nav-link py-0"
             to="/"
           >
@@ -54,11 +51,30 @@
     color: white;
     position: fixed;
     top: 0;
-    li{
-      text-transform: uppercase;
-      line-height: 14px;
-      &:first-child{
-        border-right:1px solid white;
+    .soc-group{
+      border-right:1px solid white;
+    }
+    ul{
+      list-style:none;
+      .nav-item{
+        &:first-child{
+          border-right:1px solid white;
+        }
+      }
+      li{
+        text-transform: uppercase;
+        line-height: 14px;
+        .soc{
+          display: flex;
+          align-items:center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          border-radius:50%;
+          text-decoration: none;
+          background-color: #fff;
+          margin-right: 20px;
+        }
       }
     }
   }
