@@ -1,30 +1,154 @@
 <template>
   <div class="index-wrapper">
     <div class="position-relative img-container">
-      <img class="img-fluid"  src="https://images.squarespace-cdn.com/content/v1/5b225813aa49a110da7c14c6/1559295097308-RYTX2XHO1CA2YI4PNGON/ke17ZwdGBToddI8pDm48kDrQ9tfdcvPUv7NgXGP4R2R7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0gmXcXvEVFTLbYX9CdVcGe4zwrosjp5YtnrvbmlM1LFKb7wNXE8lRZ0Z8l5PIsW3Vw/home-hero-img.jpg?format=2500w" alt="test">
+      <Pano
+        :source="urls[index]"
+      />
+      <div class="controls">
+        <div class="controls-group">
+          <div @click="getPrevSlide" class="controls-arrow controls-arrow__left">
+            &#10092;
+          </div>
+          <div class="rounded-circle pl-1">
+            360
+            <sup>°</sup>
+          </div>
+          <div @click="getNextSlide" class="controls-arrow controls-arrow__right">
+            &#10093;
+          </div>
+        </div>
+        <div class="controls-title pt-2">
+          3D ТУР
+        </div>
+      </div>
+      <div class="index-title">
+        <div><img src="/h2.svg" alt="h2"></div>
+        <div><img src="/h1.svg" alt="h1"></div>
+      </div>
     </div>
   </div>
 </template>
 
+
 <script>
-  export default{
-  }
+    import {Pano} from 'vuejs-vr'
+
+    export default {
+        components: {Pano},
+        data: () => ({
+            urls: [
+                '/bar360.png',
+                '/galerie_2.png',
+                '/bar360.png',
+                '/galerie_2.png',
+            ],
+            index: 0,
+        }),
+        methods: {
+            setCanvasSize() {
+                let canvas = document.getElementsByClassName('panolens-canvas')[0];
+                canvas.setAttribute('width', window.innerWidth);
+                canvas.setAttribute('height', window.innerHeight);
+            },
+            getPrevSlide() {
+                this.index > 0 ?
+                    (this.index += -1) :
+                    (this.index += this.urls.length - 1);
+            },
+            getNextSlide() {
+                this.index < this.urls.length - 1 ?
+                    (this.index += 1) :
+                    (this.index = 0);
+            }
+        },
+        mounted() {
+            this.setCanvasSize();
+        }
+    }
 </script>
 
 <style scoped lang="scss">
-  .index-wrapper{
-    .img-container{
-      z-index: 0;
-      top: 0;
-      height: 100vh;
-      img{
-        width: 100%;
-        height: 100%;
-        display: block;
+
+  .index-wrapper {
+    color: white;
+    height: 100vh;
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+
+    .index-title {
+      position: absolute;
+      bottom: 51px;
+      left: 81px;
+
+      h1 {
+        text-transform: uppercase;
+      }
+
+      h2 {
+        font-family: 'VeraCrouz', sans-serif;
+        font-style: italic;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .controls {
+    width: 178px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .controls-group {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .rounded-circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid white;
+        width: 110px;
+        height: 110px;
+
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 35px;
+        line-height: 61px;
+      }
+
+      .controls-arrow {
+        cursor: pointer;
+
+        &:hover {
+          color: lightseagreen;
+          transition: 1s ease-in-outs;
+        }
       }
     }
 
+    .controls-title {
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 30px;
+      text-align: center;
+    }
   }
 
+
+</style>
+
+<style>
+  .panolens-canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
 </style>
 
