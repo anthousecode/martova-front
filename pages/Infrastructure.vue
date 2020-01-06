@@ -1,13 +1,13 @@
 <template>
   <div class="infra-wrapper d-flex">
-    <video ref="myVideo" playsinline="playsinline" muted="muted" loop="loop">
+    <video ref="myVideo" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
       <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
     </video>
     <main class="infra d-flex justify-content-center">
       <section>
-        <button v-if="!isVideoPlaying" @click="changeVideoPlay" id="play">
-          <img src="/play.svg" alt="play">
-        </button>
+<!--        <button v-if="!isVideoPlaying" @click="changeVideoPlay" id="play">-->
+<!--          <img src="/play.svg" alt="play">-->
+<!--        </button>-->
       </section>
       <aside class="d-flex flex-column p-4 pb-5">
           <div class="mt-0">

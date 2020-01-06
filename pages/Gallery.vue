@@ -8,37 +8,47 @@
                class="img-fluid"/>
         </a>
       </figure>
-      <figure class="col-md-3 mt-3">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg"
-               class="img-fluid"/>
-        </a>
-      </figure>
-      <figure class="col-md-3 mt-3">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg"
-               class="img-fluid"/>
-        </a>
-      </figure>
-      <figure class="col-md-3 mt-3">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg"
-               class="img-fluid"/>
-        </a>
-      </figure>
-      <figure class="col-md-3 mt-3">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg"
-               class="img-fluid"/>
-        </a>
-      </figure>
     </div>
+    <div style="width: 100vw; height:400px; position: absolute;top:116px;">
+      <carousel
+        :nav="true"
+        :dots="false"
+        :items=1
+        :mouseDrag="false"
+        :loop="true"
+      >
+        <template slot="prev"><span class="prev">prev</span></template>
+        <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
+
+        <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
+
+        <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
+
+        <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
+        <template slot="next"><span class="next">next</span></template>
+      </carousel>
+    </div>
+
   </div>
 </template>
 
 <script>
+    import carousel from 'vue-owl-carousel';
+
     export default {
-        name: "Gallery"
+        name: "Gallery",
+        components: {carousel},
+        data: () => ({
+            images: [],
+        }),
+        asyncData({$axios}) {
+            return $axios.get(`/gallery-items`)
+                .then((res) => {
+                    return {images: res.images}
+                }).catch(e => {
+                    console.log(e)
+                })
+        }
     }
 </script>
 
