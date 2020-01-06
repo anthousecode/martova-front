@@ -9,26 +9,24 @@
         </a>
       </figure>
     </div>
-    <div style="width: 100vw; height:400px; position: absolute;top:116px;">
-      <carousel
-        :nav="true"
-        :dots="false"
-        :items=1
-        :mouseDrag="false"
-        :loop="true"
-      >
-        <template slot="prev"><span class="prev">prev</span></template>
-        <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
+    <carousel
+      style="position: fixed;max-width: 701px; width: auto; height: auto;overflow: hidden;display: flex;justify-content: center; align-items: center;z-index: 999"
+      :nav="true"
+      :dots="false"
+      :items=1
+      :mouseDrag="false"
+      :loop="true"
+    >
+      <template slot="prev"><span class="prev">prev</span></template>
+      <img src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg">
 
-        <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
+      <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
 
-        <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
+      <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
 
-        <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
-        <template slot="next"><span class="next">next</span></template>
-      </carousel>
-    </div>
-
+      <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
+      <template slot="next"><span class="next">next</span></template>
+    </carousel>
   </div>
 </template>
 
@@ -53,6 +51,7 @@
 </script>
 
 <style scoped lang="scss">
+
   .gallery-wrapper {
     justify-content: center;
     align-items: center;

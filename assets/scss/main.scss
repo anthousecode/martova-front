@@ -80,3 +80,27 @@ ul{
     transition: color .7s ease!important;
   }
 }
+
+
+
+.owl-stage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.owl-theme .owl-nav {
+  position: absolute;
+  top: 50%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.owl-carousel .owl-item{
+  width: 701px!important;
+  height: auto!important;
+  img{
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
