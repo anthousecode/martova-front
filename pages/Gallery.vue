@@ -1,56 +1,143 @@
 <template>
   <div class="container-fluid gallery-wrapper p-0 d-flex">
+    <div
+      v-if="isCarouselVisible"
+      class="modal fade show d-block"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" style="z-index: 9999;" role="document">
+        <div
+          class="modal-content position-relative"
+        >
+          <div
+            class="modal-body d-flex justify-content-center align-items-center"
+          >
+            <carousel
+              v-click-outside="hideCarousel"
+              :nav="true"
+              :dots="false"
+              :items=1
+              :startPosition="currentSlideIndex"
+              :mouseDrag="false"
+              :loop="true"
+              class="pt-5 mt-2 carousel_unique"
+            >
+              <template
+                style="position: relative">
+                <template slot="prev"><span class="prev"></span></template>
+                <div
+                  v-for="image of images"
+                  class="position-relative"
+                  :key="image.id"
+                >
+                  <img :src="image.image" alt="img">
+                  <div @click="hideCarousel" class="closer"></div>
+                </div>
+                <template slot="next"><span class="next"></span></template>
+              </template>
+            </carousel>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
     <img class="gallery-bg" src="/galerie_2.png" alt="Галерея">
     <div class="row gallery py-5 px-5">
-      <figure class="col-md-3 mt-3">
-        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
-          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg"
-               class="img-fluid"/>
+      <figure
+        v-for="(image, i) of images"
+        :key="image.id"
+        class="col-md-3 mt-3">
+        <a
+          @click.prevent="showCarousel(i)"
+          href="#"
+        >
+          <img alt="picture" :src="image.image"
+               class="img-fluid picture"/>
         </a>
       </figure>
     </div>
-    <carousel
-      style="position: fixed;max-width: 701px; width: auto; height: auto;overflow: hidden;display: flex;justify-content: center; align-items: center;z-index: 999"
-      :nav="true"
-      :dots="false"
-      :items=1
-      :mouseDrag="false"
-      :loop="true"
-    >
-      <template slot="prev"><span class="prev">prev</span></template>
-      <img src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg">
 
-      <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
 
-      <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
-
-      <img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png">
-      <template slot="next"><span class="next">next</span></template>
-    </carousel>
   </div>
 </template>
 
 <script>
+    import vClickOutside from 'v-click-outside';
     import carousel from 'vue-owl-carousel';
 
     export default {
         name: "Gallery",
+        directives: {
+            clickOutside: vClickOutside.directive
+        },
         components: {carousel},
         data: () => ({
+            currentSlideIndex: 0,
             images: [],
+            isCarouselVisible: false,
         }),
         asyncData({$axios}) {
             return $axios.get(`/gallery-items`)
                 .then((res) => {
-                    return {images: res.images}
+                    return {images: res.data.gallery_items}
                 }).catch(e => {
                     console.log(e)
                 })
+        },
+        methods: {
+            showCarousel(index) {
+                this.currentSlideIndex = index;
+                this.isCarouselVisible = true;
+            },
+            hideCarousel() {
+                this.isCarouselVisible = false;
+            }
         }
     }
 </script>
 
 <style scoped lang="scss">
+  #exampleModal {
+    top: 116px;
+
+    .modal-dialog {
+      z-index: 2000;
+      height: 100%;
+      display: flex;
+      width: 100%;
+      /*max-width: 800px;*/
+      flex-direction: column;
+      align-items: flex-start;
+
+      .modal-content {
+        height: 80%;
+        background: transparent !important;
+        border: none;
+
+        .modal-footer {
+          border: none;
+        }
+      }
+
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 8000;
+    }
+  }
 
   .gallery-wrapper {
     justify-content: center;
@@ -81,4 +168,15 @@
       }
     }
   }
+
+  .next {
+    display: none;
+  }
+
+  .picture {
+    max-width: 100%;
+    height: 260px;
+    width: 100%;
+  }
+
 </style>

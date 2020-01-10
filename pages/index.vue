@@ -2,6 +2,10 @@
   <div class="index-wrapper">
     <div class="position-relative img-container">
       <Pano
+        style="
+           width: 100vw !important;
+    height: 100vh !important;
+        "
         :source="urls[index]"
       />
       <div class="controls">
@@ -140,15 +144,6 @@
       line-height: 30px;
       text-align: center;
     }
-  }
-
-
-</style>
-
-<style>
-  .panolens-canvas {
-    width: 100vw !important;
-    height: 100vh !important;
   }
 </style>
 

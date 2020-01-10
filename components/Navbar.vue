@@ -72,7 +72,7 @@
 
 <style scoped lang="scss">
   .navbar-custom {
-    z-index: 1;
+    z-index: 1000;
     height: 116px;
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.6);
