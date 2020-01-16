@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 module.exports = {
   /*
   ** Headers of the page
@@ -14,9 +15,10 @@ module.exports = {
       {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'},
     ],
     script: [
-      {src: './static/js/d3.js'},
-      {src: './static/js/d3-selection.js'},
-      {src: './static/js/app.js'},
+      {src: 'js/d3.js'},
+      {src: 'js/d3-selection.js'},
+      {src: 'js/jquery112.js'},
+      {src: 'js/turntable.js'}
     ]
   },
   /*
@@ -44,11 +46,17 @@ module.exports = {
   },
   plugins: [
     {src: '~plugins/pano.js', mode: 'client'}
+    // {src: '~plugins/localize.filter.js', mode: 'client'}
   ],
   build: {
-    /*
-    ** Run ESLint on save
-    */
+
+
+    vendor: ["jquery", "/js/turntable.js"],
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: "jquery"
+      })],
+
     extend(config, {isDev, isClient}) {
       if (isDev && isClient) {
         config.module.rules.push({

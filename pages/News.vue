@@ -73,6 +73,11 @@
                     console.log(e)
                 })
         },
+        computed:{
+            lang(){
+              return this.$store.getters.language;
+            }
+        },
         methods: {
             cuttedText(val) {
                 this.isMore = false;
@@ -208,5 +213,6 @@
       }
     }
   }
+
 </style>
 

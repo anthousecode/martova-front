@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark py-2 navbar-custom col">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-dark py-2 navbar-custom col">
     <nuxt-link to="/" class="navbar-brand logo pt-4">
       <img src="/logo.svg" alt="logo">
     </nuxt-link>
@@ -29,10 +29,10 @@
         <div class="lang pt-1  pl-4">
           <a href="#"
              class="mr-2"
-             @click.prevent=""
+             @click.prevent="setRuLanguage"
           >рус</a>
           <a href="#"
-             @click.prevent=""
+             @click.prevent="setUaLanguage"
           >укр</a>
         </div>
       </div>
@@ -61,12 +61,25 @@
     export default {
 
         data: () => ({
-            menuItems: []
-            // menuItems: {menu_items: [{ru_name: 'о нас'}, {ru_name: 'продажа участков'}, {ru_name: 'инфраструктура'}, {ru_name: 'галерея'}, {ru_name: 'новости'}, {ru_name: 'контакты'},]}
+            menuItems: [],
+            menuItems: {menu_items: [{ru_name: 'о нас'}, {ru_name: 'продажа участков'}, {ru_name: 'инфраструктура'}, {ru_name: 'галерея'}, {ru_name: 'новости'}, {ru_name: 'контакты'},]}
         }),
-        async mounted() {
-            this.menuItems = await this.$axios.$get(`pages`)
-        }
+        computed:{
+          lang(){
+              return this.$store.getters.language
+          }
+        },
+        methods:{
+            setRuLanguage(){
+                this.$store.commit('setRusLanguage')
+            },
+            setUaLanguage(){
+                this.$store.commit('setUaLanguage')
+            }
+        },
+        // async mounted() {
+        //     this.menuItems = await this.$axios.$get(`pages`)
+        // }
     }
 </script>
 

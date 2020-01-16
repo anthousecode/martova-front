@@ -1,27 +1,21 @@
 export const state = () => ({
-  token: null
+  language: 'ru'
 });
 export const mutations = {
-  setToken(state, token) {
-    state.token = token
+  setRusLanguage(state) {
+    state.language = 'ru'
   },
-  clearToken(state) {
-    state.token = null
+  setUaLanguage(state) {
+    state.language = 'ua'
   }
 };
 export const actions = {
-  nuxtServerInit({dispatch}){
-    console.log('nuxtServerInit')
-  },
-  login({commit}){
-    commit('setToken', 'truetoken')
-  },
-  logout({commit}){
-    commit('clearToken')
-  },
-
+  // async fetch({commit}){
+  //   const users = await this.$axios.$get('https://jsonplaceholder.typicode.com/users');
+  //   commit('setUsers', users)
+  // }
 };
 
 export const getters = {
-  hasToken: s => !!s.token
+  language: s => s.language
 };

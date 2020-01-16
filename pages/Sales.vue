@@ -1,54 +1,84 @@
 <template>
-  <div>
+  <section id="sales-wrapper">
+    <!--search-->
+    <div class="search-bar d-flex justify-content-around align-items-center">
+      <button class="">Продан</button>
+      <button class="">Зарезервирован</button>
+      <button class="">Свободен</button>
+      <div>
+        <button></button>
+        <input type="number" placeholder="№ участка">
+      </div>
+    </div>
+    <!--search-->
     <div class="layout hide" id="layout">
-      <div id="modal" class="hide">
-        <div class="d-flex header">
-          <div class="header-part header-part__left pl-2">
-            <p class="mb-0 pt-2 pb-1" style="color: red">№160</p>
-            <hr class="p-0 m-0">
+      <div id="modal" class="hide px-4 pt-4 pb-1">
+        <div class="d-flex justify-content-between header">
+          <div class="header-part header-part__left">
+            <p>Паспорт участка № 5304</p>
           </div>
-          <div class="header-part header-part__right pt-2 pr-3 pb-1 d-flex">
-            <a href="#" id="closer"><span style="font-size: 18px">×</span></a>
-          </div>
-        </div>
-        <div class="base">
-          <div class="left">
-            <div class="text-container">
-              <p>Кадастровый номер:</p>
-              <p><b>2342342425453464634634</b></p>
-            </div>
-            <div class="text-container">
-              <p> Площадь: 0,555га</p>
-            </div>
-            <div class="text-container">
-              <p> Статус: <b>Продан</b></p>
-            </div>
-
-            <div class="img-container">
-              <img src="https://kbkgeo.ru/files/plan-uchastka-dlya-obrashcheniya-v-sud.jpg"
-                   style="width: 100%;height: 100%;"
-                   alt="участок">
-            </div>
-          </div>
-          <div class="right">
-            3D план
-            <div class="img-container">
-              <a class="linkD" id="linkD" href="#">
-                <img
-                  src="https://www.gwd.ru/upload/resize_cache/iblock/d79/300_200_1/d798f3a72cca1a5dbcb48a8462203422.png"
-                  style="width: 100%;height: 100%;"
-                  alt="участок">
-              </a>
-
-            </div>
+          <div>
+            <a href="#" id="closer"><img src="../static/closerModal.svg" alt="close"></a>
           </div>
         </div>
-        <div class="sec" id="sec">
-          <a href="#">кадастровый план (обменный файл xml )</a>
-          <a href="#">геодезическая съемка участка (pdf/ dwg)</a>
+        <hr class="p-0 mt-1">
+        <div class="base pt-2 d-flex flex-column">
+          <h5>Общая информация</h5>
+          <div class="d-flex flex-grow-1">
+            <div class="left w-60">
+              <div class="d-flex">
+                <div>
+                  <div class="d-flex"><p class="p-title">Кадастровый номер: </p>
+                    <p class="p-description">632446566656:01:009:0329 </p></div>
+                  <div class="d-flex"><p class="p-title">Тип собственности: </p>
+                    <p class="p-description">Частная собственность</p></div>
+                  <div class="d-flex"><p class="p-title">Целевое назначение: </p>
+                    <p class="p-description">07.03 - для инд. дачного строительства</p></div>
+                  <div class="d-flex"><p class="p-title"> Площадь: </p>
+                    <p class="p-description">0,1077 га</p></div>
+                  <div class="d-flex"><p class="p-title"> Статус: </p>
+                    <p class="p-description">Зарезервирован</p></div>
+                  <div class="d-flex"><p class="p-title"> Цена: </p>
+                    <p class="p-description">$145 900</p></div>
+                </div>
+              </div>
+              <div class="d-flex mt-3">
+                <div class="w-50">
+                  <p class="mb-2">Кадастровый план </p>
+                  <a href="#" class="plan-img">
+                    <img src="../static/bar360.png" alt="plan">
+                  </a>
+                  <a href="#" class="save-link text-right" style="cursor: pointer">Распечатать</a>
+                </div>
+                <div class="w-50 pl-4">
+                  <p class="mb-2">Геодезическая съемка</p>
+                  <div>
+                    <a href="#" class="save-link d-flex align-items-center">
+                      <img src="../static/dwg.svg" alt="doc">
+                      <span>Скачать</span>
+                    </a>
+                    <a href="#" class="save-link d-flex align-items-center mt-3">
+                      <img src="../static/pdf.svg" alt="doc">
+                      <span>Скачать</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-40 position-relative">
+              <turntable/>
+              <div class="model-controls d-flex justify-content-between">
+                <div>
+                  <img src="/prev.svg" alt="prev">
+                </div>
+                <div>
+                  <img src="/next.svg" alt="next">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <a href="#" class="hide" id="closer1"><span style="font-size: 18px">×</span></a>
     </div>
 
 
@@ -63,18 +93,47 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
+    import turntable from "../components/turntable";
+    import $ from 'jquery';
+
     export default {
-        name: "Sales"
+        name: "Sales",
+        components: {
+            turntable
+        },
+        head: {
+            script: [
+                {src: 'js/app.js'}
+            ]
+        },
+        mounted() {
+            window.onload = () => {
+                setTimeout(() => {
+                    window.rendererD3.init()
+                }, 1000);
+            }
+        }
+
     }
 </script>
 
-<style scoped>
-  body {
-    overflow: auto;
+<style scoped lang="scss">
+  .search-bar {
+    position: fixed;
+    bottom: 42px;
+    right: 60px;
+    background: #000;
+    width: 551px;
+    height: 42px;
+    z-index: 20;
+  }
+
+  hr {
+    background: #282828;
   }
 
   .wrapper {
@@ -207,8 +266,19 @@
 
   #closer {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 17px;
+    height: 17px;
+
+    &:hover {
+      transform: rotate(360deg);
+      transition: 1s ease;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .layout {
@@ -238,6 +308,7 @@
     -ms-flex-pack: start;
     justify-content: flex-start;
     width: 300px;
+    min-height: 444px;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1e767', endColorstr='#feb645', GradientType=1);
   }
 
@@ -268,7 +339,7 @@
 
   #map {
     position: absolute;
-    top: 0;
+    top: 63px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -301,15 +372,12 @@
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
-    /*width: auto;*/
     height: auto;
     z-index: 999;
   }
 
   polygon {
     opacity: .6;
-    /*fill:black;*/
-    /*stroke:blue;*/
     stroke-width: 2;
     cursor: pointer;
     position: relative;
@@ -331,8 +399,6 @@
 
   /*modal*/
   #modal {
-    margin-top: -100px;
-    margin-right: -100px;
     z-index: 999;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -342,17 +408,12 @@
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
-    max-width: 350px;
+    max-width: 1050px;
     overflow: hidden;
-    border-radius: 10px;
     font-size: 14px;
     -webkit-box-shadow: -1px 0px 17px 0px rgba(0, 0, 0, 0.75);
     box-shadow: -1px 0px 17px 0px rgba(0, 0, 0, 0.75);
-    background: rgba(241, 231, 103, 1);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(241, 231, 103, 1)), color-stop(100%, rgba(254, 182, 69, 1)));
-    background: -o-linear-gradient(left, rgba(241, 231, 103, 1) 0%, rgba(254, 182, 69, 1) 100%);
-    background: -webkit-gradient(linear, left top, right top, from(rgba(241, 231, 103, 1)), to(rgba(254, 182, 69, 1)));
-    background: linear-gradient(to right, rgba(241, 231, 103, 1) 0%, rgba(254, 182, 69, 1) 100%);
+    background: rgba(255, 255, 255, 0.8);
   }
 
   @media screen and (max-width: 768px) {
@@ -366,11 +427,20 @@
     display: -ms-flexbox;
     display: flex;
     width: 100%;
+    min-height: 353px;
     height: auto;
+
+    h5 {
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 27px;
+      color: #000000;
+    }
   }
 
   .sec {
-    padding: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -389,7 +459,6 @@
   }
 
   .sec a {
-    padding: 10px;
     text-decoration: none;
   }
 
@@ -404,7 +473,6 @@
 
   .left, .right {
     width: 50%;
-    padding: 10px;
   }
 
   .right {
@@ -431,6 +499,15 @@
 
   .header-part {
     width: 50%;
+
+    p {
+      font-family: 'Open Sans', sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 34px;
+      color: #282828;
+    }
   }
 
   .header-part__right {
@@ -489,7 +566,7 @@
     overflow: auto;
   }
 
-  @media screen and (min-width: 1600px ) {
+  @media screen and (min-width: 1600px) {
     .zoom {
       -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
@@ -498,12 +575,67 @@
     }
   }
 
-  @media screen and (min-width: 1800px ) {
+  @media screen and (min-width: 1800px) {
     .zoom {
       -webkit-transform: scale(1.3);
       -ms-transform: scale(1.3);
       transform: scale(1.3);
       overflow: auto;
+    }
+  }
+
+  .plan-img {
+    width: 325px;
+    height: 233px;
+    cursor: default;
+    background: grey;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  .save-link {
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #676767;
+
+    img {
+      width: 45px;
+      height: 45px;
+      display: block;
+    }
+  }
+
+  .p-title {
+    width: 184px;
+  }
+
+  .model-controls {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+
+    div {
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
     }
   }
 </style>
