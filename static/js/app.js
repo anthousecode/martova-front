@@ -3,10 +3,10 @@ let rendererD3 = {
     widthMap: 0,
     heightMap: 0,
     img: {},
-    zoom: d3.zoom()
-      .on('zoom', () => {
-        d3.select('svg').attr('transform', d3.event.transform);
-      })
+    // zoom: d3.zoom()
+    //   .on('zoom', () => {
+    //     d3.select('svg').attr('transform', d3.event.transform);
+    //   })
   },
   moca: {
     objects: [
@@ -250,8 +250,6 @@ let rendererD3 = {
     start: {id: 'start', el: {}},
     stop: {id: 'stop', el: {}},
   },
-  handlers: {},
-
   actions: {
     init: () => {
       rendererD3.actions.initElements();
@@ -336,16 +334,16 @@ let rendererD3 = {
         rendererD3.actions.update(+this.value);
       });
     },
-    update: (nAngle) => {
-      // adjust the text on the range slider
-      d3.select("#nAngle-value").text(nAngle);
-      d3.select("#nAngle").property("value", nAngle);
-
-      // rotate the text
-      d3.select("svg").select('g').select('g')
-        .attr("transform", "rotate(" + nAngle + ")")
-        .attr("transform-origin", "50% 50%")
-    }
+    // update: (nAngle) => {
+    //   // adjust the text on the range slider
+    //   d3.select("#nAngle-value").text(nAngle);
+    //   d3.select("#nAngle").property("value", nAngle);
+    //
+    //   // rotate the text
+    //   d3.select("svg").select('g').select('g')
+    //     .attr("transform", "rotate(" + nAngle + ")")
+    //     .attr("transform-origin", "50% 50%")
+    // }
   },
   resize: {
     handlers: {
@@ -372,7 +370,7 @@ let rendererD3 = {
     },
   },
   ui: {
-    getImg: () => '<img unselectable="on" src="../images/setka2.jpg" class="img-fluid w-100" id="dynamicImg">',
+    getImg: () => '<img unselectable="on" src="../setka2.jpg" class="img-fluid w-100" id="dynamicImg">',
     removeSvg: () => d3.select('svg').remove(),
     getElId: (name) => document.getElementById(name),
     getWidthD3: (name) => Math.round(Number(d3.select(name).style('width').slice(0, -2))),
@@ -423,6 +421,6 @@ let rendererD3 = {
   }
 };
 
-window.addEventListener("load", () => {
-  window['rendererD3'] = rendererD3.actions;
-});
+// window.addEventListener("load", () => {
+//   window['rendererD3'] = rendererD3.actions;
+// });

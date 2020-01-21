@@ -96,6 +96,9 @@ ul {
   }
 }
 
+button{
+  cursor: pointer;
+}
 
 .owl-stage-outer {
   width: 100%;
@@ -265,4 +268,19 @@ ul {
   ul, li, img{
     height: 370px;
   }
+}
+
+polygon {
+  opacity: .8;
+  stroke-width: 2;
+  cursor: pointer;
+  position: relative;
+}
+
+polygon:hover {
+  opacity: 1;
+  fill: orangered;
+  -webkit-transition: .4s ease-in-out;
+  -o-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
 }

@@ -7,7 +7,7 @@
             class="alert alert-light w-50 text-center py-3 align-self-center"
             role="alert"
           >
-            Error 404
+            Error
           </h2>
         </h1>
         <nuxt-link class="text-center w-100 d-block" to="/">Home</nuxt-link>

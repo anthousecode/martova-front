@@ -102,7 +102,7 @@
       margin-left: -15px;
 
       &:hover {
-        transform: scale(1.2);
+        transform: scale(1.07);
         transition: .4s ease-in-out;
       }
     }
