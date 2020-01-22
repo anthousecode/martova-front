@@ -1396,7 +1396,7 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 1001, y: 631.5},
+                            {x: 1003, y: 631.5},
                             {x: 950, y: 613},
                             {x: 972.5, y: 586},
                             {x: 1026, y: 605}
@@ -1417,96 +1417,829 @@
                     },
                     modelView: {
                         polygon: [
-                             {x: 1026, y: 605},
+                            {x: 1026, y: 605},
                             {x: 972.5, y: 586},
                             {x: 999, y: 559},
-                            {x: 1049, y: 579}
+                            {x: 1050, y: 579}
                         ],
                         fill: 'yellow',
                         stroke: 'red'
                     }
                 },
-                // {
-                //     id: 'test42',
-                //     status: 'sales',
-                //     // TODO if need this or add new field
-                //     otherInfo: {
-                //         number: '10',
-                //         kadNumber: '43342347343:67346:888',
-                //         square: '0,536',
-                //         price: '15000'
-                //     },
-                //     modelView: {
-                //         polygon: [
+                {
+                    id: 'test42',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1050, y: 579},
+                            {x: 999, y: 559},
+                            {x: 1022, y: 534.5},
+                            {x: 1076, y: 551.5},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test42',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1076, y: 551.5},
+                            {x: 1022, y: 534.5},
+                            {x: 1047, y: 508},
+                            {x: 1100, y: 525}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test42',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1100, y: 525},
+                            {x: 1047, y: 508},
+                            {x: 1072, y: 481.5},
+                            {x: 1124, y: 498.5}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test42',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1124, y: 498.5},
+                            {x: 1072, y: 481.5},
+                            {x: 1095, y: 455.5},
+                            {x: 1149, y: 471.5}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test42',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1149, y: 471.5},
+                            {x: 1095, y: 455.5},
+                            {x: 1123, y: 424.5},
+                            {x: 1194, y: 425}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                // ---------------------BOTTOM SIDE----------------------------------
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 336, "y": 247},
+                            {"x": 251, "y": 198},
+                            {"x": 295, "y": 168},
+                            {"x": 383, "y": 218},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 383, "y": 218},
+                            {"x": 295, "y": 168},
+                            {"x": 342, "y": 140},
+                            {"x": 430, "y": 190},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 430, "y": 190},
+                            {"x": 342, "y": 140},
+                            {"x": 388, "y": 113},
+                            {"x": 476, "y": 163},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 476, y: 163},
+                            {x: 388, y: 113},
+                            {x: 435, y: 85},
+                            {x: 524, y: 134}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 545, y: 148},
+                            {x: 436, y: 84},
+                            {x: 483, y: 56},
+                            {x: 565, y: 105},
+                            {x: 585, y: 118}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                // experiment
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 462, y: 299},
+                            {x: 363, y: 257},
+                            {x: 412, y: 227},
+                            {x: 498, y: 271},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 498, y: 271},
+                            {x: 412, y: 227},
+                            {x: 458, y: 200},
+                            {x: 535, y: 241}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 532, y: 242},
+                            {x: 456, y: 201},
+                            {x: 500, y: 174},
+                            {x: 572, y: 210},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 572, y: 210},
+                            {x: 499, y: 175},
+                            {x: 545, y: 148},
+                            {x: 609, y: 181},
+                            {x: 587, y: 200},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 637, y: 194},
+                            {x: 590, y: 173},
+                            {x: 545, y: 148},
+                            {x: 585, y: 118},
+                            {x: 682, y: 157}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 741, y: 221},
+                            {x: 645, y: 188},
+                            {x: 683, y: 157},
+                            {x: 767, y: 190}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 642, y: 242},
+                            {x: 598, y: 226},
+                            {x: 645, y: 188},
+                            {x: 685, y: 202}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 599, y: 281},
+                            {x: 550, y: 265},
+                            {x: 598, y: 226},
+                            {x: 642, y: 242},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 553, y: 326},
+                            {x: 497, y: 310},
+                            {x: 550, y: 265},
+                            {x: 599, y: 281},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
 
-                //         ],
-                //         fill: 'yellow',
-                //         stroke: 'red'
-                //     }
-                // },
-                // {
-                //     id: 'test42',
-                //     status: 'sales',
-                //     // TODO if need this or add new field
-                //     otherInfo: {
-                //         number: '10',
-                //         kadNumber: '43342347343:67346:888',
-                //         square: '0,536',
-                //         price: '15000'
-                //     },
-                //     modelView: {
-                //         polygon: [
-                //             {x: 1040, y: 511.5},
-                //             {x: 1015, y: 538},
-                //             {x: 1071, y: 559},
-                //             {x: 1095, y: 534}
-                //         ],
-                //         fill: 'yellow',
-                //         stroke: 'red'
-                //     }
-                // },
-                // {
-                //     id: 'test42',
-                //     status: 'sales',
-                //     // TODO if need this or add new field
-                //     otherInfo: {
-                //         number: '10',
-                //         kadNumber: '43342347343:67346:888',
-                //         square: '0,536',
-                //         price: '15000'
-                //     },
-                //     modelView: {
-                //         polygon: [
-                //             {x: 1095, y: 534},
-                //             {x: 1040, y: 511.5},
-                //             {x: 1064, y: 489},
-                //             {x: 1118, y: 508}
-                //         ],
-                //         fill: 'yellow',
-                //         stroke: 'red'
-                //     }
-                // },
-                // {
-                //     id: 'test42',
-                //     status: 'sales',
-                //     // TODO if need this or add new field
-                //     otherInfo: {
-                //         number: '10',
-                //         kadNumber: '43342347343:67346:888',
-                //         square: '0,536',
-                //         price: '15000'
-                //     },
-                //     modelView: {
-                //         polygon: [
-                //             {x: 1118, y: 508},
-                //             {x: 1064, y: 489},
-                //             {x: 1091, y: 459},
-                //             {x: 1161, y: 464.5}
-                //         ],
-                //         fill: 'yellow',
-                //         stroke: 'red'
-                //     }
-                // },
+
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 688, y: 257},
+                            {x: 642, y: 242},
+                            {x: 685, y: 202},
+                            {x: 724, y: 215}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 650, y: 297},
+                            {x: 599, y: 281},
+                            {x: 642, y: 242},
+                            {x: 688, y: 257}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 611, y: 340},
+                            {x: 553, y: 326},
+                            {x: 599, y: 281},
+                            {x: 650, y: 297}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+
+
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 809, y: 245},
+                            {x: 741, y: 221},
+                            {x: 767, y: 190},
+                            {x: 836, y: 214}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 788, y: 271},
+                            {x: 731, y: 251},
+                            {x: 753, y: 225},
+                            {x: 811, y: 243},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 765, y: 297},
+                            {x: 708, y: 277},
+                            {x: 731, y: 251},
+                            {x: 788, y: 271},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 742, y: 323},
+                            {x: 684, y: 303},
+                            {x: 708, y: 277},
+                            {x: 765, y: 297},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 719, y: 347},
+                            {x: 661, y: 328},
+                            {x: 684, y: 303},
+                            {x: 742, y: 323},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 708, y: 358},
+                            {x: 645, y: 346},
+                            {x: 661, y: 328},
+                            {x: 719, y: 347},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 772, y: 371},
+                            {x: 708, y: 358},
+                            {x: 749, y: 315},
+                            {x: 804, y: 335},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 804, y: 335},
+                            {x: 749, y: 315},
+                            {x: 774, y: 288},
+                            {x: 831, y: 307}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 831, y: 307},
+                            {x: 774, y: 288},
+                            {x: 797, y: 261},
+                            {x: 855, y: 279}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 855, y: 279},
+                            {x: 797, y: 261},
+                            {x: 836, y: 214},
+                            {x: 905, y: 242},
+                            {x: 889, y: 262},
+                            {x: 872, y: 257},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+
+                            {x: 904, y: 267},
+                            {x: 874, y: 300},
+                            {x: 930, y: 320},
+                            {x: 975, y: 269},
+                            {x: 905, y: 242},
+                            {x: 889, y: 262},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 907, y: 347},
+                            {x: 850, y: 328},
+                            {x: 874, y: 300},
+                            {x: 930, y: 320},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 875, y: 381},
+                            {x: 809, y: 375},
+                            {x: 850, y: 328},
+                            {x: 907, y: 347},
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 941, y: 388},
+                            {x: 875, y: 381},
+                            {x: 918, y: 334},
+                            {x: 976, y: 353}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 976, y: 353},
+                            {x: 918, y: 334},
+                            {x: 942, y: 306},
+                            {x: 998, y: 326}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 998, y: 326},
+                            {x: 942, y: 306},
+                            {x: 975, y: 269},
+                            {x: 1043, y: 298},
+                            {x: 1032, y: 315},
+                            {x: 1012, y: 310}
+                        ],
+                        fill: 'yellow',
+                        stroke: 'red'
+                    }
+                },
 
             ],
             elements: {
