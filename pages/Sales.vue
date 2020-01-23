@@ -137,8 +137,8 @@
                             {"x": 130, "y": 394},
                             {"x": 208, "y": 422},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -159,8 +159,8 @@
                             {"x": 64, "y": 325},
                             {"x": 210, "y": 381},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -183,8 +183,8 @@
                             {"x": 210, "y": 341},
                             {"x": 237, "y": 350},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -206,8 +206,8 @@
                             {"x": 175, "y": 283},
                             {"x": 265, "y": 316},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -229,8 +229,8 @@
                             {"x": 292, "y": 283},
 
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -251,8 +251,8 @@
                             {"x": 232, "y": 396},
                             {"x": 285, "y": 418},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -274,8 +274,8 @@
                             {"x": 329, "y": 366},
 
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -296,8 +296,8 @@
                             {"x": 320, "y": 294},
                             {"x": 374, "y": 312},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -318,8 +318,8 @@
                             {"x": 374, "y": 312},
                             {"x": 428, "y": 333},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -339,8 +339,8 @@
                             {"x": 329, "y": 366},
                             {"x": 383, "y": 386},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -364,7 +364,7 @@
 
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -388,7 +388,7 @@
 
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -410,7 +410,7 @@
 
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -433,7 +433,7 @@
 
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -454,7 +454,7 @@
                             {"x": 484, "y": 402},
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -475,7 +475,7 @@
                             {"x": 520, "y": 359},
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -496,7 +496,7 @@
                             {"x": 580.5, "y": 374},
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -517,7 +517,7 @@
                             {"x": 544, "y": 415},
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -539,7 +539,7 @@
 
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -560,7 +560,7 @@
                             {"x": 444, "y": 448},
                         ],
                         fill: 'green',
-                        stroke: 'red'
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -576,14 +576,14 @@
                     modelView: {
                         polygon: [
                             {"x": 460, "y": 529},
-                            {"x": 380, "y": 509},
-                            {"x": 419, "y": 472},
+                            {"x": 383, "y": 509},
+                            {"x": 420, "y": 472},
                             {"x": 478, "y": 491},
                             {"x": 460, "y": 507},
                             {"x": 478, "y": 513},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
 // endpoint
@@ -607,8 +607,8 @@
                             {"x": 516, "y": 490},
                             {x: 572, y: 508},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -628,8 +628,8 @@
                             {x: 539, y: 466},
                             {x: 595, y: 484},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -649,8 +649,8 @@
                             {x: 560, y: 441},
                             {x: 617, y: 460},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -670,8 +670,8 @@
                             {x: 584, y: 415},
                             {x: 640.5, y: 435},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -691,8 +691,8 @@
                             {x: 615.5, y: 381},
                             {x: 678.5, y: 392}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -710,10 +710,10 @@
                             {x: 703.5, y: 446},
                             {x: 648, y: 427},
                             {x: 678, y: 392},
-                            {x: 743, y: 402}
+                            {x: 745, y: 402}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -733,8 +733,8 @@
                             {x: 648, y: 427},
                             {x: 703.5, y: 446}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -754,8 +754,8 @@
                             {x: 624, y: 453},
                             {x: 680, y: 471}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -775,8 +775,8 @@
                             {x: 658, y: 495},
                             {x: 602, y: 477}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -791,15 +791,15 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 610, y: 568},
+                            {x: 607, y: 568},
                             {x: 535, y: 548},
                             {x: 578, y: 501},
                             {x: 634, y: 520},
                             {x: 613, y: 542},
-                            {x: 629, y: 548}
+                            {x: 627, y: 548}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -815,14 +815,14 @@
                     modelView: {
                         polygon: [
                             {"x": 682, "y": 587.5},
-                            {"x": 611, "y": 568},
-                            {"x": 629, "y": 548},
+                            {x: 607, y: 568},
+                            {x: 627, y: 548},
                             {"x": 641, "y": 553},
                             {x: 656, y: 538.5},
                             {x: 713, y: 556.5},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -842,8 +842,8 @@
                             {x: 679.5, y: 513.5},
                             {x: 735, y: 532.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -860,11 +860,11 @@
                         polygon: [
                             {x: 734, y: 532.5},
                             {x: 679.5, y: 513.5},
-                            {x: 702, y: 488.5},
-                            {x: 757, y: 506.5}
+                            {x: 702, y: 489.5},
+                            {x: 757, y: 507.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -879,13 +879,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 757, y: 506.5},
-                            {x: 702, y: 488.5},
+                            {x: 757, y: 507.5},
+                            {x: 702, y: 489.5},
                             {x: 725, y: 467},
                             {x: 781, y: 483.5},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -906,8 +906,8 @@
                             {x: 805, y: 457.5},
 
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -927,8 +927,8 @@
                             {x: 778, y: 407},
                             {x: 843, y: 413.5},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
 
@@ -944,13 +944,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 872.5, y: 460.5},
-                            {x: 816, y: 444.5},
+                            {x: 870.5, y: 462.5},
+                            {x: 816, y: 445.5},
                             {x: 843, y: 413.5},
-                            {x: 915, y: 418.5}
+                            {x: 913, y: 418.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
 
@@ -969,11 +969,11 @@
                         polygon: [
                             {x: 846, y: 487},
                             {x: 790, y: 471.5},
-                            {x: 816, y: 444.5},
-                            {x: 872.5, y: 460.5}
+                            {x: 816, y: 445.5},
+                            {x: 870.5, y: 462.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -993,8 +993,8 @@
                             {x: 790, y: 471.5},
                             {x: 846, y: 487}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1014,8 +1014,8 @@
                             {x: 768, y: 495.5},
                             {x: 823, y: 512}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1030,13 +1030,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 720, y: 545.5},
+                            {x: 721, y: 545.5},
                             {x: 775.5, y: 562.5},
                             {x: 799, y: 537.5},
                             {x: 745, y: 520.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1052,14 +1052,15 @@
                     modelView: {
                         polygon: [
                             {x: 757, y: 607},
-                            {x: 680, y: 586},
-                            {x: 720, y: 545.5},
+                            {x: 720, y: 598},
+                            {x: 682, y: 587},
+                            {x: 721, y: 545.5},
                             {x: 775.5, y: 562.5},
                             {x: 759, y: 581.2},
                             {x: 773.5, y: 585.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1081,8 +1082,8 @@
                             {x: 803, y: 575.5},
                             {x: 857, y: 593.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1100,10 +1101,10 @@
                             {x: 857, y: 593.5},
                             {x: 803, y: 575.5},
                             {x: 826.5, y: 549},
-                            {x: 882, y: 569}
+                            {x: 880, y: 568}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1118,13 +1119,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 882, y: 569},
+                            {x: 880, y: 568},
                             {x: 826.5, y: 549},
                             {x: 849, y: 525},
-                            {x: 904, y: 544}
+                            {x: 905, y: 542}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1139,13 +1140,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 904, y: 546},
+                            {x: 905, y: 542},
                             {x: 849, y: 525},
                             {x: 872, y: 499.5},
-                            {x: 928, y: 521}
+                            {x: 928, y: 518}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1162,11 +1163,11 @@
                         polygon: [
                             {x: 897, y: 472.5},
                             {x: 872, y: 499},
-                            {x: 928, y: 520},
+                            {x: 927, y: 520},
                             {x: 952, y: 495}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1186,8 +1187,8 @@
                             {x: 921, y: 450},
                             {x: 975, y: 469}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1207,8 +1208,8 @@
                             {x: 948, y: 420},
                             {x: 1018, y: 425.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1228,8 +1229,8 @@
                             {x: 990, y: 453},
                             {x: 1045, y: 471}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1247,10 +1248,10 @@
                             {x: 1045, y: 471},
                             {x: 990, y: 453},
                             {x: 1020, y: 425},
-                            {x: 1092, y: 421}
+                            {x: 1090, y: 423}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1270,8 +1271,8 @@
                             {x: 965, y: 481},
                             {x: 1020.5, y: 497},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1286,13 +1287,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 972, y: 546.5},
-                            {x: 919, y: 530},
-                            {x: 941, y: 506},
+                            {x: 972, y: 545.5},
+                            {x: 919, y: 528},
+                            {x: 942, y: 504},
                             {x: 996, y: 521},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1309,11 +1310,11 @@
                         polygon: [
                             {x: 949, y: 571},
                             {x: 895, y: 554},
-                            {x: 919, y: 530},
-                            {x: 972, y: 546.5},
+                            {x: 919, y: 528},
+                            {x: 972, y: 545.5},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1329,12 +1330,12 @@
                     modelView: {
                         polygon: [
                             {x: 925.5, y: 595},
-                            {x: 873, y: 579},
-                            {x: 895, y: 554},
+                            {x: 872, y: 578},
+                            {x: 895, y: 553},
                             {x: 949, y: 571},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1349,16 +1350,16 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 904, y: 646.5},
+                            {x: 902, y: 646.5},
                             {x: 850, y: 632.5},
                             {x: 827, y: 625.5},
-                            {x: 873, y: 579},
+                            {x: 872, y: 578},
                             {x: 926, y: 595},
                             {x: 906, y: 620},
                             {x: 920.5, y: 625}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1374,14 +1375,14 @@
                     modelView: {
                         polygon: [
                             {x: 972, y: 666},
-                            {x: 904, y: 647.5},
+                            {x: 902, y: 646.5},
                             {x: 920, y: 625.5},
                             {x: 934, y: 629.5},
                             {x: 950, y: 613.5},
                             {x: 1003, y: 631.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1401,8 +1402,8 @@
                             {x: 972.5, y: 586},
                             {x: 1026, y: 605}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1422,8 +1423,8 @@
                             {x: 999, y: 559},
                             {x: 1050, y: 579}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1443,8 +1444,8 @@
                             {x: 1022, y: 534.5},
                             {x: 1076, y: 551.5},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1464,8 +1465,8 @@
                             {x: 1047, y: 508},
                             {x: 1100, y: 525}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1485,8 +1486,8 @@
                             {x: 1072, y: 481.5},
                             {x: 1124, y: 498.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1506,8 +1507,8 @@
                             {x: 1095, y: 455.5},
                             {x: 1149, y: 471.5}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1527,8 +1528,8 @@
                             {x: 1123, y: 424.5},
                             {x: 1194, y: 425}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 // ---------------------BOTTOM SIDE----------------------------------
@@ -1549,8 +1550,8 @@
                             {"x": 295, "y": 168},
                             {"x": 383, "y": 218},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1570,8 +1571,8 @@
                             {"x": 342, "y": 140},
                             {"x": 430, "y": 190},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1591,8 +1592,8 @@
                             {"x": 388, "y": 113},
                             {"x": 476, "y": 163},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1612,8 +1613,8 @@
                             {x: 435, y: 85},
                             {x: 524, y: 134}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1634,8 +1635,8 @@
                             {x: 565, y: 105},
                             {x: 585, y: 118}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 // experiment
@@ -1656,8 +1657,8 @@
                             {x: 412, y: 227},
                             {x: 498, y: 271},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1677,8 +1678,8 @@
                             {x: 458, y: 200},
                             {x: 535, y: 241}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1698,8 +1699,8 @@
                             {x: 500, y: 174},
                             {x: 572, y: 210},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1720,8 +1721,8 @@
                             {x: 609, y: 181},
                             {x: 587, y: 200},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1742,8 +1743,8 @@
                             {x: 585, y: 118},
                             {x: 682, y: 157}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1763,8 +1764,8 @@
                             {x: 683, y: 157},
                             {x: 767, y: 190}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1784,8 +1785,8 @@
                             {x: 645, y: 188},
                             {x: 685, y: 202}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1805,8 +1806,8 @@
                             {x: 598, y: 226},
                             {x: 642, y: 242},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1826,8 +1827,8 @@
                             {x: 550, y: 265},
                             {x: 599, y: 281},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#D10D0D',
+                        stroke: '#D10D0D'
                     }
                 },
 
@@ -1849,8 +1850,8 @@
                             {x: 685, y: 202},
                             {x: 724, y: 215}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1870,8 +1871,8 @@
                             {x: 642, y: 242},
                             {x: 688, y: 257}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1891,8 +1892,8 @@
                             {x: 599, y: 281},
                             {x: 650, y: 297}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#D10D0D',
+                        stroke: '#D10D0D'
                     }
                 },
 
@@ -1910,12 +1911,12 @@
                     modelView: {
                         polygon: [
                             {x: 809, y: 245},
-                            {x: 741, y: 221},
+                            {x: 741, y: 220},
                             {x: 767, y: 190},
-                            {x: 836, y: 214}
+                            {x: 836, y: 215}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1931,12 +1932,12 @@
                     modelView: {
                         polygon: [
                             {x: 788, y: 271},
-                            {x: 731, y: 251},
-                            {x: 753, y: 225},
+                            {x: 732, y: 251},
+                            {x: 754, y: 225},
                             {x: 811, y: 243},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1951,13 +1952,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 765, y: 297},
+                            {x: 764, y: 297},
                             {x: 708, y: 277},
                             {x: 731, y: 251},
                             {x: 788, y: 271},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1972,13 +1973,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 742, y: 323},
+                            {x: 741, y: 323},
                             {x: 684, y: 303},
                             {x: 708, y: 277},
-                            {x: 765, y: 297},
+                            {x: 764, y: 297},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -1996,10 +1997,10 @@
                             {x: 719, y: 347},
                             {x: 661, y: 328},
                             {x: 684, y: 303},
-                            {x: 742, y: 323},
+                            {x: 741, y: 323},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2019,8 +2020,8 @@
                             {x: 661, y: 328},
                             {x: 719, y: 347},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2035,13 +2036,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 772, y: 371},
+                            {x: 773, y: 370},
                             {x: 708, y: 358},
                             {x: 749, y: 315},
                             {x: 804, y: 335},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2059,10 +2060,10 @@
                             {x: 804, y: 335},
                             {x: 749, y: 315},
                             {x: 774, y: 288},
-                            {x: 831, y: 307}
+                            {x: 830, y: 307}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2077,13 +2078,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 831, y: 307},
+                            {x: 830, y: 307},
                             {x: 774, y: 288},
                             {x: 797, y: 261},
-                            {x: 855, y: 279}
+                            {x: 854, y: 279}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2098,15 +2099,15 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 855, y: 279},
+                            {x: 854, y: 279},
                             {x: 797, y: 261},
-                            {x: 836, y: 214},
+                            {x: 836, y: 215},
                             {x: 905, y: 242},
                             {x: 889, y: 262},
                             {x: 872, y: 257},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2125,12 +2126,12 @@
                             {x: 904, y: 267},
                             {x: 874, y: 300},
                             {x: 930, y: 320},
-                            {x: 975, y: 269},
+                            {x: 974, y: 270},
                             {x: 905, y: 242},
                             {x: 889, y: 262},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2150,8 +2151,8 @@
                             {x: 874, y: 300},
                             {x: 930, y: 320},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2171,8 +2172,8 @@
                             {x: 850, y: 328},
                             {x: 907, y: 347},
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2192,8 +2193,8 @@
                             {x: 918, y: 334},
                             {x: 976, y: 353}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#D10D0D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2208,13 +2209,13 @@
                     },
                     modelView: {
                         polygon: [
-                            {x: 976, y: 353},
+                            {x: 975, y: 353},
                             {x: 918, y: 334},
                             {x: 942, y: 306},
-                            {x: 998, y: 326}
+                            {x: 997, y: 326}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
                     }
                 },
                 {
@@ -2231,13 +2232,99 @@
                         polygon: [
                             {x: 998, y: 326},
                             {x: 941, y: 308},
-                            {x: 975, y: 269},
-                            {x: 1043, y: 298},
-                            {x: 1028, y: 316},
-                            {x: 1012, y: 310}
+                            {x: 974, y: 270},
+                            {x: 1043, y: 297},
+                            {x: 1026, y: 316},
+                            {x: 1012, y: 311}
                         ],
-                        fill: 'yellow',
-                        stroke: 'red'
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1041, y: 321},
+                            {x: 1022, y: 342},
+                            {x: 1079, y: 359},
+                            {x: 1114, y: 325},
+                            {x: 1043, y: 297},
+                            {x: 1026, y: 316},
+                        ],
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1050, y: 391},
+                            {x: 981, y: 389},
+                            {x: 1022, y: 342},
+                            {x: 1079, y: 359}
+                        ],
+                        fill: '#FAD61D',
+                        stroke: '#D10D0D'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1120, y: 391},
+                            {x: 1050, y: 391},
+                            {x: 1087, y: 352},
+                            {x: 1141, y: 369}
+                        ],
+                        fill: '#D10D0D',
+                        stroke: '#D10D0D'
+                    }
+                },
+                {
+                    id: 'test4',
+                    status: 'sales',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1141, y: 369},
+                            {x: 1087, y: 352},
+                            {x: 1112, y: 324},
+                            {x: 1167, y: 344}
+                        ],
+                        fill: '#D10D0D',
+                        stroke: '#D10D0D'
                     }
                 },
 
