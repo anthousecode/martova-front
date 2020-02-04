@@ -1,7 +1,7 @@
 <template>
   <div v-if="news" class="news-wrapper d-flex">
     <img src="/Новости.png" alt="news">
-    <main class="news">
+    <main class="news pb-1">
       <div
         v-for="item of news"
         :key="item.id"
@@ -39,31 +39,98 @@
           </div>
         </div>
         <div class="news-item__footer likes-container d-flex justify-content-between py-2">
-          <div class="likes likes__hover d-flex align-items-center">
-            <img style="width: 18px; height: 18px;" src="/like.svg" alt="like">
-            <span class="ml-1 caps"> {{like}}</span>
-          </div>
-          <div style="width: 200px;" class="likes likes__hover d-flex align-items-center justify-content-end">
-            <img style="width: 18px; height: 18px;" src="/search.svg" alt="search">
-            <span class="ml-2 caps"> {{toComment}}</span>
-          </div>
+
+          <v-popover  v-if="!isShowModal">
+            <div tooltip-target class="likes likes__hover likes-white d-flex align-items-center">
+              <img class="like" style="font-size: 32px; width: 18px; height: 18px;" src="/like.svg" alt="like">
+              <span class="ml-1 caps"> {{like}}</span>
+            </div>
+            <template  slot="popover" style="background: rgba(0, 0, 0, 0.6)">
+              <p class="mt-2 mb-0 sign text-black-50">
+                {{ msg }}
+              </p>
+              <social @emitOpenFormModal="showModal('like', item.id)"/>
+              <!-- You can put other components too -->
+              <!--              <ExampleComponent char="=" />-->
+            </template>
+          </v-popover>
+
+
+          <v-popover  v-if="!isShowModal">
+            <div tooltip-target style="width: 200px;" class="likes likes__hover d-flex align-items-center justify-content-end">
+              <img style="width: 18px; height: 18px;" src="/search.svg" alt="search">
+              <span class="ml-2 caps"> {{toComment}}</span>
+            </div>
+            <template  slot="popover" style="background: rgba(0, 0, 0, 0.6)">
+              <p class="mt-2 mb-0 sign text-black-50">
+                {{ msg }}
+              </p>
+              <social @emitOpenFormModal="showModal('comment', item.id)"/>
+              <!-- You can put other components too -->
+              <!--              <ExampleComponent char="=" />-->
+            </template>
+          </v-popover>
+
         </div>
+        <addComment v-if="showCommentInput && (currentPost==item.id)"></addComment>
       </div>
     </main>
+    <div
+      v-if="isShowModal"
+      class="layer
+      d-flex
+      justify-content-center
+      align-items-center"
+    >
+      <login
+        v-if="isLogin"
+        :target="target"
+        @addLike="addLike"
+        @addComment="addComment"
+        @loginFalse="isLogin=false"
+        @closeModal="closeModal"
+      />
+      <registration
+        v-else
+        :target="target"
+        @addLike="addLike"
+        @addComment="addComment"
+        @showLogin="showLogin"
+        @closeModal="closeModal"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+    import {VTooltip, VPopover, VClosePopover} from 'v-tooltip'
+    import social from '../components/social'
+    import login from '../components/Login'
+    import registration from '../components/Registration'
+    import addComment from "../components/addComment";
+
     export default {
         name: "News",
+        components: {
+            VPopover,
+            social,
+            login,
+            registration,
+            addComment
+        },
         data: () => ({
+            isShowModal: false,
+            isLogin:false,
             isMore: false,
+            target:'',
             comments_count: 7,
             like: 'НРАВИТСЯ',
             toComment: 'КОММЕНТИРОВАТЬ',
             comments: 'Комментарии',
             likes: 185,
             news: null,
+            msg: 'Войти с помощью :',
+            showCommentInput:true
         }),
         asyncData({$axios}) {
             return $axios.get(`news`)
@@ -73,12 +140,26 @@
                     console.log(e)
                 })
         },
-        computed:{
-            lang(){
-              return this.$store.getters.language;
+        computed: {
+            lang() {
+                return this.$store.getters.language;
+            },
+            currentPost(){
+               return this.$store.getters.postId
             }
         },
         methods: {
+            closeModal() {
+                this.isShowModal = false;
+            },
+            showModal(target, id) {
+                this.target = target;
+                this.isShowModal = true;
+                this.$store.commit('SET_POST_ID', id);
+            },
+            showLogin(){
+              this.isLogin = true;
+            },
             cuttedText(val) {
                 this.isMore = false;
                 if (val.length > 250) {
@@ -93,11 +174,35 @@
             getFullNews(val) {
                 this.isMore = true;
             },
+            addLike(){
+                console.log('+1 like')
+            },
+            addComment(){
+                this.showCommentInput = true;
+            }
         },
     }
 </script>
 
 <style scoped lang="scss">
+  .layer {
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+  }
+
+  .sign {
+    color: black;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+  }
+
   .news-wrapper {
     justify-content: center;
     align-items: center;
@@ -126,6 +231,37 @@
 
         &:last-child {
           margin-bottom: 100px !important;
+        }
+
+        .soc-group {
+          display: block;
+          width: 200px;
+          background: red;
+
+          .soc {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-decoration: none;
+            color: white;
+            margin-right: 20px;
+          }
+
+          .soc-fb {
+            background-color: #226ACE;
+          }
+
+          .soc-insta {
+            background-color: #26915B;
+          }
+
+          .soc-youtube {
+            background-color: #E05251;
+          }
         }
 
         &__header {
@@ -188,16 +324,17 @@
     font-size: 17px;
     line-height: 23px;
     color: #808080;
-
     .likes {
       width: 25px;
       height: 25px;
-      &__hover{
-        color:cadetblue;
+      &__hover {
+        color: cadetblue;
+        cursor: pointer;
         transition: 1s ease;
       }
+
       .caps {
-        font-family: Open Sans;
+        font-family: 'Open Sans', sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 17px;
@@ -211,8 +348,15 @@
         display: block;
         height: 100%;
       }
+      .like{
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+    }
+    .likes-white{
+      width: 145px;
     }
   }
-
 </style>
 

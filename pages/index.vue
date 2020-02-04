@@ -66,7 +66,9 @@
             }
         },
         mounted() {
-            this.setCanvasSize();
+            if(process.browser){
+                this.setCanvasSize();
+            }
         }
     }
 </script>

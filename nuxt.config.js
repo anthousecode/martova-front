@@ -15,10 +15,10 @@ module.exports = {
       {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'},
     ],
     script: [
-      {src: 'js/d3.js'},
-      {src: 'js/d3-selection.js'},
-      {src: 'js/jquery112.js'},
-      {src: 'js/turntable.js'}
+      {src: 'js/d3.js', ssr: false},
+      {src: 'js/d3-selection.js', ssr: false},
+      {src: 'js/jquery112.js', ssr: false},
+      {src: 'js/turntable.js', ssr: false}
     ]
   },
   /*
@@ -45,13 +45,17 @@ module.exports = {
     credentials: false
   },
   plugins: [
-    {src: '~plugins/pano.js', mode: 'client'}
+    {src: '~plugins/pano.js',  ssr: false},
+    {src: '~plugins/vuelidate', ssr: false},
+    {src: '~plugins/vue-notifications', ssr: false}
+
     // {src: '~plugins/localize.filter.js', mode: 'client'}
   ],
   build: {
-
-
-    vendor: ["jquery", "/js/turntable.js"],
+    vendor: ["jquery", "/js/turntable.js", 'vuelidate', 'vue-notifications'],
+    // babel: {
+    //   presets: ['es2015', 'stage-0']
+    // },
     plugins: [
       new webpack.ProvidePlugin({
         $: "jquery"

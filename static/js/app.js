@@ -1,4 +1,4 @@
-let rendererD3 = {
+var rendererD3 = {
   data: {
     widthMap: 0,
     heightMap: 0,

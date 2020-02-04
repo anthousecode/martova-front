@@ -1,12 +1,20 @@
 export const state = () => ({
-  language: 'ru'
+  language: 'ru',
+  postId: null,
+  userName: ''
 });
 export const mutations = {
-  setRusLanguage(state) {
+  SET_RUS_LANGUAGE(state) {
     state.language = 'ru'
   },
-  setUaLanguage(state) {
+  SET_UA_LANGUAGE(state) {
     state.language = 'ua'
+  },
+  SET_POST_ID(state, id) {
+    state.postId = id
+  },
+  SET_USER_NAME(state, userName) {
+    state.userName = userName
   }
 };
 export const actions = {
@@ -17,5 +25,7 @@ export const actions = {
 };
 
 export const getters = {
-  language: s => s.language
+  language: s => s.language,
+  postId: s => s.postId,
+  userName: s => s.userName
 };

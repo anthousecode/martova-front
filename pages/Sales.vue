@@ -1,20 +1,35 @@
 <template>
   <section id="sales-wrapper">
-    <!--search-->
-    <div class="search-bar d-flex justify-content-around align-items-center">
-      <button class="status status-red">Продан</button>
-      <button class="status status-yellow">Зарезервирован</button>
-      <button class="status status-green">Свободен</button>
-      <div class="inp-group">
-        <button>
-          <img src="/lupa.svg" alt="lupa">
-        </button>
-        <input type="number" placeholder="№ участка">
-      </div>
+    <div id="search-bar" class="search-bar d-flex justify-content-around align-items-center">
+      <notifications group="foo" position="center"/>
+      <button @click="filterByStatus('#D10D0D')" class="status status-red">Продан</button>
+      <button @click="filterByStatus('#FAD61D')" class="status status-yellow">Зарезервирован</button>
+      <button @click="filterByStatus('#048819')" class="status status-green">Свободен</button>
+      <button
+        v-if="isFiltered"
+        @click="clearFilters"
+        style="font-size: 22px;"
+      >
+        &empty;
+      </button>
+      <client-only>
+        <div class="inp-group">
+          <button @click="searchRegionByNumber">
+            <img src="/lupa.svg" alt="lupa">
+          </button>
+          <input
+            @keyup.enter="searchRegionByNumber"
+            v-click-outside="clearRegionNumber"
+            v-model="regionNumber"
+            type="number"
+            placeholder="№ участка"
+          >
+        </div>
+      </client-only>
     </div>
     <!--search-->
     <div class="layout hide" id="layout">
-      <div id="modal" class="hide px-4 pt-4 pb-1">
+      <div v-click-outside="hideAll" id="modal" class="hide px-4 pt-4 pb-1">
         <div class="d-flex justify-content-between header">
           <div class="header-part header-part__left">
             <p>Паспорт участка № 5304</p>
@@ -30,36 +45,44 @@
             <div class="left w-60">
               <div class="d-flex">
                 <div>
-                  <div class="d-flex"><p class="p-title">Кадастровый номер: </p>
-                    <p class="p-description">632446566656:01:009:0329 </p></div>
-                  <div class="d-flex"><p class="p-title">Тип собственности: </p>
+                  <div class="d-flex list"><p class="p-title">Кадастровый номер: </p>
+                    <p class="p-description">
+                      <a href="http://map.land.gov.ua/kadastrova-karta" target="_blank">632446566656:01:009:0329</a>
+                    </p>
+                  </div>
+                  <div class="d-flex list"><p class="p-title">Тип собственности: </p>
                     <p class="p-description">Частная собственность</p></div>
-                  <div class="d-flex"><p class="p-title">Целевое назначение: </p>
-                    <p class="p-description">07.03 - для инд. дачного строительства</p></div>
-                  <div class="d-flex"><p class="p-title"> Площадь: </p>
+                  <div class="d-flex list"><p class="p-title">Целевое назначение: </p>
+                    <p class="p-description" style="padding-left: 30px;">07.03 - для инд. дачного строительства</p>
+                  </div>
+                  <div class="d-flex list"><p class="p-title"> Площадь: </p>
                     <p class="p-description">0,1077 га</p></div>
-                  <div class="d-flex"><p class="p-title"> Статус: </p>
-                    <p class="p-description">Зарезервирован</p></div>
-                  <div class="d-flex"><p class="p-title"> Цена: </p>
+                  <div class="d-flex list">
+                    <p class="p-title"> Статус: </p>
+                    <p :style="{borderBottom: `2px solid ${currentRegion.modelView.fill}`}" class="p-description">
+                      {{currentRegion.status}}</p>
+                  </div>
+                  <div class="d-flex list">
+                    <p class="p-title"> Цена: </p>
                     <p class="p-description">$145 900</p></div>
                 </div>
               </div>
               <div class="d-flex mt-3">
                 <div class="w-50">
-                  <p class="mb-2">Кадастровый план </p>
+                  <p class="mb-2" style="color:black;">Кадастровый план </p>
                   <a href="#" class="plan-img">
                     <img src="../static/bar360.png" alt="plan">
                   </a>
-                  <a href="#" class="save-link text-right" style="cursor: pointer">Распечатать</a>
+                  <a href="#" @click.prevent="window.print()" class="save-link text-right" style="cursor: pointer">Распечатать</a>
                 </div>
                 <div class="w-50 pl-4">
-                  <p class="mb-2">Геодезическая съемка</p>
+                  <p class="mb-2" style="color:black;">Геодезическая съемка</p>
                   <div>
-                    <a href="#" class="save-link d-flex align-items-center">
+                    <a href="../static/dwg.svg" class="save-link d-flex align-items-center" download>
                       <img src="../static/dwg.svg" alt="doc">
                       <span>Скачать</span>
                     </a>
-                    <a href="#" class="save-link d-flex align-items-center mt-3">
+                    <a href="../static/dwg.svg" class="save-link d-flex align-items-center mt-3" download>
                       <img src="../static/pdf.svg" alt="doc">
                       <span>Скачать</span>
                     </a>
@@ -68,12 +91,24 @@
               </div>
             </div>
             <div class="w-40 position-relative">
-              <turntable/>
+              <turntable
+                :rotateCounter="rotateCounter"
+                @setLastIndexToCounter="setLastIndexToCounter"
+                @setZeroIndexToCounter="setZeroIndexToCounter"
+              />
               <div class="model-controls d-flex justify-content-between">
-                <div>
+                <div
+                  @mousedown="startTurntableMouseDown('left')"
+                  @mouseup="stopTurntable()"
+                  @click="startTurntable('left')"
+                >
                   <img src="/prev.svg" alt="prev">
                 </div>
-                <div>
+                <div
+                  @mouseup="stopTurntable()"
+                  @mousedown="startTurntableMouseDown('right')"
+                  @click="startTurntable('right')"
+                >
                   <img src="/next.svg" alt="next">
                 </div>
               </div>
@@ -83,14 +118,13 @@
       </div>
     </div>
 
-
     <!--New  -->
 
     <div class="wrapper min-container">
-      <img class="big-img min-container" id="bigImg" src="/big_new_2.jpg" alt="big">
+      <img class="big-img min-container" id="bigImg" src="/bigD.jpg" alt="big">
       <div class="item">
         <div class="wrapper-content-svg">
-          <img src="/small_new_2.jpg" id="mapImg" alt="current">
+          <img src="/smallD.jpg" id="mapImg" alt="current">
           <div id="map"></div>
         </div>
       </div>
@@ -100,12 +134,14 @@
 
 <script>
     import turntable from "../components/turntable";
+    import vClickOutside from 'v-click-outside';
     import $ from 'jquery';
 
     export default {
         name: "Sales",
         components: {
-            turntable
+            turntable,
+            vClickOutside
         },
         head: {
             script: [
@@ -113,13 +149,45 @@
             ]
         },
         data: () => ({
+            window: {},
             widthMap: 0,
             heightMap: 0,
+            regionNumber: null,
+            isFiltered: false,
+            alert: false,
+            rotateDirection: '',
+            rotateCounter: 0,
+            starter3D: null,
+            searchedPolygonFill: '',
+            // moca for current region
+            currentRegion: {
+                id: '8',
+                status: 'reserved',
+                // TODO if need this or add new field
+                otherInfo: {
+                    number: '10',
+                    kadNumber: '43342347343:67346:888',
+                    square: '0,536',
+                    price: '15000'
+                },
+                modelView: {
+                    polygon: [
+                        {"x": 329, "y": 366},
+                        {"x": 276, "y": 345},
+                        {"x": 276, "y": 345},
+                        {"x": 320, "y": 294},
+                        {"x": 374, "y": 312},
+                    ],
+                    fill: '#FAD61D',
+                    stroke: '#D10D0D'
+                }
+            },
+            // moca for current region End
             img: {},
             objects: [
                 {
-                    id: 'test1',
-                    status: 'sales',
+                    id: '1',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -142,8 +210,8 @@
                     }
                 },
                 {
-                    id: 'test2',
-                    status: 'sales',
+                    id: '2',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '11',
@@ -164,8 +232,8 @@
                     }
                 },
                 {
-                    id: 'test3',
-                    status: 'sales',
+                    id: '3',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -188,8 +256,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '4',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -211,8 +279,8 @@
                     }
                 },
                 {
-                    id: 'test5',
-                    status: 'sales',
+                    id: '5',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -234,8 +302,8 @@
                     }
                 },
                 {
-                    id: 'test6',
-                    status: 'sales',
+                    id: '6',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -256,8 +324,8 @@
                     }
                 },
                 {
-                    id: 'test7',
-                    status: 'sales',
+                    id: '7',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -279,8 +347,8 @@
                     }
                 },
                 {
-                    id: 'test8',
-                    status: 'sales',
+                    id: '8',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -301,8 +369,8 @@
                     }
                 },
                 {
-                    id: 'test9',
-                    status: 'sales',
+                    id: '9',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -323,8 +391,8 @@
                     }
                 },
                 {
-                    id: 'test10',
-                    status: 'sales',
+                    id: '10',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -344,8 +412,8 @@
                     }
                 },
                 {
-                    id: 'test11',
-                    status: 'sales',
+                    id: '11',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -363,13 +431,13 @@
                             {"x": 327, "y": 473},
 
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test12',
-                    status: 'sales',
+                    id: '12',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -387,13 +455,13 @@
                             {"x": 416, "y": 477},
 
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test13',
-                    status: 'sales',
+                    id: '13',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -409,13 +477,13 @@
                             {"x": 438, "y": 453},
 
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test14',
-                    status: 'sales',
+                    id: '14',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -432,13 +500,13 @@
 
 
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test15',
-                    status: 'sales',
+                    id: '15',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -453,13 +521,13 @@
                             {"x": 428, "y": 381},
                             {"x": 484, "y": 402},
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test16',
-                    status: 'sales',
+                    id: '16',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -474,13 +542,13 @@
                             {"x": 461, "y": 342},
                             {"x": 520, "y": 359},
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test17',
-                    status: 'sales',
+                    id: '17',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -495,13 +563,13 @@
                             {"x": 518, "y": 359},
                             {"x": 580.5, "y": 374},
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test18',
-                    status: 'sales',
+                    id: '18',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -516,13 +584,13 @@
                             {"x": 488, "y": 397},
                             {"x": 544, "y": 415},
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test19',
-                    status: 'sales',
+                    id: '19',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -538,13 +606,13 @@
                             {"x": 521, "y": 443},
 
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test20',
-                    status: 'sales',
+                    id: '20',
+                    status: 'free',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -559,13 +627,13 @@
                             {"x": 500, "y": 467},
                             {"x": 444, "y": 448},
                         ],
-                        fill: 'green',
+                        fill: '#048819',
                         stroke: '#D10D0D'
                     }
                 },
                 {
-                    id: 'test21',
-                    status: 'sales',
+                    id: '21',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -589,8 +657,8 @@
 // endpoint
 
                 {
-                    id: 'test22',
-                    status: 'sales',
+                    id: '22',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -612,8 +680,8 @@
                     }
                 },
                 {
-                    id: 'test23',
-                    status: 'sales',
+                    id: '23',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -633,8 +701,8 @@
                     }
                 },
                 {
-                    id: 'test24',
-                    status: 'sales',
+                    id: '24',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -654,8 +722,8 @@
                     }
                 },
                 {
-                    id: 'test25',
-                    status: 'sales',
+                    id: '25',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -675,8 +743,8 @@
                     }
                 },
                 {
-                    id: 'test26',
-                    status: 'sales',
+                    id: '26',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -696,8 +764,8 @@
                     }
                 },
                 {
-                    id: 'test27',
-                    status: 'sales',
+                    id: '27',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -717,8 +785,8 @@
                     }
                 },
                 {
-                    id: 'test28',
-                    status: 'sales',
+                    id: '28',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -738,8 +806,8 @@
                     }
                 },
                 {
-                    id: 'test29',
-                    status: 'sales',
+                    id: '29',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -759,8 +827,8 @@
                     }
                 },
                 {
-                    id: 'test30',
-                    status: 'sales',
+                    id: '30',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -780,8 +848,8 @@
                     }
                 },
                 {
-                    id: 'test31',
-                    status: 'sales',
+                    id: '31',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -803,8 +871,8 @@
                     }
                 },
                 {
-                    id: 'test32',
-                    status: 'sales',
+                    id: '32',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -826,8 +894,8 @@
                     }
                 },
                 {
-                    id: 'test33',
-                    status: 'sales',
+                    id: '33',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -847,8 +915,8 @@
                     }
                 },
                 {
-                    id: 'test34',
-                    status: 'sales',
+                    id: '34',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -868,8 +936,8 @@
                     }
                 },
                 {
-                    id: 'test35',
-                    status: 'sales',
+                    id: '35',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -889,8 +957,8 @@
                     }
                 },
                 {
-                    id: 'test35',
-                    status: 'sales',
+                    id: '36',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -911,8 +979,8 @@
                     }
                 },
                 {
-                    id: 'test35',
-                    status: 'sales',
+                    id: '37',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -933,8 +1001,8 @@
                 },
 
                 {
-                    id: 'test36',
-                    status: 'sales',
+                    id: '38',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -956,8 +1024,8 @@
 
 
                 {
-                    id: 'test37',
-                    status: 'sales',
+                    id: '39',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -977,8 +1045,8 @@
                     }
                 },
                 {
-                    id: 'test38',
-                    status: 'sales',
+                    id: '40',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -998,8 +1066,8 @@
                     }
                 },
                 {
-                    id: 'test39',
-                    status: 'sales',
+                    id: '41',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1019,8 +1087,8 @@
                     }
                 },
                 {
-                    id: 'test40',
-                    status: 'sales',
+                    id: '42',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1040,8 +1108,8 @@
                     }
                 },
                 {
-                    id: 'test41',
-                    status: 'sales',
+                    id: '43',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1064,8 +1132,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '44',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1087,8 +1155,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '45',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1108,8 +1176,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '46',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1129,8 +1197,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '47',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1150,8 +1218,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '48',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1171,8 +1239,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '49',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1192,8 +1260,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '50',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1213,8 +1281,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '51',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1234,8 +1302,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '52',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1255,8 +1323,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '53',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1276,8 +1344,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '54',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1297,8 +1365,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '55',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1318,8 +1386,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '56',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1339,8 +1407,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '57',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1363,8 +1431,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '58',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1386,8 +1454,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '59',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1407,8 +1475,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '60',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1428,8 +1496,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '61',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1449,8 +1517,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '62',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1470,8 +1538,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '63',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1491,8 +1559,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '64',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1512,8 +1580,8 @@
                     }
                 },
                 {
-                    id: 'test42',
-                    status: 'sales',
+                    id: '65',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1534,8 +1602,8 @@
                 },
                 // ---------------------BOTTOM SIDE----------------------------------
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '66',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1555,8 +1623,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '67',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1576,8 +1644,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '68',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1597,8 +1665,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '69',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1618,8 +1686,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '70',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1641,8 +1709,8 @@
                 },
                 // experiment
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '71',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1662,8 +1730,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '72',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1683,8 +1751,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '73',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1704,8 +1772,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '74',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1726,8 +1794,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '75',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1748,8 +1816,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '76',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1769,8 +1837,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '77',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1790,8 +1858,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '78',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1811,7 +1879,7 @@
                     }
                 },
                 {
-                    id: 'test4',
+                    id: '79',
                     status: 'sales',
                     // TODO if need this or add new field
                     otherInfo: {
@@ -1834,8 +1902,8 @@
 
 
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '80',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1855,8 +1923,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '81',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1876,7 +1944,7 @@
                     }
                 },
                 {
-                    id: 'test4',
+                    id: '82',
                     status: 'sales',
                     // TODO if need this or add new field
                     otherInfo: {
@@ -1899,8 +1967,8 @@
 
 
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '83',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1920,8 +1988,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '84',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1941,8 +2009,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '85',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1962,8 +2030,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '86',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -1983,8 +2051,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '87',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2004,8 +2072,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '88',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2025,8 +2093,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '89',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2046,8 +2114,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '90',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2067,8 +2135,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '91',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2088,8 +2156,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '92',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2111,8 +2179,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '93',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2135,8 +2203,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '94',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2156,8 +2224,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '95',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2177,7 +2245,7 @@
                     }
                 },
                 {
-                    id: 'test4',
+                    id: '96',
                     status: 'sales',
                     // TODO if need this or add new field
                     otherInfo: {
@@ -2198,8 +2266,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '97',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2219,8 +2287,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '98',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2242,8 +2310,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '99',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2265,8 +2333,8 @@
                     }
                 },
                 {
-                    id: 'test4',
-                    status: 'sales',
+                    id: '100',
+                    status: 'reserved',
                     // TODO if need this or add new field
                     otherInfo: {
                         number: '10',
@@ -2286,7 +2354,7 @@
                     }
                 },
                 {
-                    id: 'test4',
+                    id: '101',
                     status: 'sales',
                     // TODO if need this or add new field
                     otherInfo: {
@@ -2307,7 +2375,7 @@
                     }
                 },
                 {
-                    id: 'test4',
+                    id: '102',
                     status: 'sales',
                     // TODO if need this or add new field
                     otherInfo: {
@@ -2342,19 +2410,100 @@
                 stop: {id: 'stop', el: {}},
             },
         }),
+        directives: {
+            clickOutside: vClickOutside.directive
+        },
         methods: {
+            setLastIndexToCounter(index) {
+                this.rotateCounter = index - 1;
+            },
+            setZeroIndexToCounter() {
+                this.rotateCounter = 0;
+            },
+            startTurntable(direction) {
+                direction === 'right'
+                    ? (this.rotateCounter -= 1)
+                    : (this.rotateCounter += 1);
+            },
+            startTurntableMouseDown(direction) {
+                this.starter3D = setInterval(() => {
+                    direction === 'right'
+                        ? (this.rotateCounter -= 1)
+                        : (this.rotateCounter += 1);
+                }, 300)
+            },
+            stopTurntable() {
+                clearInterval(this.starter3D);
+            },
+            searchRegionByNumber() {
+                this.clearFilters();
+                let allPolygons = Array.from(document.getElementsByTagName('polygon'));
+                allPolygons.forEach(polygon => {
+                    if (polygon.getAttribute('fill') === 'white') {
+                        polygon.removeAttribute('fill');
+                        polygon.setAttribute('fill', this.searchedPolygonFill)
+
+                    } else {
+                        if (polygon.id == this.regionNumber) {
+                            this.searchedPolygonFill = polygon.getAttribute('fill');
+                            polygon.removeAttribute('fill');
+                            polygon.setAttribute('fill', 'white');
+                        }
+                    }
+
+                })
+                if (!allPolygons.find(a => a.id === this.regionNumber)) {
+                    this.$notify({
+                        group: 'foo',
+                        type: 'error',
+                        title: `Ошибка`,
+                        text: `Участка с номером ${this.regionNumber} не существует!`
+                    });
+                }
+            },
+            returnRegionFillToBasicState(id) {
+                let allPolygons = Array.from(document.getElementsByTagName('polygon'));
+                allPolygons.forEach(polygon => {
+                    if (polygon.id == id) {
+                        if (polygon.getAttribute('fill') === 'white') {
+                            polygon.removeAttribute('fill');
+                            polygon.setAttribute('fill', this.searchedPolygonFill)
+                        }
+                    }
+                })
+            },
+            filterByStatus(status) {
+                this.isFiltered = true;
+                let allPolygons = Array.from(document.getElementsByTagName('polygon'));
+                allPolygons.forEach(polygon => {
+                    // if white region
+                    if (polygon.getAttribute('fill') === 'white') {
+                        polygon.removeAttribute('fill');
+                        polygon.setAttribute('fill', this.searchedPolygonFill)
+                    }
+                    // if white region end
+                    polygon.style.cssText = 'opacity:.8';
+                    if (polygon.getAttribute('fill') === status) {
+                        return
+                    } else {
+                        polygon.style.cssText = 'opacity:.2';
+                    }
+                })
+            },
+            clearFilters() {
+                let allPolygons = Array.from(document.getElementsByTagName('polygon'));
+                allPolygons.forEach(polygon => {
+                    polygon.style.cssText = 'opacity:.8';
+                });
+                this.isFiltered = false;
+            },
             init() {
                 this.initElements();
                 this.initData();
                 this.initView();
                 this.initActions();
                 this.elements.closer.el.addEventListener('click', () => {
-                    this.hideModal();
-                    this.hideLayout();
-                });
-                this.elements.layout.el.addEventListener('click', () => {
-                    this.hideModal();
-                    this.hideLayout();
+                    this.hideAll()
                 });
                 this.updateInputRange();
             },
@@ -2368,7 +2517,7 @@
                 this.elements.stop.el = this.getElId(this.elements.stop.id);
             },
             initData() {
-                const mapImg = document.getElementById('mapImg')
+                const mapImg = document.getElementById('mapImg');
                 this.widthMap = this.getWidthD3(mapImg);
                 this.heightMap = this.getHeightD3(mapImg);
             },
@@ -2382,12 +2531,14 @@
                     if (w.deltaY < 0) {
                         w.preventDefault();
                         this.getElId('nav').classList.add('hide');
+                        this.getElId('search-bar').classList.add('hide');
                         this.getElId('sales-wrapper').classList.add('zoom')
                     } else {
                         this.getElId('sales-wrapper').classList.remove('zoom')
                         this.getElId('nav').classList.remove('hide');
+                        this.getElId('search-bar').classList.remove('hide');
                     }
-                })
+                });
                 this.createPolygon(this.objects);
                 const height = document.documentElement.clientHeight / 2;
                 const width = document.documentElement.clientWidth / 2;
@@ -2400,11 +2551,17 @@
                         d3.event.stopPropagation();
                         this.showModal();
                         this.showLayout();
+
+                        this.currentRegion = d;
+                        this.returnRegionFillToBasicState(d.id);
                     })
                     .on("mouseover", (d) => {
                     })
                     .on("mouseleave", (d) => {
                     })
+            },
+            clearRegionNumber() {
+                this.regionNumber = '';
             },
             showModal() {
                 this.elements.modal.el.classList.remove('hide')
@@ -2417,6 +2574,10 @@
             },
             hideModal() {
                 this.elements.modal.el.classList.add('hide')
+            },
+            hideAll() {
+                this.hideLayout();
+                this.hideModal();
             },
             updateInputRange() {
                 d3.select("#nAngle").on("input", function () {
@@ -2461,7 +2622,8 @@
             },
             createPolygon(data) {
                 d3.select('g')
-                    .selectAll('polygon').select('g')
+                    .selectAll('polygon')
+                    .select('g')
                     .data(data)
                     .enter().append("polygon")
                     .attr("points", (d) => {
@@ -2477,7 +2639,7 @@
                 d3.select('svg')
                     .select('g')
                     .selectAll('polygon')
-                    .data('dataset')
+                    //.data('dataset')
                     .enter()
                     .append("text")
                     .attr("x", data[0].modelView.polygon[1]['x'] - 2 + '%')
@@ -2486,14 +2648,33 @@
             }
         },
         mounted() {
-            this.init();
+            if (process.browser) {
+                this.window = window
+
+                this.init();
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+                        this.startTurntable('left')
+                    }
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+                        this.startTurntable('right')
+                    }
+                })
+            }
         }
     }
 </script>
 
 <style scoped lang="scss">
+  .alert {
+    position: absolute;
+    bottom: 85px;
+    right: 60px;
+    z-index: 20;
+  }
+
   .search-bar {
-    position: fixed;
+    position: absolute;
     bottom: 42px;
     right: 60px;
     background: #000;
@@ -2505,6 +2686,7 @@
       background-color: transparent;
       outline: none;
       border: none;
+      cursor: pointer;
       box-shadow: none;
       font-family: 'Open Sans', sans-serif;
       font-style: normal;
@@ -2779,7 +2961,7 @@
     -ms-flex-pack: start;
     justify-content: flex-start;
     width: 300px;
-    min-height: 444px;
+    min-height: 495px;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1e767', endColorstr='#feb645', GradientType=1);
   }
 
@@ -2847,10 +3029,6 @@
     z-index: 999;
   }
 
-  .hide {
-    display: none !important;
-  }
-
   /*modal*/
   #modal {
     z-index: 999;
@@ -2864,7 +3042,7 @@
     width: 100%;
     max-width: 1050px;
     overflow: hidden;
-    font-size: 14px;
+    font-size: 16px;
     -webkit-box-shadow: -1px 0px 17px 0px rgba(0, 0, 0, 0.75);
     box-shadow: -1px 0px 17px 0px rgba(0, 0, 0, 0.75);
     background: rgba(255, 255, 255, 0.8);
@@ -3031,9 +3209,9 @@
 
   @media screen and (min-width: 1800px) {
     .zoom {
-      -webkit-transform: scale(1.3);
-      -ms-transform: scale(1.3);
-      transform: scale(1.3);
+      -webkit-transform: scale(1.4);
+      -ms-transform: scale(1.4);
+      transform: scale(1.4);
       overflow: auto;
     }
   }
@@ -3069,8 +3247,17 @@
     }
   }
 
-  .p-title {
-    width: 184px;
+  .list {
+    color: black;
+    width: 100%;
+
+    .p-title {
+      width: 200px;
+    }
+
+    .p-description {
+      text-align: left;
+    }
   }
 
   .model-controls {
@@ -3090,6 +3277,17 @@
         height: 100%;
         display: block;
       }
+    }
+  }
+
+
+  @media screen and (min-width: 1918px) {
+    .big-img {
+      -o-object-fit: fill;
+      object-fit: fill;
+      display: block;
+      position: relative;
+      z-index: 1;
     }
   }
 </style>

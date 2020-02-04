@@ -1,0 +1,146 @@
+<template>
+  <form class="p-5" @submit.prevent="submitHandler">
+    <div class="moda" tabindex="100" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header moda-header">
+            <h3>Мартовая Риверсайд</h3>
+            <button
+              @click.prevent="closeModal"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-5 pb-0">
+            <h4 class="modal-title text-center">
+              Регистрация
+            </h4>
+
+            <div class="form-group my-4">
+              <input
+                v-model.trim="email"
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Введите email"
+              >
+              <small
+                class="text-danger"
+                v-if="($v.email.$dirty && !$v.email.required)"
+              >Поле email не должно быть пустым!
+              </small>
+              <small v-else-if="($v.email.$dirty && !$v.email.email)" class="text-danger">Введите корректный
+                email</small>
+            </div>
+            <div class="form-group my-4">
+              <input
+                v-model.trim="password"
+                class="form-control"
+                type="password"
+                id="exampleInputPassword1"
+                placeholder="Введите пароль"
+              >
+              <small v-if="$v.password.$dirty && !$v.password.required" class="text-danger">Введите пароль</small>
+              <small v-else-if="$v.password.$dirty && !$v.password.minLength" class="text-danger">Пароль
+                должен быть не менее {{$v.password.$params.minLength.min}} символов</small>
+            </div>
+            <a
+
+              href="#"
+              class="text-center w-100 d-block"
+              style="cursor: pointer; color: dodgerblue"
+              @click.prevent="showLogin"
+              title="Я регистрировался ранее"
+            >
+              Войти
+            </a>
+          </div>
+          <div class="modal-footer moda-footer">
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              Зарегистрироваться
+            </button>
+            <button
+              @click.prevent="closeModal"
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal">
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>
+
+<script>
+    import {email, required, minLength} from 'vuelidate/lib/validators'
+
+    export default {
+        name: "Registration",
+        props:{
+            target: String
+        },
+        data: () => ({
+            email: '',
+            password: '',
+        }),
+        validations: {
+            email: {email, required},
+            password: {required, minLength: minLength(6)}
+        },
+        methods: {
+            submitHandler() {
+                if (this.$v.$invalid) {
+                    this.$v.$touch();
+                    return
+                }
+                const formData = {
+                    email: this.email,
+                    password: this.password
+                };
+                if (this.target==='like'){
+                    this.itsLike()
+                } else {
+                    this.itsComment()
+                }
+                this.commitUserName(this.email);
+                this.closeModal()
+                // try {
+                //     debugger
+                //
+                //     // await this.$store.dispatch('login', formData)
+                // } catch (e) {
+                //     alert(1)
+                // }
+            },
+            itsLike(){
+                this.$emit('addLike')
+            },
+            itsComment(){
+                this.$emit('addComment')
+            },
+            closeModal() {
+                this.$emit('closeModal')
+            },
+            showLogin() {
+                this.$emit('showLogin')
+            },
+            commitUserName(name){
+                let userName = name.slice(0, name.indexOf('@'));
+                this.$store.commit('SET_USER_NAME', userName);
+            }
+        },
+    }
+</script>
+
+<style scoped lang="scss">
+
+</style>

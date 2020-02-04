@@ -13,13 +13,28 @@
     >
       <div class="d-flex justify-content-end pt-3">
         <ul class="d-flex justify-content-end soc-group">
-          <li><a href="#" class="soc soc-fb"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="#" class="soc soc-insta"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#" class="soc soc-youtube"><i class="fab fa-youtube"></i></a></li>
+          <li>
+            <a href="https://uk-ua.facebook.com/" target="_blank" class="soc soc-fb">
+              <i class="fab fa-facebook-f">
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/?hl=ru" target="_blank" class="soc soc-insta">
+              <i class="fab fa-instagram">
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/" target="_blank" class="soc soc-youtube">
+              <i class="fab fa-youtube">
+              </i>
+            </a>
+          </li>
         </ul>
 
         <div class="px-4" style="height: 31px;">
-          <a class="tel" href="tel:+380503640004">
+          <a class="tel" href="tel:+380663628129">
             <i class="fas fa-phone-alt">
               +38 (050) 364-0004
             </i>
@@ -62,24 +77,25 @@
 
         data: () => ({
             menuItems: [],
-            menuItems: {menu_items: [{ru_name: 'о нас'}, {ru_name: 'продажа участков'}, {ru_name: 'инфраструктура'}, {ru_name: 'галерея'}, {ru_name: 'новости'}, {ru_name: 'контакты'},]}
+            // menuItems: {menu_items: [{ru_name: 'о нас'}, {ru_name: 'продажа участков'}, {ru_name: 'инфраструктура'}, {ru_name: 'галерея'}, {ru_name: 'новости'}, {ru_name: 'контакты'},]},
+            activeLang:false,
         }),
-        computed:{
-          lang(){
-              return this.$store.getters.language
-          }
-        },
-        methods:{
-            setRuLanguage(){
-                this.$store.commit('setRusLanguage')
-            },
-            setUaLanguage(){
-                this.$store.commit('setUaLanguage')
+        computed: {
+            lang() {
+                return this.$store.getters.language
             }
         },
-        // async mounted() {
-        //     this.menuItems = await this.$axios.$get(`pages`)
-        // }
+        methods: {
+            setRuLanguage() {
+                this.$store.commit('SET_RUS_LANGUAGE')
+            },
+            setUaLanguage() {
+                this.$store.commit('SET_UA_LANGUAGE')
+            }
+        },
+        async mounted() {
+            this.menuItems = await this.$axios.$get(`pages`)
+        }
     }
 </script>
 
@@ -197,9 +213,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 14px;
-          width: 25px;
-          height: 25px;
+          font-size: 18px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           text-decoration: none;
           color: white;
@@ -227,5 +243,9 @@
 
   .activeClass {
     border-bottom: 2px solid white !important;
+  }
+  .active-lang{
+    text-decoration: underline;
+    transition: 1s ease-in-out;
   }
 </style>
