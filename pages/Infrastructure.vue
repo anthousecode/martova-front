@@ -126,7 +126,7 @@
     }
 
     .infra {
-      top: 116px;
+      top: 6.04vw;
       position: relative;
       width: 100%;
       background: transparent;

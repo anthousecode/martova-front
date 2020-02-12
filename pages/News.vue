@@ -1,6 +1,6 @@
 <template>
   <div v-if="news" class="news-wrapper d-flex">
-    <img src="/Новости.png" alt="news">
+    <img id="bg" src="/Новости.png" alt="news">
     <main class="news pb-1">
       <div
         v-for="item of news"
@@ -58,7 +58,7 @@
 
           <v-popover  v-if="!isShowModal">
             <div tooltip-target style="width: 200px;" class="likes likes__hover d-flex align-items-center justify-content-end">
-              <img style="width: 18px; height: 18px;" src="/search.svg" alt="search">
+              <img style="width: 18px; height: 18px;" src="/comment11.svg" alt="search">
               <span class="ml-2 caps"> {{toComment}}</span>
             </div>
             <template  slot="popover" style="background: rgba(0, 0, 0, 0.6)">
@@ -136,7 +136,7 @@
             return $axios.get(`news`)
                 .then((res) => {
                     return {news: res.data.news}
-                }).catch(e => {
+                }).catch((e) => {
                     console.log(e)
                 })
         },
@@ -211,12 +211,16 @@
     z-index: 0;
     position: relative;
     overflow: hidden;
-
+      #bg{
+        display: block;
+        width: 100vw;
+        height: 100vh;
+      }
     .news {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      top: 116px;
+      top: 6.04vw;
       position: absolute;
       width: 919px;
       overflow-y: auto;

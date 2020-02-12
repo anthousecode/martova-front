@@ -50,7 +50,7 @@
     }
 
     .about {
-      margin-top: 116px;
+      margin-top: 6.04vw;;
       position: relative;
       width: 100%;
 
@@ -58,15 +58,14 @@
         font-family: 'Open Sans', sans-serif;
         font-style: normal;
         font-weight: normal;
-        font-size: 1.5px;
-        line-height: 38px;
+        font-size: 18px;
+        line-height: 25px;
         flex-direction: column;
         background: #ffffff;
         color: black;
         display: block;
-        width: 47.87vw;
-        height: 44.17vw;
-        min-width: 919px;
+        width: 47.865vw;
+        height: 78.6vh;
         min-height: 848px;
         position: relative;
         z-index: 100;

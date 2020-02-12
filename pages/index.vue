@@ -13,7 +13,7 @@
           <div @click="getPrevSlide" class="controls-arrow controls-arrow__left">
             &#10092;
           </div>
-          <div class="rounded-circle pl-1">
+          <div class="rounded-circle" style="padding-left: 0.182vw;">
             360
             <sup>°</sup>
           </div>
@@ -21,13 +21,14 @@
             &#10093;
           </div>
         </div>
-        <div class="controls-title pt-2">
+        <div class="controls-title">
           3D ТУР
         </div>
       </div>
       <div class="index-title">
-        <div><img src="/h2.svg" alt="h2"></div>
-        <div><img src="/h1.svg" alt="h1"></div>
+        <div v-if="isRus" class="h2"><img src="/h2.svg" alt="h2"></div>
+        <div v-else class="h2"><img  src="/надпись_укр.svg" alt="h2"></div>
+        <div class="h1"><img src="/h1.svg" alt="h1"></div>
       </div>
     </div>
   </div>
@@ -36,18 +37,30 @@
 
 <script>
     import {Pano} from 'vuejs-vr'
+    import { mapGetters } from 'vuex';
 
     export default {
         components: {Pano},
         data: () => ({
             urls: [
-                '/bar360.png',
+                '/bar_360_проба2.jpg',
                 '/galerie_2.png',
-                '/bar360.png',
+                '/bar_360_проба2.jpg',
                 '/galerie_2.png',
             ],
             index: 0,
         }),
+        computed: {
+            ...mapGetters([
+                'language'
+            ]),
+            isRus(){
+                return this.language ==='ru'
+            },
+            isUa(){
+                return this.language ==='ua'
+            }
+        },
         methods: {
             setCanvasSize() {
                 let canvas = document.getElementsByClassName('panolens-canvas')[0];
@@ -66,7 +79,7 @@
             }
         },
         mounted() {
-            if(process.browser){
+            if (process.browser) {
                 this.setCanvasSize();
             }
         }
@@ -87,20 +100,32 @@
       bottom: 51px;
       left: 81px;
 
-      h1 {
-        text-transform: uppercase;
+      .h1 {
+        width: 45.052vw;
+        height: 3.646vw;
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
       }
 
-      h2 {
-        font-family: 'VeraCrouz', sans-serif;
-        font-style: italic;
-        font-weight: 300;
+      .h2 {
+        width: 25.302vw;
+        height: 4.063vw;
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
       }
     }
   }
 
   .controls {
-    width: 178px;
+    width: 9.271vw;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -117,15 +142,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 3px solid white;
-        width: 110px;
-        height: 110px;
+        border: 0.156vw solid white;
+        width: 5.729vw;
+        height: 5.729vw;
 
         font-family: Open Sans;
         font-style: normal;
         font-weight: normal;
-        font-size: 35px;
-        line-height: 61px;
+        font-size: 1.823vw;
+        line-height: 3.177vw;
       }
 
       .controls-arrow {
@@ -142,9 +167,10 @@
       font-family: Open Sans;
       font-style: normal;
       font-weight: bold;
-      font-size: 22px;
-      line-height: 30px;
+      font-size: 1.146vw;
+      line-height: 1.563vw;
       text-align: center;
+      padding-top: 0.365vw;
     }
   }
 </style>

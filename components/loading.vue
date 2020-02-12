@@ -38,7 +38,7 @@
     padding-top: 200px;
     font-size: 30px;
     font-family: sans-serif;
-    z-index: 3000;
+    z-index: 99999;
 
     .spinner-grow {
       width: 100px;

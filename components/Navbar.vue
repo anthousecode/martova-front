@@ -1,6 +1,6 @@
 <template>
-  <nav id="nav" class="navbar navbar-expand-lg navbar-dark py-2 navbar-custom col">
-    <nuxt-link to="/" class="navbar-brand logo pt-4">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-dark navbar-custom col">
+    <nuxt-link to="/" class="navbar-brand logo">
       <img src="/logo.svg" alt="logo">
     </nuxt-link>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -11,7 +11,7 @@
       class="collapse navbar-collapse d-flex flex-column align-items-end"
       id="navbarSupportedContent"
     >
-      <div class="d-flex justify-content-end pt-3">
+      <div class="d-flex justify-content-end soc-wrapper">
         <ul class="d-flex justify-content-end soc-group">
           <li>
             <a href="https://uk-ua.facebook.com/" target="_blank" class="soc soc-fb">
@@ -33,20 +33,24 @@
           </li>
         </ul>
 
-        <div class="px-4" style="height: 31px;">
+        <div style="height: 1.615vw; padding:0 1.094vw; padding-top: 0.05vw">
           <a class="tel" href="tel:+380663628129">
             <i class="fas fa-phone-alt">
-              +38 (050) 364-0004
             </i>
+            +38 (050) 364-0004
           </a>
         </div>
 
-        <div class="lang pt-1  pl-4">
+        <div class="lang">
           <a href="#"
-             class="mr-2"
+             :class="{underlined: isRus}"
+             style="
+               margin-right: 0.365vw;
+            "
              @click.prevent="setRuLanguage"
           >рус</a>
           <a href="#"
+             :class="{underlined: isUa}"
              @click.prevent="setUaLanguage"
           >укр</a>
         </div>
@@ -56,14 +60,23 @@
         <li
           v-for="item of menuItems.pages"
           :key="item.id"
-          class="nav-item px-3"
+          class="nav-item"
         >
           <nuxt-link
-            class="nav-link py-2"
+            v-if="isRus"
+            class="nav-link"
             :class="{activeClass : $route.name===item.slug}"
             :to="item.slug"
           >
             {{item.ru_title}}
+          </nuxt-link>
+          <nuxt-link
+            v-else
+            class="nav-link"
+            :class="{activeClass : $route.name===item.slug}"
+            :to="item.slug"
+          >
+            {{item.ua_title}}
           </nuxt-link>
         </li>
       </ul>
@@ -72,17 +85,22 @@
 </template>
 
 <script>
-    name:'Navbar';
+  import { mapGetters } from 'vuex';
     export default {
-
         data: () => ({
             menuItems: [],
             // menuItems: {menu_items: [{ru_name: 'о нас'}, {ru_name: 'продажа участков'}, {ru_name: 'инфраструктура'}, {ru_name: 'галерея'}, {ru_name: 'новости'}, {ru_name: 'контакты'},]},
-            activeLang:false,
+            activeLang: false,
         }),
         computed: {
-            lang() {
-                return this.$store.getters.language
+            ...mapGetters([
+                'language'
+            ]),
+            isRus(){
+                return this.language ==='ru'
+            },
+            isUa(){
+                return this.language ==='ua'
             }
         },
         methods: {
@@ -100,22 +118,43 @@
 </script>
 
 <style scoped lang="scss">
+  .underlined{
+    text-decoration: underline;
+  }
   .navbar-custom {
     z-index: 1000;
-    height: 116px;
+    height: 6.04vw;
     box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.6);
+    background: rgba(30, 30, 30, 0.6);
     color: white;
     position: fixed;
-    padding-right: 60px;
-    padding-left: 60px;
+    padding: 0.625vw 3.125vw;
     top: 0;
+    @media screen and (max-width: 1281px){
+      height: 77.3px;
+    }
+    @media screen and (min-width: 1281px) and (max-width: 1920px){
+      height: 96.7px;
+    }
+    @media screen and (min-width: 1920px) and (max-width: 2047px){
+      height: 116px;
+    }
+    @media screen and (min-width: 2047px){
+      height: 122px;
+    }
+    @media screen and (min-width: 2200px){
+      height: 214px;
+    }
+    @media screen and (width: 2560px) {
+        height: 138px;
+    }
 
     .logo {
-      width: 164px;
-      height: 164px;
+      width: 8.54vw;
+      height: 8.54vw;
       display: block;
-      margin-left: -15px;
+      padding-top: 0.981vw;
+      margin-left: -0.781vw;
 
       &:hover {
         transform: scale(1.07);
@@ -127,10 +166,14 @@
       font-family: 'Open Sans', sans-serif;
       font-style: normal;
       font-weight: normal;
-      font-size: 21px;
-      line-height: 29px;
+      font-size: 1.094vw;
+      line-height: 1.51vw;
       text-transform: uppercase;
       color: #FFFFFF;
+
+      i {
+        font-size: 14px;
+      }
 
       &:hover {
         color: #226ACE;
@@ -139,17 +182,17 @@
     }
 
     .lang {
-      margin-top: 2px;
+      padding-left: 1.615vw;
+      padding-top: 0.2vw;
 
       a {
         font-family: 'Open Sans', sans-serif;
         font-style: normal;
         font-weight: normal;
-        font-size: 15px;
-        line-height: 20px;
+        font-size: 0.781vw;
+        line-height: 1.042vw;
         text-transform: uppercase;
         color: white;
-        text-decoration: none;
 
         &:hover {
           text-decoration: underline;
@@ -158,22 +201,27 @@
       }
     }
 
-    .soc-group {
-      border-right: 1px solid white;
+    .soc-wrapper {
+      margin-top: 0.781vw;
 
-      li {
-        height: 31px;
-        display: flex;
-        align-items: center;
+      .soc-group {
+        border-right: 1px solid white;
 
-        a {
-          &:hover {
-            transform: rotateZ(720deg);
-            transition: 1s ease-in-out;
+        li {
+          height: 1.615vw;
+          display: flex;
+          align-items: center;
+
+          a {
+            &:hover {
+              transform: rotateZ(720deg);
+              transition: 1s ease-in-out;
+            }
           }
         }
       }
     }
+
 
     ul {
       list-style: none;
@@ -182,24 +230,25 @@
         color: rgba(255, 255, 255, 1);
         position: relative;
         display: block;
+        padding: 0 1.693vw;
 
         &:last-child {
           padding-right: 0 !important;
         }
 
         &:first-child {
-          border-right: 1px solid white;
+          border-right: 0.052vw solid white;
         }
 
         .nav-link {
-          padding: 0;
-          font-size: 21px;
+          padding: 0.260vw 0;
+          font-size: 1.094vw;
           text-transform: uppercase;
-          border-bottom: 2px solid transparent;
+          border-bottom: 0.104vw solid transparent;
           transition: .7s ease-in-out;
 
           &:hover {
-            border-bottom: 2px solid white;
+            border-bottom: 0.104vw solid white;
             transition: .7s ease-in-out;
           }
         }
@@ -207,19 +256,19 @@
 
       li {
         text-transform: uppercase;
-        line-height: 14px;
+        line-height: 0.729vw;
 
         .soc {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 18px;
-          width: 32px;
-          height: 32px;
+          font-size: 0.938vw;
+          width: 1.667vw;
+          height: 1.667vw;
           border-radius: 50%;
           text-decoration: none;
           color: white;
-          margin-right: 20px;
+          margin-right: 1.042vw;
         }
 
         .soc-fb {
@@ -242,9 +291,10 @@
   }
 
   .activeClass {
-    border-bottom: 2px solid white !important;
+    border-bottom: 0.104vw solid white !important;
   }
-  .active-lang{
+
+  .active-lang {
     text-decoration: underline;
     transition: 1s ease-in-out;
   }

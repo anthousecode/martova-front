@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-    <img class="gallery-bg" src="/galerie_2.png" alt="Галерея">
+    <img class="gallery-bg" src="/galerie_2.jpg" alt="Галерея">
     <div class="row gallery py-5 px-5">
       <figure
         v-for="(image, i) of images"
@@ -103,7 +103,7 @@
 
 <style scoped lang="scss">
   #exampleModal {
-    top: 116px;
+    top: 6.04vw;
 
     .modal-dialog {
       z-index: 2000;
@@ -156,7 +156,7 @@
     }
 
     .gallery {
-      top: 116px;
+      top: 6.04vw;
       padding-bottom: 140px !important;
       position: relative;
       width: 100%;

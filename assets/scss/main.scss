@@ -255,12 +255,19 @@ button {
 
 #myTurntable {
   ul, li, img {
-    height: 370px;
+    height: 410px;
+  }
+}
+#myTurntable {
+  img {
+    display: block;
+    margin-top: 40px;
+    width: 483px;
+    height: 330px;
   }
 }
 
 polygon {
-  opacity: .8;
   stroke-width: 2;
   cursor: pointer;
   position: relative;
@@ -268,7 +275,6 @@ polygon {
 }
 
 polygon:hover {
-  opacity: 1;
   fill: pink;
   -webkit-transition: .4s ease-in-out;
   -o-transition: .4s ease-in-out;

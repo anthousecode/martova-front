@@ -15,10 +15,10 @@ module.exports = {
       {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'},
     ],
     script: [
-      {src: 'js/d3.js', ssr: false},
-      {src: 'js/d3-selection.js', ssr: false},
-      {src: 'js/jquery112.js', ssr: false},
-      {src: 'js/turntable.js', ssr: false}
+      {src: 'http://www.martovariverside.com/js/d3.js'},
+      {src: 'http://www.martovariverside.com/js/d3-selection.js'},
+      {src: 'http://www.martovariverside.com/js/jquery112.js'},
+      {src: 'http://www.martovariverside.com/js/turntable.js'}
     ]
   },
   /*
@@ -47,12 +47,11 @@ module.exports = {
   plugins: [
     {src: '~plugins/pano.js',  ssr: false},
     {src: '~plugins/vuelidate', ssr: false},
-    {src: '~plugins/vue-notifications', ssr: false}
-
-    // {src: '~plugins/localize.filter.js', mode: 'client'}
+    {src: '~plugins/vue-notifications', ssr: false},
+    {src: '~plugins/locales/localize.filter.js', mode: 'client'}
   ],
   build: {
-    vendor: ["jquery", "/js/turntable.js", 'vuelidate', 'vue-notifications'],
+    vendor: ["jquery", "/js/turntable.js", 'vuelidate', 'vue-notifications', 'localize.filter'],
     // babel: {
     //   presets: ['es2015', 'stage-0']
     // },

@@ -6,9 +6,11 @@ export const state = () => ({
 export const mutations = {
   SET_RUS_LANGUAGE(state) {
     state.language = 'ru'
+
   },
   SET_UA_LANGUAGE(state) {
     state.language = 'ua'
+
   },
   SET_POST_ID(state, id) {
     state.postId = id
