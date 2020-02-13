@@ -44,9 +44,9 @@
         data: () => ({
             urls: [
                 '/bar_360_проба2.jpg',
-                '/galerie_2.png',
+                '/cort.jpg',
                 '/bar_360_проба2.jpg',
-                '/galerie_2.png',
+                '/cort.jpg',
             ],
             index: 0,
         }),

@@ -159,7 +159,6 @@
     import turntable from "../components/turntable";
     import vClickOutside from 'v-click-outside';
     import {mapGetters} from 'vuex';
-    // import localizeFilter from "./localize.filter";
     import localizeFilter from "../plugins/locales/localize.filter";
     import $ from 'jquery';
 

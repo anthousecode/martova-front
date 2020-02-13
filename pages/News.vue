@@ -7,7 +7,7 @@
         :key="item.id"
         class="news-item p-3 pb-2 mt-3">
         <div class="news-item__header">
-          <h3>{{item.ru_name}}</h3>
+          <h3>{{language==='ru' ? item.ru_name : item.ua_name}}</h3>
           <p class="date mb-2">{{item.updated_at}}</p>
         </div>
         <div class="news-item__body">
@@ -17,37 +17,37 @@
           <div class="likes-container d-flex justify-content-between pt-2 pb-3">
             <div class="likes d-flex align-items-center">
               <img src="/colorLike.svg" alt="">
-              <span class="ml-1"> {{likes}}</span>
+              <span class="ml-1"> {{item.likes_count}}</span>
             </div>
             <span>
-              {{comments}}: {{comments_count}}
+              {{$options.filters.toUSD(language, 'Комментарии')}}: {{comments_count}}
             </span>
           </div>
           <div
-            v-if="isMore"
-            @click="cuttedText(item.ru_description)"
-            v-html="fulledText(item.ru_description)"
+            v-if="isMore && showMoreId===item.id"
+            @click="getCutNews(item)"
+            v-html="fulledText(item)"
             class="text mb-2"
           >
           </div>
           <div
             v-else
-            @click="getFullNews(item.ru_description)"
-            v-html="cuttedText(item.ru_description)"
+            @click="getFullNews(item)"
+            v-html="cuttedText(item)"
             class="text mb-2"
           >
           </div>
         </div>
         <div class="news-item__footer likes-container d-flex justify-content-between py-2">
 
-          <v-popover  v-if="!isShowModal">
+          <v-popover v-if="!isShowModal">
             <div tooltip-target class="likes likes__hover likes-white d-flex align-items-center">
               <img class="like" style="font-size: 32px; width: 18px; height: 18px;" src="/like.svg" alt="like">
-              <span class="ml-1 caps"> {{like}}</span>
+              <span class="ml-1 caps">{{$options.filters.toUSD(language, 'Нравится')}}</span>
             </div>
-            <template  slot="popover" style="background: rgba(0, 0, 0, 0.6)">
+            <template slot="popover" style="background: rgba(0, 0, 0, 0.6)">
               <p class="mt-2 mb-0 sign text-black-50">
-                {{ msg }}
+                {{ $options.filters.toUSD(language, 'Войти с помощью') }}:
               </p>
               <social @emitOpenFormModal="showModal('like', item.id)"/>
               <!-- You can put other components too -->
@@ -56,14 +56,15 @@
           </v-popover>
 
 
-          <v-popover  v-if="!isShowModal">
-            <div tooltip-target style="width: 200px;" class="likes likes__hover d-flex align-items-center justify-content-end">
+          <v-popover v-if="!isShowModal">
+            <div tooltip-target style="width: 200px;"
+                 class="likes likes__hover d-flex align-items-center justify-content-end">
               <img style="width: 18px; height: 18px;" src="/comment11.svg" alt="search">
-              <span class="ml-2 caps"> {{toComment}}</span>
+              <span class="ml-2 caps"> {{$options.filters.toUSD(language, 'Комментировать')}}</span>
             </div>
-            <template  slot="popover" style="background: rgba(0, 0, 0, 0.6)">
+            <template slot="popover" style="background: rgba(0, 0, 0, 0.6)">
               <p class="mt-2 mb-0 sign text-black-50">
-                {{ msg }}
+                {{ $options.filters.toUSD(language, 'Войти с помощью') }}:
               </p>
               <social @emitOpenFormModal="showModal('comment', item.id)"/>
               <!-- You can put other components too -->
@@ -103,11 +104,13 @@
 </template>
 
 <script>
-    import {VTooltip, VPopover, VClosePopover} from 'v-tooltip'
-    import social from '../components/social'
-    import login from '../components/Login'
-    import registration from '../components/Registration'
+    import {VTooltip, VPopover, VClosePopover} from 'v-tooltip';
+    import social from '../components/social';
+    import login from '../components/Login';
+    import registration from '../components/Registration';
     import addComment from "../components/addComment";
+    import {mapGetters} from 'vuex';
+    import localizeFilter from "../plugins/locales/localize.filter";
 
     export default {
         name: "News",
@@ -120,17 +123,14 @@
         },
         data: () => ({
             isShowModal: false,
-            isLogin:false,
+            isLogin: false,
             isMore: false,
-            target:'',
+            showMoreId: null,
+            target: '',
             comments_count: 7,
-            like: 'НРАВИТСЯ',
-            toComment: 'КОММЕНТИРОВАТЬ',
-            comments: 'Комментарии',
             likes: 185,
             news: null,
-            msg: 'Войти с помощью :',
-            showCommentInput:true
+            showCommentInput: false
         }),
         asyncData({$axios}) {
             return $axios.get(`news`)
@@ -141,12 +141,12 @@
                 })
         },
         computed: {
-            lang() {
-                return this.$store.getters.language;
+            currentPost() {
+                return this.$store.getters.postId
             },
-            currentPost(){
-               return this.$store.getters.postId
-            }
+            ...mapGetters([
+                'language'
+            ])
         },
         methods: {
             closeModal() {
@@ -157,27 +157,34 @@
                 this.isShowModal = true;
                 this.$store.commit('SET_POST_ID', id);
             },
-            showLogin(){
-              this.isLogin = true;
+            showLogin() {
+                this.isLogin = true;
+            },
+            getCutNews(val) {
+                this.showMoreId = val.id;
+                this.isMore = false;
             },
             cuttedText(val) {
-                this.isMore = false;
+                this.language === 'ru' ? (val = val.ru_description) : (val = val.ua_description);
                 if (val.length > 250) {
-                    return val.slice(0, 250) + '...' + '<a class="moreLink">Еще</a>';
+                    return val.slice(0, 250) + '...' + `<a class="moreLink">${this.$options.filters.toUSD(this.language, 'ещё')}</a>`;
                 } else {
                     return val + '...' + '<a class="moreLink">Еще</a>';
                 }
             },
             fulledText(val) {
+                this.language === 'ru' ? (val = val.ru_description) : (val = val.ua_description);
                 return val + '<a class="moreLink">Скрыть</a>';
             },
             getFullNews(val) {
                 this.isMore = true;
+                this.showMoreId = val.id;
+                this.language === 'ru' ? (val = val.ru_description) : (val = val.ua_description);
             },
-            addLike(){
+            addLike() {
                 console.log('+1 like')
             },
-            addComment(){
+            addComment() {
                 this.showCommentInput = true;
             }
         },
@@ -211,11 +218,13 @@
     z-index: 0;
     position: relative;
     overflow: hidden;
-      #bg{
-        display: block;
-        width: 100vw;
-        height: 100vh;
-      }
+
+    #bg {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+    }
+
     .news {
       display: flex;
       flex-direction: column;
@@ -328,9 +337,11 @@
     font-size: 17px;
     line-height: 23px;
     color: #808080;
+
     .likes {
       width: 25px;
       height: 25px;
+
       &__hover {
         color: cadetblue;
         cursor: pointer;
@@ -352,13 +363,15 @@
         display: block;
         height: 100%;
       }
-      .like{
+
+      .like {
         width: 18px;
         height: 18px;
         display: block;
       }
     }
-    .likes-white{
+
+    .likes-white {
       width: 145px;
     }
   }

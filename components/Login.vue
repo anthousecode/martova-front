@@ -4,7 +4,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header moda-header">
-            <h3>Мартовая Риверсайд</h3>
+            <h3>{{$options.filters.toUSD(language, 'Мартовая Риверсайд')}}</h3>
             <button
               @click.prevent="closeModal"
               type="button"
@@ -15,7 +15,7 @@
             </button>
           </div>
           <div class="modal-body p-5 pb-0">
-            <h4 class="modal-title text-center">Вход</h4>
+            <h4 class="modal-title text-center">{{$options.filters.toUSD(language, 'Вход')}}</h4>
 
             <div class="form-group my-4">
               <input
@@ -24,15 +24,16 @@
                 class="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                placeholder="Введите email"
+                :placeholder="this.$options.filters.toUSD(this.language, 'Введите email')"
               >
               <small
                 class="text-danger"
                 v-if="($v.email.$dirty && !$v.email.required)"
-              >Поле email не должно быть пустым!
+              >{{$options.filters.toUSD(language, 'notEmpty')}}
               </small>
-              <small v-else-if="($v.email.$dirty && !$v.email.email)" class="text-danger">Введите корректный
-                email</small>
+              <small v-else-if="($v.email.$dirty && !$v.email.email)" class="text-danger">
+                {{$options.filters.toUSD(language, 'correctMail')}}
+                </small>
             </div>
             <div class="form-group my-4">
               <input
@@ -40,11 +41,12 @@
                 class="form-control"
                 type="password"
                 id="exampleInputPassword1"
-                placeholder="Введите пароль"
+                :placeholder="this.$options.filters.toUSD(this.language, 'Введите пароль')"
               >
-              <small v-if="$v.password.$dirty && !$v.password.required" class="text-danger">Введите пароль</small>
-              <small v-else-if="$v.password.$dirty && !$v.password.minLength" class="text-danger">Пароль
-                должен быть не менее {{$v.password.$params.minLength.min}} символов</small>
+              <small v-if="$v.password.$dirty && !$v.password.required" class="text-danger">{{$options.filters.toUSD(this.language, 'Введите пароль')}}</small>
+              <small v-else-if="$v.password.$dirty && !$v.password.minLength" class="text-danger">
+                {{$options.filters.toUSD(this.language, 'Пароль должен быть не менее')}}
+                 {{$v.password.$params.minLength.min}} {{$options.filters.toUSD(this.language, 'символов')}} </small>
             </div>
           </div>
           <div class="modal-footer moda-footer">
@@ -52,14 +54,14 @@
               type="submit"
               class="btn btn-primary"
             >
-              Войти
+              {{$options.filters.toUSD(this.language, 'Войти')}}
             </button>
             <button
               @click.prevent="closeModal"
               type="button"
               class="btn btn-secondary"
               data-dismiss="modal">
-              Закрыть
+              {{$options.filters.toUSD(this.language, 'Закрыть')}}
             </button>
           </div>
         </div>
@@ -70,6 +72,8 @@
 
 <script>
     import {email, required, minLength} from 'vuelidate/lib/validators'
+    import {mapGetters} from 'vuex';
+    import localizeFilter from "../plugins/locales/localize.filter";
 
     export default {
         name: "Login",
@@ -83,6 +87,11 @@
         validations: {
             email: {email, required},
             password: {required, minLength: minLength(6)}
+        },
+        computed:{
+            ...mapGetters([
+                'language'
+            ])
         },
         methods: {
             submitHandler() {

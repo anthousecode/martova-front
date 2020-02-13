@@ -14,7 +14,7 @@
       <div class="d-flex justify-content-end soc-wrapper">
         <ul class="d-flex justify-content-end soc-group">
           <li>
-            <a href="https://uk-ua.facebook.com/" target="_blank" class="soc soc-fb">
+            <a href="https://www.facebook.com/%D0%9C%D0%B0%D1%80%D1%82%D0%BE%D0%B2%D0%B0-%D0%A0%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%B9%D0%B4-115996473285370/?modal=admin_todo_tour" target="_blank" class="soc soc-fb">
               <i class="fab fa-facebook-f">
               </i>
             </a>
@@ -172,7 +172,7 @@
       color: #FFFFFF;
 
       i {
-        font-size: 14px;
+        font-size: 0.94vw;
       }
 
       &:hover {
