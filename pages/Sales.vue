@@ -138,7 +138,7 @@
       <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681  && getWindowHeight>=1024"
            class="big-img min-container" id="bigImg7" src="/16801.jpg" alt="big">
       <img v-else-if="getWindowWidth>1681 && getWindowWidth<1921" class="big-img min-container" id="bigImg2"
-           src="/1920.jpg" alt="big">
+           src="/19201.jpg" alt="big">
       <img v-else-if="getWindowWidth>=1921 && getWindowWidth<2800" class="big-img min-container" id="bigImg"
            src="/2048.jpg" alt="big">
       <img v-else-if="getWindowWidth===2880" class="big-img min-container" id="bigImg12" src="/pro.jpg" alt="big">
@@ -2452,6 +2452,13 @@
 
                     // convertHex end
                     const fetchAreas = res.data.data.map(a => {
+                            if(a.modelView.fill=='red'){
+                                a.modelView.fill = '#D10D0D'
+                            } else if(a.modelView.fill=='yellow'){
+                                a.modelView.fill = '#FAD61D'
+                            } else if (a.modelView.fill=='green'){
+                                a.modelView.fill = '#048819'
+                            }
                             a.modelView.polygon = JSON.parse(a.modelView.polygon)
                             a.modelView.fill = convertHex(a.modelView.fill)
                             return a;
@@ -2517,7 +2524,7 @@
                     }
 
                 })
-                if (!allPolygons.find(a => a.id === this.regionNumber)) {
+                if (!allPolygons.find(a => a.id == this.regionNumber)) {
                     this.$notify({
                         group: 'foo',
                         type: 'error',
@@ -2551,7 +2558,6 @@
                     }
                     // if white region end
                     polygon.style.cssText = 'opacity:.8';
-                    console.log(polygon.getAttribute('fill'), status)
                     if (polygon.getAttribute('fill') == status) {
                         return
                     } else {
@@ -2597,11 +2603,14 @@
                     this.widthMap = this.getWidthD3(mapImg) * 1.1;
                     this.heightMap = this.getHeightD3(mapImg) * 1.1;
                 } else if (this.getWindowWidth >= 1681 && this.getWindowWidth < 1921) {
-                    this.widthMap = this.getWidthD3(mapImg) * 1.15489583;
-                    this.heightMap = this.getHeightD3(mapImg) * 1.15489583;
-                } else if (this.getWindowWidth >= 1921 && this.getWindowWidth < 2879) {
-                    this.widthMap = this.getWidthD3(mapImg) * 1.3;
-                    this.heightMap = this.getHeightD3(mapImg) * 1.3;
+                    // this.widthMap = this.getWidthD3(mapImg) * 1.15489583;
+                    // this.heightMap = this.getHeightD3(mapImg) * 1.15489583;
+                    this.widthMap = this.getWidthD3(mapImg) * 0.976;
+                    this.heightMap = this.getHeightD3(mapImg) * 0.976;
+                }
+                else if (this.getWindowWidth >= 1921 && this.getWindowWidth < 2879) {
+                    this.widthMap = this.getWidthD3(mapImg) * 1.4;
+                    this.heightMap = this.getHeightD3(mapImg) * 1.4;
                 } else if (this.getWindowWidth === 2560) {
                     this.widthMap = this.getWidthD3(mapImg) * 1.25;
                     this.heightMap = this.getHeightD3(mapImg) * 1.25;
@@ -2650,8 +2659,8 @@
                         this.showLayout();
 
                         this.currentRegion = d;
-                        this.currentRegionId = d.id;
-                        this.returnRegionFillToBasicState(d.id);
+                        this.currentRegionId = d.otherInfo.number;
+                        this.returnRegionFillToBasicState(d.otherInfo.number);
                     })
                     .on("mouseover", (d) => {
                     })
@@ -2731,7 +2740,7 @@
                     })
                     .attr("stroke", item => item.modelView.stroke)
                     .attr("fill", item => item.modelView.fill)
-                    .attr("id", item => item.id)
+                    .attr("id", item => item.otherInfo.number)
                     .attr("stroke-width", 1);
 
                 d3.select('svg')
@@ -2748,7 +2757,10 @@
         mounted() {
             if (process.browser) {
                 this.window = window;
+                setTimeout(()=>{
                     this.init();
+                }, 100)
+
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
                         this.startTurntable('left')

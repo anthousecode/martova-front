@@ -79,9 +79,11 @@
             }
         },
         mounted() {
-            if (process.browser) {
-                this.setCanvasSize();
-            }
+
+          setTimeout(()=>{
+              this.setCanvasSize();
+          }, 1000)
+
         }
     }
 </script>

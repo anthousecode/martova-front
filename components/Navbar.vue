@@ -14,7 +14,9 @@
       <div class="d-flex justify-content-end soc-wrapper">
         <ul class="d-flex justify-content-end soc-group">
           <li>
-            <a href="https://www.facebook.com/%D0%9C%D0%B0%D1%80%D1%82%D0%BE%D0%B2%D0%B0-%D0%A0%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%B9%D0%B4-115996473285370/?modal=admin_todo_tour" target="_blank" class="soc soc-fb">
+            <a
+              href="https://www.facebook.com/%D0%9C%D0%B0%D1%80%D1%82%D0%BE%D0%B2%D0%B0-%D0%A0%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%B9%D0%B4-115996473285370/?modal=admin_todo_tour"
+              target="_blank" class="soc soc-fb">
               <i class="fab fa-facebook-f">
               </i>
             </a>
@@ -40,7 +42,6 @@
             +38 (050) 364-0004
           </a>
         </div>
-
         <div class="lang">
           <a href="#"
              :class="{underlined: isRus}"
@@ -55,7 +56,6 @@
           >укр</a>
         </div>
       </div>
-
       <ul class="navbar-nav ml-auto">
         <li
           v-for="item of menuItems.pages"
@@ -66,7 +66,7 @@
             v-if="isRus"
             class="nav-link"
             :class="{activeClass : $route.name===item.slug}"
-            :to="item.slug"
+            :to="'/'+item.slug"
           >
             {{item.ru_title}}
           </nuxt-link>
@@ -74,7 +74,7 @@
             v-else
             class="nav-link"
             :class="{activeClass : $route.name===item.slug}"
-            :to="item.slug"
+            :to="'/'+item.slug"
           >
             {{item.ua_title}}
           </nuxt-link>
@@ -85,7 +85,8 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+    import {mapGetters} from 'vuex';
+
     export default {
         data: () => ({
             menuItems: [],
@@ -94,13 +95,14 @@
         }),
         computed: {
             ...mapGetters([
-                'language'
+                'language',
+                'basePath'
             ]),
-            isRus(){
-                return this.language ==='ru'
+            isRus() {
+                return this.language === 'ru'
             },
-            isUa(){
-                return this.language ==='ua'
+            isUa() {
+                return this.language === 'ua'
             }
         },
         methods: {
@@ -112,41 +114,42 @@
             }
         },
         async mounted() {
-            this.menuItems = await this.$axios.$get(`pages`)
+            this.menuItems = await this.$axios.$get(`pages`);
         }
     }
 </script>
 
 <style scoped lang="scss">
-  .underlined{
+  .underlined {
     text-decoration: underline;
   }
+
   .navbar-custom {
     z-index: 1000;
-    height: 6.04vw;
+    /*height: 6.04vw;*/
     box-sizing: border-box;
     background: rgba(30, 30, 30, 0.6);
     color: white;
     position: fixed;
     padding: 0.625vw 3.125vw;
     top: 0;
-    @media screen and (max-width: 1281px){
+    @media screen and (max-width: 1281px) {
       height: 77.3px;
     }
-    @media screen and (min-width: 1281px) and (max-width: 1920px){
+    @media screen and (min-width: 1281px) and (max-width: 1700px) {
       height: 96.7px;
     }
-    @media screen and (min-width: 1920px) and (max-width: 2047px){
+    @media screen and (min-width: 1700px) and (max-width: 2047px) {
       height: 116px;
     }
-    @media screen and (min-width: 2047px){
+    @media screen and (min-width: 2047px) {
       height: 122px;
     }
-    @media screen and (min-width: 2200px){
+    @media screen and (min-width: 2200px) {
       height: 214px;
     }
     @media screen and (width: 2560px) {
-        height: 138px;
+      height: 138px;
     }
 
     .logo {

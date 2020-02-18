@@ -1,6 +1,19 @@
 <template>
   <div v-if="news" class="news-wrapper d-flex">
-    <img id="bg" src="/Новости.png" alt="news">
+<!--    <iframe class="iframe"></iframe>-->
+<!--    <img class="bg" src="/Новости.png" alt="news">-->
+    <img v-if="getWindowWidth<=1281" class="bg" src="/news/1280News.png" alt="big">
+    <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681" class="bg"
+         id="bg" src="/news/1680News.png" alt="big">
+    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921)&& getWindowHeight<1090" class="bg"
+         src="/news/1920News.jpg" alt="big">
+    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921) && getWindowHeight>1091" class="bg"
+         src="/news/19201News.jpg" alt="big">
+    <img v-else-if="getWindowWidth>=1921 && getWindowWidth<2800" class="bg"
+         src="/news/2048News.png" alt="big">
+<!--    <img v-else-if="getWindowWidth===2880" class="bg" src="/news/pro.png" alt="big">-->
+<!--    <img v-else-if="getWindowWidth===3200" class="bg" src="/news/3600.png" alt="big">-->
+    <img v-else class="bg" src="/news/4kNews.png" alt="big">
     <main class="news pb-1">
       <div
         v-for="item of news"
@@ -20,23 +33,23 @@
               <span class="ml-1"> {{item.likes_count}}</span>
             </div>
             <span>
-              {{$options.filters.toUSD(language, 'Комментарии')}}: {{comments_count}}
+              {{$options.filters.toUSD(language, 'Комментарии')}}: {{item.comments_count}}
             </span>
           </div>
-          <div
-            v-if="isMore && showMoreId===item.id"
-            @click="getCutNews(item)"
-            v-html="fulledText(item)"
-            class="text mb-2"
-          >
-          </div>
-          <div
-            v-else
-            @click="getFullNews(item)"
-            v-html="cuttedText(item)"
-            class="text mb-2"
-          >
-          </div>
+              <div
+                v-if="isMore && showMoreId===item.id"
+                @click="getCutNews(item)"
+                v-html="fulledText(item)"
+                class="more-news text mb-2"
+              >
+              </div>
+              <div
+                v-else
+                @click="getFullNews(item)"
+                v-html="cuttedText(item)"
+                class="text mb-2"
+              >
+              </div>
         </div>
         <div class="news-item__footer likes-container d-flex justify-content-between py-2">
 
@@ -49,7 +62,7 @@
               <p class="mt-2 mb-0 sign text-black-50">
                 {{ $options.filters.toUSD(language, 'Войти с помощью') }}:
               </p>
-              <social @emitOpenFormModal="showModal('like', item.id)"/>
+              <social @authInSocial="authInSocial"  @emitOpenFormModal="showModal('like', item.id)"/>
               <!-- You can put other components too -->
               <!--              <ExampleComponent char="=" />-->
             </template>
@@ -66,7 +79,7 @@
               <p class="mt-2 mb-0 sign text-black-50">
                 {{ $options.filters.toUSD(language, 'Войти с помощью') }}:
               </p>
-              <social @emitOpenFormModal="showModal('comment', item.id)"/>
+              <social @authInSocial="authInSocial" @emitOpenFormModal="showModal('comment', item.id)"/>
               <!-- You can put other components too -->
               <!--              <ExampleComponent char="=" />-->
             </template>
@@ -100,6 +113,7 @@
         @closeModal="closeModal"
       />
     </div>
+<!--    <button @click="AuthProvider('github')">auth Github</button>-->
   </div>
 </template>
 
@@ -112,6 +126,8 @@
     import {mapGetters} from 'vuex';
     import localizeFilter from "../plugins/locales/localize.filter";
 
+    // import VueSocialauth from 'vue-social-auth'
+
     export default {
         name: "News",
         components: {
@@ -122,6 +138,7 @@
             addComment
         },
         data: () => ({
+            myHtml: null,
             isShowModal: false,
             isLogin: false,
             isMore: false,
@@ -135,12 +152,18 @@
         asyncData({$axios}) {
             return $axios.get(`news`)
                 .then((res) => {
-                    return {news: res.data.news}
+                    return {news: res.data.data}
                 }).catch((e) => {
                     console.log(e)
                 })
         },
         computed: {
+            getWindowWidth() {
+                return window.innerWidth;
+            },
+            getWindowHeight() {
+                return window.innerHeight;
+            },
             currentPost() {
                 return this.$store.getters.postId
             },
@@ -149,6 +172,14 @@
             ])
         },
         methods: {
+            authInSocial(html){
+              this.myHtml = html;
+                // console.log(this.myHtml)
+                // let iframe = document.getElementsByTagName('iframe')[0];
+                // let iframeDoc = iframe.contentWindow.document;
+                // iframeDoc.innerHTML =this.myHtml
+
+            },
             closeModal() {
                 this.isShowModal = false;
             },
@@ -174,7 +205,7 @@
             },
             fulledText(val) {
                 this.language === 'ru' ? (val = val.ru_description) : (val = val.ua_description);
-                return val + '<a class="moreLink">Скрыть</a>';
+                return val + `<a class="moreLink">${this.$options.filters.toUSD(this.language, 'Скрыть')}</a>`;
             },
             getFullNews(val) {
                 this.isMore = true;
@@ -218,11 +249,17 @@
     z-index: 0;
     position: relative;
     overflow: hidden;
-
+    .bg{
+      /*width: 100vw;*/
+      /*height: 100vh;*/
+    }
+    /*background: url("/Новости.png") no-repeat;*/
+    /*background-size: cover;*/
     #bg {
       display: block;
-      width: 100vw;
-      height: 100vh;
+      /*width: 100vw;*/
+      /*height: 100vh;*/
+      object-fit: none;
     }
 
     .news {
@@ -233,6 +270,24 @@
       position: absolute;
       width: 919px;
       overflow-y: auto;
+      @media screen and (max-width: 1281px){
+        top: 77.3px;
+      }
+      @media screen and (min-width: 1281px) and (max-width: 1899px){
+        top: 96.7px;
+      }
+      @media screen and (min-width: 1899px) and (max-width: 2047px){
+        top: 116px;
+      }
+      @media screen and (min-width: 2047px){
+        top: 122px;
+      }
+      @media screen and (min-width: 2200px){
+        top: 214px;
+      }
+      @media screen and (width: 2560px) {
+        top: 138px;
+      }
 
       .news-item {
         width: 100%;
@@ -374,6 +429,27 @@
     .likes-white {
       width: 145px;
     }
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+  .iframe{
+    width: 400px;
+    height: 400px;
+    position: fixed;
+    top: 0;
+    right: 300px;
+    background: white;
+    z-index: 99999;
+    right: 50%;
+    left: 50%;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
   }
 </style>
 

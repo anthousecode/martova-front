@@ -139,7 +139,9 @@ button {
     }
 
     div {
-      max-height: 650px;
+      &:not(.closer) {
+        height: 650px;
+      }
     }
 
     img {
@@ -275,7 +277,7 @@ polygon {
 }
 
 polygon:hover {
-  fill: pink;
+ fill: #226ACE;
   -webkit-transition: .4s ease-in-out;
   -o-transition: .4s ease-in-out;
   transition: opacity 1s ease-out;
@@ -377,5 +379,12 @@ polygon:hover {
 }
 
 //MODAL REG OR LOGIN
-
+.moda{
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  h3{
+    color:white;
+  }
+}
 

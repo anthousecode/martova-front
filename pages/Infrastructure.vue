@@ -126,10 +126,27 @@
     }
 
     .infra {
-      top: 6.04vw;
       position: relative;
       width: 100%;
       background: transparent;
+      @media screen and (max-width: 1281px){
+        top: 77.3px;
+      }
+      @media screen and (min-width: 1281px) and (max-width: 1899px){
+        top: 96.7px;
+      }
+      @media screen and (min-width: 1899px) and (max-width: 2047px){
+        top: 116px;
+      }
+      @media screen and (min-width: 2047px){
+        top: 122px;
+      }
+      @media screen and (min-width: 2200px){
+        top: 214px;
+      }
+      @media screen and (width: 2560px) {
+        top: 138px;
+      }
       section {
         flex-grow: 1;
         display: flex;

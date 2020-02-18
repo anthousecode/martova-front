@@ -1,6 +1,17 @@
 <template>
   <div class="about-wrapper d-flex">
-    <img class="about-bg" src="/О_нас.png" alt="">
+<!--    <img class="about-bg" src="/О_нас.png" alt="">-->
+    <img v-if="getWindowWidth<=1281" class="bg" src="/about/1280About.jpg" alt="big">
+    <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681" class="bg"
+         id="bg" src="/about/1680About.jpg" alt="big">
+    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921)&& getWindowHeight<1090" class="bg"
+         src="about/1920About.jpg" alt="big">
+<!--    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921) && getWindowHeight>1091" class="bg"-->
+<!--         src="/about/19201About.jpg" alt="big">-->
+    <img v-else-if="getWindowWidth>=1921 && getWindowWidth<2800" class="bg"
+         src="/about/2048About.jpg" alt="big">
+    <!--    <img v-else-if="getWindowWidth===2880" class="bg" src="/news/pro.png" alt="big">-->
+    <!--    <img v-else-if="getWindowWidth===3200" class="bg" src="/news/3600.png" alt="big">-->
     <div class="about d-flex justify-content-center">
       <div class="about-modal d-flex p-4 pb-3">
         <h3>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне</h3>
@@ -28,7 +39,15 @@
 
 <script>
     export default {
-        name: "About"
+        name: "About",
+        computed:{
+            getWindowWidth() {
+                return window.innerWidth;
+            },
+            getWindowHeight() {
+                return window.innerHeight;
+            },
+        }
     }
 </script>
 
@@ -41,18 +60,33 @@
     z-index: 0;
     position: relative;
     overflow: hidden;
-
-    .about-bg {
+    img{
       position: absolute;
       display: block;
-      width: 100%;
-      height: 100%;
+      object-fit: none;
     }
 
     .about {
-      margin-top: 6.04vw;;
       position: relative;
       width: 100%;
+      @media screen and (max-width: 1281px){
+        margin-top: 77.3px;
+      }
+      @media screen and (min-width: 1281px) and (max-width: 1899px){
+        margin-top: 96.7px;
+      }
+      @media screen and (min-width: 1899px) and (max-width: 2047px){
+        margin-top: 116px;
+      }
+      @media screen and (min-width: 2047px){
+        margin-top: 122px;
+      }
+      @media screen and (min-width: 2200px){
+        margin-top: 214px;
+      }
+      @media screen and (width: 2560px) {
+        margin-top: 138px;
+      }
 
       .about-modal {
         font-family: 'Open Sans', sans-serif;

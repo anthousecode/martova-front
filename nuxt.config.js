@@ -4,7 +4,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'nuxt-proj',
+    title: 'Мартовая Риверсайд',
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
@@ -49,6 +49,7 @@ module.exports = {
     {src: '~plugins/vuelidate', ssr: false},
     {src: '~plugins/vue-notifications', ssr: false},
     {src: '~plugins/locales/localize.filter.js', mode: 'client'}
+    // {src: '~plugins/VueSocialAuth.js', mode: 'client'}
   ],
   build: {
     vendor: ["jquery", "/js/turntable.js", 'vuelidate', 'vue-notifications', 'localize.filter'],

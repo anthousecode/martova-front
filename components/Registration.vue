@@ -16,7 +16,21 @@
           </div>
           <div class="modal-body p-5 pb-0">
             <h4 class="modal-title text-center">{{$options.filters.toUSD(language, 'Регистрация')}}</h4>
-
+            <div class="form-group my-4">
+              <input
+                v-model.trim="name"
+                type="text"
+                class="form-control"
+                id="exampleInputEmail"
+                aria-describedby="emailHelp"
+                :placeholder="this.$options.filters.toUSD(this.language, 'Введите имя')"
+              >
+              <small
+                class="text-danger"
+                v-if="($v.email.$dirty && !$v.email.required)"
+              >{{$options.filters.toUSD(language, 'notEmptyName')}}
+              </small>
+            </div>
             <div class="form-group my-4">
               <input
                 v-model.trim="email"
@@ -48,8 +62,20 @@
                 {{$options.filters.toUSD(this.language, 'Пароль должен быть не менее')}}
                 {{$v.password.$params.minLength.min}} {{$options.filters.toUSD(this.language, 'символов')}} </small>
             </div>
+            <div class="form-group my-4">
+              <input
+                v-model.trim="repeat"
+                class="form-control"
+                type="password"
+                id="exampleInputPassword6"
+                :placeholder="this.$options.filters.toUSD(this.language, 'Повторите пароль')"
+              >
+              <small v-if="$v.password.$dirty && !$v.password.required" class="text-danger">{{$options.filters.toUSD(this.language, 'Повторите пароль')}}</small>
+              <small v-else-if="$v.password.$dirty && !$v.password.minLength" class="text-danger">
+                {{$options.filters.toUSD(this.language, 'Пароль должен быть не менее')}}
+                {{$v.password.$params.minLength.min}} {{$options.filters.toUSD(this.language, 'символов')}} </small>
+            </div>
             <a
-
               href="#"
               class="text-center w-100 d-block"
               style="cursor: pointer; color: dodgerblue"
@@ -91,8 +117,10 @@
             target: String
         },
         data: () => ({
+            name: '',
             email: '',
             password: '',
+            repeat: ''
         }),
         validations: {
             email: {email, required},
@@ -110,9 +138,32 @@
                     return
                 }
                 const formData = {
+                    name: this.name,
                     email: this.email,
-                    password: this.password
+                    password: this.password,
+                    c_password: this.repeat
                 };
+
+                this.$axios.post('register', formData, {
+                    crossdomain: true,
+                    mode: 'no-cors',
+                    dataType: "json",
+                }).then(()=>{
+                    this.$notify({
+                        group: 'foo',
+                        type: 'success',
+                        title: ``,
+                        text: `Вы успешно зарегистрировались!`
+                    })
+                }).catch((e)=>{
+                    this.$notify({
+                        group: 'foo',
+                        type: 'error',
+                        title: `Ошибка при регистрации`,
+                        text: e.text
+                    })
+                })
+
                 if (this.target==='like'){
                     this.itsLike()
                 } else {

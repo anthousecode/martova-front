@@ -1,21 +1,26 @@
 <template>
   <ul class="d-flex justify-content-around soc-group">
     <li>
-      <a href="https://uk-ua.facebook.com/" target="_blank" class="soc soc-fb">
+      <a
+        @click.prevent="authInSocial('facebook')"
+        href="#" class="soc soc-fb">
         <i class="fab fa-facebook-f">
         </i>
       </a>
     </li>
     <li>
-      <a href="https://www.instagram.com/?hl=ru" target="_blank" class="soc soc-insta">
+      <a
+        @click.prevent="authInSocial('instagram')"
+        href="#" target="_blank" class="soc soc-insta">
         <i class="fab fa-instagram">
         </i>
       </a>
     </li>
     <li>
       <a
-        href="https://accounts.google.com/AccountChooser/signinchooser?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser"
-        target="_blank" class="soc soc-gmail">
+        @click.prevent="authInSocial('google')"
+        href="#"
+        class="soc soc-gmail">
         <i class="fab fa-google-plus-square"></i>
       </a>
     </li>
@@ -36,6 +41,38 @@
         methods: {
             emitOpenFormModal() {
                 this.$emit('emitOpenFormModal');
+            },
+            authInSocial(socName) {
+                this.$notify({
+                    group: 'top',
+                    type: 'success',
+                    title: `Успех`,
+                    text: `${this.$axios.defaults.baseURL}oauth/${socName}/authenticate`,
+                    duration: 3000
+                });
+                console.log('545', `${this.$axios.defaults.baseURL}oauth/${socName}/authenticate`)
+                this.$axios.get(`oauth/${socName}/authenticate`, {
+                    crossdomain: true,
+                    mode: 'no-cors',
+                    dataType: "json"
+                }).then((res) => {
+                        this.$emit('authInSocial', res.data);
+                        this.$notify({
+                            group: 'top',
+                            type: 'success',
+                            title: `Успех`,
+                            text: `Авторизация прошла успешно!`,
+                            duration: 3000
+                        });
+                    }).catch((e) => {
+                    this.$notify({
+                        group: 'top',
+                        type: 'error',
+                        title: `Ошибка авторизации`,
+                        text: e,
+                        duration: 3000
+                    });
+                })
             }
         }
     }
