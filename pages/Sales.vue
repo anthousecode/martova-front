@@ -1,5 +1,10 @@
 <template>
   <section id="sales-wrapper">
+<!--    <iframe-->
+<!--      :src="currentRegion.plan" id="myFrame"-->
+<!--      frameborder="0" style="border:0; position: fixed; top: 0;z-index:99999;width: 300px; height: 300px;"-->
+<!--      width="300px" height="300px">-->
+<!--    </iframe>-->
     <div id="search-bar" class="search-bar d-flex justify-content-around align-items-center">
       <notifications group="foo" position="center"/>
       <button @click="filterByStatus('rgba(209, 13, 13, 0.5)')" class="status status-red">
@@ -81,19 +86,21 @@
                 <div style="width: 325px;">
                   <p class="mb-2" style="color:black;">{{this.$options.filters.toUSD(language, 'Кадастровый план')}} </p>
                   <a href="#" class="plan-img">
-                    <img src="../static/photo_2020-02-06_17-22-38.jpg" alt="plan">
+                    <img :src="currentRegion.image" alt="plan">
                   </a>
-                  <a href="#" @click.prevent="window.print()" class="save-link text-right" style="cursor: pointer">{{this.$options.filters.toUSD(language,
+                  <a href="#" @click.prevent="print()" class="save-link text-right" style="cursor: pointer">{{this.$options.filters.toUSD(language,
                     'Распечатать')}}</a>
+<!--                  <input type="button" id="bt" onclick="print(currentRegion.plan)" class="save-link text-right" style="cursor: pointer" :value="this.$options.filters.toUSD(language,-->
+<!--                    'Распечатать')" />-->
                 </div>
                 <div class=" pl-4">
                   <p class="mb-2" style="color:black;">{{this.$options.filters.toUSD(language, 'Геодезическая съемкa')}}</p>
                   <div>
-                    <a href="../static/dwg.svg" class="save-link d-flex align-items-center" download>
+                    <a :href="currentRegion.survey" class="save-link d-flex align-items-center" download>
                       <img src="../static/dwg.svg" alt="doc">
                       <span>{{this.$options.filters.toUSD(language, 'Скачать')}}</span>
                     </a>
-                    <a href="../static/dwg.svg" class="save-link d-flex align-items-center mt-3" download>
+                    <a :href="currentRegion.plan" class="save-link d-flex align-items-center mt-3" download>
                       <img src="../static/pdf.svg" alt="doc">
                       <span>{{this.$options.filters.toUSD(language, 'Скачать')}}</span>
                     </a>
@@ -2486,6 +2493,15 @@
             ])
         },
         methods: {
+            print() {
+                const file = this.$axios.post(`http://sweews.herokuapp.com/get-drive-file`, {
+                    link: 'https://drive.google.com/uc?id=1MrzCAWCRkdELxY9Of6-tBalvULmIDsxm&export=download'
+                }).then((i)=>{
+                    console.log(i)
+                    let w = window.open(i)
+                    w.print()
+                })
+            },
             setLastIndexToCounter(index) {
                 this.rotateCounter = index - 1;
             },

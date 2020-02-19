@@ -2,12 +2,11 @@ export const state = () => ({
   language: 'ru',
   postId: null,
   userName: '',
-  basePath: 'www.martovariverside.com'
+  basePath: 'https://www.martovariverside.com'
 });
 export const mutations = {
   SET_RUS_LANGUAGE(state) {
     state.language = 'ru'
-
   },
   SET_UA_LANGUAGE(state) {
     state.language = 'ua'
