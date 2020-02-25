@@ -5,6 +5,7 @@
     <div style="width: 100vw;" class="container-fluid">
       <div class="row justify-content-center align-items-center">
         <nuxt/>
+
       </div>
     </div>
   </main>

@@ -1,7 +1,6 @@
 export const state = () => ({
   language: 'ru',
   postId: null,
-  userName: '',
   basePath: 'https://www.martovariverside.com'
 });
 export const mutations = {
@@ -14,9 +13,6 @@ export const mutations = {
   },
   SET_POST_ID(state, id) {
     state.postId = id
-  },
-  SET_USER_NAME(state, userName) {
-    state.userName = userName
   }
 };
 export const actions = {
@@ -29,6 +25,5 @@ export const actions = {
 export const getters = {
   language: s => s.language,
   postId: s => s.postId,
-  userName: s => s.userName,
   basePath: s => s.basePath
 };

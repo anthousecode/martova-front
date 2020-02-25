@@ -114,12 +114,13 @@ button {
   justify-content: center;
   width: 100% !important;
   height: 100%;
+  transform: none!important;
 }
 
 .owl-theme .owl-nav {
   position: absolute;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 44px;
+  padding-right: 44px;
   top: 46%;
   width: 100%;
   display: flex;
@@ -242,7 +243,7 @@ button {
 .closer {
   position: absolute;
   top: 20px;
-  right: 25px;
+  right: 49px;
   width: 31px;
   z-index: 9999;
   height: 31px;
@@ -270,7 +271,7 @@ button {
 }
 
 polygon {
-  stroke-width: 2;
+  stroke-width: 1;
   cursor: pointer;
   position: relative;
   transition: opacity 1s ease-in;

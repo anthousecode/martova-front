@@ -113,7 +113,7 @@
                 this.$store.commit('SET_UA_LANGUAGE')
             }
         },
-        async mounted() {
+        async beforeCreate() {
             this.menuItems = await this.$axios.$get(`pages`);
         }
     }

@@ -12,6 +12,9 @@
 
 <script>
     export default {
+        props:{
+          isReady: Boolean
+        },
         data: () => ({
             loading: false
         }),
@@ -22,6 +25,15 @@
             finish() {
                 this.loading = false
             }
+        },
+        // watch:{
+        //     isReady: function (val) {
+        //         console.log(val)
+        //
+        //     },
+        // },
+        mounted() {
+            this.isReady ? this.loading = true : this.loading = false;
         }
     }
 </script>
@@ -43,7 +55,7 @@
     .spinner-grow {
       width: 100px;
       height: 100px;
-      margin-bottom: 100px;
+      margin-bottom: 200px;
     }
   }
 </style>

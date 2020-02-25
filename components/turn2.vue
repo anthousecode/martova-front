@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 100%;
   height: 382px;">
     <div
       id="myTurntable"
@@ -46,7 +46,7 @@
 
 <script>
     export default {
-        name: "turntable",
+        name: "turn2",
         props: {
             rotateCounter: Number
         },
@@ -76,4 +76,8 @@
     }
 </script>
 <style scoped lang="scss">
+  img{
+    margin-top: 0;
+  }
 </style>
+

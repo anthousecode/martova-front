@@ -1,16 +1,17 @@
 <template>
-  <div class="container-fluid gallery-wrapper p-0 d-flex">
+  <div  @keyup.right="nextImage()"
+        @keyup.left="prevImage()" class="container-fluid gallery-wrapper p-0 d-flex">
     <img v-if="getWindowWidth<=1281" class="bg" src="/gallery/1280Gallery.jpg" alt="big">
     <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681" class="bg"
          id="bg" src="/gallery/1680Gallery.jpg" alt="big">
     <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921)" class="bg"
          src="/gallery/1920Gallery.jpg" alt="big">
-<!--    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921) && getWindowHeight>1091" class="bg"-->
-<!--         src="/gallery/19201News.jpg" alt="big">-->
+    <!--    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921) && getWindowHeight>1091" class="bg"-->
+    <!--         src="/gallery/19201News.jpg" alt="big">-->
     <img v-else-if="getWindowWidth>=1921 && getWindowWidth<2800" class="bg"
          src="/gallery/2048Gallery.jpg" alt="big">
     <!--    <img v-else-if="getWindowWidth===2880" class="bg" src="/news/pro.png" alt="big">-->
-        <img v-else class="bg" src="/gallery/4kGallery.jpg" alt="big">
+    <img v-else class="bg" src="/gallery/4kGallery.jpg" alt="big">
     <div
       v-if="isCarouselVisible"
       class="modal fade show d-block"
@@ -27,6 +28,7 @@
           <div
             class="modal-body d-flex justify-content-center align-items-center"
           >
+
             <carousel
               v-click-outside="hideCarousel"
               :nav="true"
@@ -58,7 +60,7 @@
         </div>
       </div>
     </div>
-<!--    <img class="gallery-bg" src="/galerie_2.jpg" alt="Галерея">-->
+    <!--    <img class="gallery-bg" src="/galerie_2.jpg" alt="Галерея">-->
     <div class="row gallery py-5 px-5">
       <figure
         v-for="(image, i) of images"
@@ -81,6 +83,7 @@
 <script>
     import vClickOutside from 'v-click-outside';
     import carousel from 'vue-owl-carousel';
+    import $ from 'jquery';
 
     export default {
         name: "Gallery",
@@ -101,7 +104,7 @@
                     console.log(e)
                 })
         },
-        computed:{
+        computed: {
             getWindowWidth() {
                 return window.innerWidth;
             },
@@ -116,6 +119,12 @@
             },
             hideCarousel() {
                 this.isCarouselVisible = false;
+            },
+            nextImage(){
+                $('.owl-next').click()
+            },
+            prevImage(){
+                $('.owl-prev').click()
             }
         }
     }

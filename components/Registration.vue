@@ -132,6 +132,34 @@
             ])
         },
         methods: {
+            login(){
+                this.$axios.post('login', {
+                    email: this.email,
+                    password: this.password
+                }).then((res)=>{
+                    this.setCookie('token', res.data.key, 2);
+                    this.$notify({
+                        group: 'foo',
+                        type: 'success',
+                        title: ``,
+                        text: `Вы успешно зарегистрировались!`
+                    })
+                }).catch(()=>{
+                    this.$notify({
+                        group: 'foo',
+                        type: 'error',
+                        title: `Ошибка входа`,
+                        text: e.text
+                    })
+                })
+            },
+            setCookie(cname, cvalue, exdays) {
+                document.cookie = cname + "=" + cvalue + ";";
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                var expires = "expires="+ d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";";
+            },
             submitHandler() {
                 if (this.$v.$invalid) {
                     this.$v.$touch();
@@ -149,12 +177,7 @@
                     mode: 'no-cors',
                     dataType: "json",
                 }).then(()=>{
-                    this.$notify({
-                        group: 'foo',
-                        type: 'success',
-                        title: ``,
-                        text: `Вы успешно зарегистрировались!`
-                    })
+                   this.login();
                 }).catch((e)=>{
                     this.$notify({
                         group: 'foo',
@@ -169,7 +192,6 @@
                 } else {
                     this.itsComment()
                 }
-                this.commitUserName(this.email);
                 this.closeModal()
                 // try {
                 //     debugger
@@ -190,10 +212,6 @@
             },
             showLogin() {
                 this.$emit('showLogin')
-            },
-            commitUserName(name){
-                let userName = name.slice(0, name.indexOf('@'));
-                this.$store.commit('SET_USER_NAME', userName);
             }
         },
     }

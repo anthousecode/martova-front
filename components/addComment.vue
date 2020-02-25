@@ -1,6 +1,6 @@
 <template>
   <div class="comment d-flex justify-content-center align-items-center my-4">
-    <p class="px-3 pt-3 font-weight-bold">{{userName}}</p>
+
     <div class="area-group">
       <textarea
         @click="getCurretPosition($event)"
@@ -8,7 +8,7 @@
         v-model="comment"
         class="px-3 py-2"
         type="text"
-        placeholder="Напишите комментарий">
+        :placeholder="this.$options.filters.toUSD(language, 'Напишите комментарий')">
       </textarea>
       <a
         @click="isEmojiShow = !isEmojiShow"
@@ -36,11 +36,11 @@
       v-if="visible"
       class="btn btn-info ml-3"
     >
-      Загрузть
+      {{this.$options.filters.toUSD(language, 'Загрузть')}}
       <i class="fas fa-upload"></i>
     </button>
-    <button class="btn btn-primary ml-3">
-      Отправить
+    <button @click="addComment(comment)" class="btn btn-primary ml-3">
+      {{this.$options.filters.toUSD(language, 'Отправить')}}
     </button>
     <VEmojiPicker
       v-if="isEmojiShow"
@@ -53,6 +53,8 @@
 <script>
     import VEmojiPicker from 'v-emoji-picker';
     import vClickOutside from 'v-click-outside';
+    import localizeFilter from "../plugins/locales/localize.filter";
+    import {mapGetters} from 'vuex';
 
     export default {
         name: "addComment",
@@ -65,15 +67,16 @@
             isEmojiShow: false,
             curretPosition: null,
             selectedFile: null,
-            visible: false
+            visible: false,
+            sorce:''
         }),
         directives: {
             clickOutside: vClickOutside.directive
         },
-        computed: {
-            userName() {
-                return this.$store.getters.userName
-            }
+        computed:{
+            ...mapGetters([
+                'language'
+            ])
         },
         methods: {
             getCurretPosition(e) {
@@ -90,9 +93,20 @@
                 console.log(this.selectedFile);
                 this.visible = true;
             },
+            addComment(comment){
+                this.$emit('addComment', comment);
+                this.comment = '';
+            },
             onUpload() {
                 this.visible = false;
-                this.$emit("emitToWidgetEditSave", this.selectedFile);
+                this.$emit("emitToImageSave", this.selectedFile);
+                this.$notify({
+                    group: 'top',
+                    type: 'success',
+                    title: ``,
+                    text: 'Загрузка завершена.'
+                });
+                this.selectedFile = null
             },
         }
     }

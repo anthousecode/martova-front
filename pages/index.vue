@@ -1,46 +1,52 @@
 <template>
-  <div class="index-wrapper">
-    <div class="position-relative img-container">
-      <Pano
-        style="
+  <section>
+    <div :class="{visible: isReady}" class="index-wrapper">
+      <div class="position-relative img-container">
+        <Pano
+          style="
            width: 100vw !important;
     height: 100vh !important;
         "
-        :source="urls[index]"
-      />
-      <div class="controls">
-        <div class="controls-group">
-          <div @click="getPrevSlide" class="controls-arrow controls-arrow__left">
-            &#10092;
+          @on-load="readyChange"
+          :source="urls[index]"
+        />
+        <div class="controls">
+          <div class="controls-group">
+            <div @click="getPrevSlide" class="controls-arrow controls-arrow__left">
+              &#10092;
+            </div>
+            <div class="rounded-circle" style="padding-left: 0.182vw;">
+              360
+              <sup>°</sup>
+            </div>
+            <div @click="getNextSlide" class="controls-arrow controls-arrow__right">
+              &#10093;
+            </div>
           </div>
-          <div class="rounded-circle" style="padding-left: 0.182vw;">
-            360
-            <sup>°</sup>
-          </div>
-          <div @click="getNextSlide" class="controls-arrow controls-arrow__right">
-            &#10093;
+          <div class="controls-title">
+            3D ТУР
           </div>
         </div>
-        <div class="controls-title">
-          3D ТУР
+        <div class="index-title">
+          <div v-if="isRus" class="h2"><img src="/h2.svg" alt="h2"></div>
+          <div v-else class="h2"><img  src="/надпись_укр.svg" alt="h2"></div>
+          <div class="h1"><img src="/h1.svg" alt="h1"></div>
         </div>
-      </div>
-      <div class="index-title">
-        <div v-if="isRus" class="h2"><img src="/h2.svg" alt="h2"></div>
-        <div v-else class="h2"><img  src="/надпись_укр.svg" alt="h2"></div>
-        <div class="h1"><img src="/h1.svg" alt="h1"></div>
       </div>
     </div>
-  </div>
+    <loading :isReady="!isReady" v-if="!isReady"/>
+  </section>
+
 </template>
 
 
 <script>
-    import {Pano} from 'vuejs-vr'
+    import {Pano} from 'vuejs-vr';
     import { mapGetters } from 'vuex';
+    import Loading from "../components/loading";
 
     export default {
-        components: {Pano},
+        components: {Loading, Pano},
         data: () => ({
             urls: [
                 '/bar_360_проба2.jpg',
@@ -49,6 +55,7 @@
                 '/cort.jpg',
             ],
             index: 0,
+            isReady:false
         }),
         computed: {
             ...mapGetters([
@@ -62,10 +69,15 @@
             }
         },
         methods: {
+            readyChange(){
+                requestAnimationFrame(() => this.isReady = true)
+            },
             setCanvasSize() {
                 let canvas = document.getElementsByClassName('panolens-canvas')[0];
-                canvas.setAttribute('width', window.innerWidth);
-                canvas.setAttribute('height', window.innerHeight);
+                if(canvas){
+                    canvas.setAttribute('width', window.innerWidth);
+                    canvas.setAttribute('height', window.innerHeight);
+                }
             },
             getPrevSlide() {
                 this.index > 0 ?
@@ -79,21 +91,20 @@
             }
         },
         mounted() {
-
-          setTimeout(()=>{
-              this.setCanvasSize();
-          }, 1000)
-
+            this.setCanvasSize();
         }
     }
 </script>
 
 <style scoped lang="scss">
-
+.visible{
+  visibility: visible;
+}
   .index-wrapper {
     color: white;
     height: 100vh;
     z-index: 0;
+    visibility: hidden;
     position: relative;
     overflow: hidden;
 

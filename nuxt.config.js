@@ -8,7 +8,7 @@ module.exports = {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: 'Nuxt.js project'}
+      {hid: 'description', name: 'description', content: 'Мартовая Риверсайд - продажа участков'}
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
@@ -48,7 +48,8 @@ module.exports = {
     {src: '~plugins/pano.js',  ssr: false},
     {src: '~plugins/vuelidate', ssr: false},
     {src: '~plugins/vue-notifications', ssr: false},
-    {src: '~plugins/locales/localize.filter.js', mode: 'client'}
+    {src: '~plugins/locales/localize.filter.js', mode: 'client'},
+    {src: '@plugins/eventBus'}
     // {src: '~plugins/VueSocialAuth.js', mode: 'client'}
   ],
   build: {

@@ -1,45 +1,55 @@
 <template>
-  <div class="about-wrapper d-flex">
-<!--    <img class="about-bg" src="/О_нас.png" alt="">-->
-    <img v-if="getWindowWidth<=1281" class="bg" src="/about/1280About.jpg" alt="big">
-    <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681" class="bg"
-         id="bg" src="/about/1680About.jpg" alt="big">
-    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921)&& getWindowHeight<1090" class="bg"
-         src="about/1920About.jpg" alt="big">
-<!--    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921) && getWindowHeight>1091" class="bg"-->
-<!--         src="/about/19201About.jpg" alt="big">-->
-    <img v-else-if="getWindowWidth>=1921 && getWindowWidth<2800" class="bg"
-         src="/about/2048About.jpg" alt="big">
-    <!--    <img v-else-if="getWindowWidth===2880" class="bg" src="/news/pro.png" alt="big">-->
-    <!--    <img v-else-if="getWindowWidth===3200" class="bg" src="/news/3600.png" alt="big">-->
-    <div class="about d-flex justify-content-center">
-      <div class="about-modal d-flex p-4 pb-3">
-        <h3>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне</h3>
-        <div class="text">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus dicta
-            distinctio dolorem, doloribus eius error inventore iusto neque nesciunt nulla quaerat recusandae rerum
-            soluta temporibus totam.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus dicta
-            distinctio dolorem, doloribus eius error inventore iusto neque nesciunt nulla quaerat recusandae rerum
-            soluta temporibus totam.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus dicta
-            distinctio .</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus .</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus dicta
-            distinctio dolorem, doloribus eius error inventore iusto neque nesciunt nulla quaerat recusandae rerum
-            soluta temporibus totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda commodi
-            dignissimos est facere illum tempore. Dolore fuga numquam qui repudiandae? Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Enim iusto officiis quidem? Ab, accusamus amet at aut consectetur debitis
-            delectus dolorum esse est laboriosam necessitatibus nemo nobis, officiis perferendis porro quidem. </p>
+  <div>
+    <div :class="{visible: isReady}"
+         class="about-wrapper d-flex">
+      <!--    <img class="about-bg" src="/О_нас.png" alt="">-->
+      <img v-if="getWindowWidth<=1281" class="bg" src="/about/1280About.jpg" alt="big">
+      <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681" class="bg"
+           id="bg" src="/about/1680About.jpg" alt="big">
+      <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921)&& getWindowHeight<1090" class="bg"
+           src="about/1920About.jpg" alt="big">
+      <!--    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921) && getWindowHeight>1091" class="bg"-->
+      <!--         src="/about/19201About.jpg" alt="big">-->
+      <img v-else-if="getWindowWidth>=1921 && getWindowWidth<2800" class="bg"
+           src="/about/2048About.jpg" alt="big">
+      <!--    <img v-else-if="getWindowWidth===2880" class="bg" src="/news/pro.png" alt="big">-->
+      <!--    <img v-else-if="getWindowWidth===3200" class="bg" src="/news/3600.png" alt="big">-->
+      <div class="about d-flex justify-content-center">
+        <div class="about-modal d-flex p-4 pb-3">
+          <h3>Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне</h3>
+          <div class="text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus dicta
+              distinctio dolorem, doloribus eius error inventore iusto neque nesciunt nulla quaerat recusandae rerum
+              soluta temporibus totam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus dicta
+              distinctio dolorem, doloribus eius error inventore iusto neque nesciunt nulla quaerat recusandae rerum
+              soluta temporibus totam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus dicta
+              distinctio .</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus .</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem beatae blanditiis, delectus dicta
+              distinctio dolorem, doloribus eius error inventore iusto neque nesciunt nulla quaerat recusandae rerum
+              soluta temporibus totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda commodi
+              dignissimos est facere illum tempore. Dolore fuga numquam qui repudiandae? Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit. Enim iusto officiis quidem? Ab, accusamus amet at aut consectetur debitis
+              delectus dolorum esse est laboriosam necessitatibus nemo nobis, officiis perferendis porro quidem. </p>
+          </div>
         </div>
       </div>
     </div>
+    <loading v-if="!isReady" :isReady="!isReady"/>
   </div>
+
 </template>
 
 <script>
+    import Loading from "../components/loading";
     export default {
         name: "About",
+        components: {Loading},
+        data:()=>({
+           isReady:false
+        }),
         computed:{
             getWindowWidth() {
                 return window.innerWidth;
@@ -47,11 +57,17 @@
             getWindowHeight() {
                 return window.innerHeight;
             },
+        },
+        mounted() {
+            this.isReady = true;
         }
     }
 </script>
 
 <style scoped lang="scss">
+  .visible{
+    visibility: visible;
+  }
   .about-wrapper {
     justify-content: center;
     align-items: center;

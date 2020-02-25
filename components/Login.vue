@@ -94,22 +94,31 @@
             ])
         },
         methods: {
+            setCookie(cname, cvalue, exdays) {
+                document.cookie = cname + "=" + cvalue + ";";
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                var expires = "expires="+ d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";";
+            },
             submitHandler() {
                 if (this.$v.$invalid) {
                     this.$v.$touch();
+                    this.$emit('loginFalse');
                     return
                 }
-                this.$emit('loginFalse');
-                const formData = {
+
+                this.$axios.post('login', {
                     email: this.email,
                     password: this.password
-                };
+                }).then((res)=>{
+                    this.setCookie('token', res.data.key, 2);
+                });
                 if (this.target==='like'){
                     this.itsLike()
                 } else {
                     this.itsComment()
                 }
-                this.commitUserName(this.email);
                 this.closeModal()
                 // try {
                 //     debugger
@@ -123,15 +132,12 @@
                 this.$emit('addLike')
             },
             itsComment(){
+
                 this.$emit('addComment')
             },
             closeModal() {
                 this.$emit('closeModal');
                 this.$emit('loginFalse');
-            },
-            commitUserName(name){
-                let userName = name.slice(0, name.indexOf('@'));
-                this.$store.commit('SET_USER_NAME', userName);
             }
         },
     }

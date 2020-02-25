@@ -43,36 +43,7 @@
                 this.$emit('emitOpenFormModal');
             },
             authInSocial(socName) {
-                this.$notify({
-                    group: 'top',
-                    type: 'success',
-                    title: `Успех`,
-                    text: `${this.$axios.defaults.baseURL}oauth/${socName}/authenticate`,
-                    duration: 3000
-                });
-                console.log('545', `${this.$axios.defaults.baseURL}oauth/${socName}/authenticate`)
-                this.$axios.get(`oauth/${socName}/authenticate`, {
-                    crossdomain: true,
-                    mode: 'no-cors',
-                    dataType: "json"
-                }).then((res) => {
-                        this.$emit('authInSocial', res.data);
-                        this.$notify({
-                            group: 'top',
-                            type: 'success',
-                            title: `Успех`,
-                            text: `Авторизация прошла успешно!`,
-                            duration: 3000
-                        });
-                    }).catch((e) => {
-                    this.$notify({
-                        group: 'top',
-                        type: 'error',
-                        title: `Ошибка авторизации`,
-                        text: e,
-                        duration: 3000
-                    });
-                })
+                window.location.href = `${this.$axios.defaults.baseURL}oauth/${socName}/authenticate`;
             }
         }
     }

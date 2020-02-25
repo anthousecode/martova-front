@@ -1,19 +1,14 @@
 <template>
   <section id="sales-wrapper">
-<!--    <iframe-->
-<!--      :src="currentRegion.plan" id="myFrame"-->
-<!--      frameborder="0" style="border:0; position: fixed; top: 0;z-index:99999;width: 300px; height: 300px;"-->
-<!--      width="300px" height="300px">-->
-<!--    </iframe>-->
     <div id="search-bar" class="search-bar d-flex justify-content-around align-items-center">
       <notifications group="foo" position="center"/>
-      <button @click="filterByStatus('rgba(209, 13, 13, 0.5)')" class="status status-red">
+      <button @click="filterByStatus('rgba(255, 72, 9, 0.4)')" class="status status-red">
         {{this.$options.filters.toUSD(language, 'Sales')}}
       </button>
-      <button @click="filterByStatus('rgba(250, 214, 29, 0.5)')" class="status status-yellow">
+      <button @click="filterByStatus('rgba(250, 214, 29, 0.4)')" class="status status-yellow">
         {{this.$options.filters.toUSD(language, 'Reserved')}}
       </button>
-      <button @click="filterByStatus('rgba(4, 136, 25, 0.5)')" class="status status-green">
+      <button @click="filterByStatus('rgba(4, 136, 25, 0.4)')" class="status status-green">
         {{this.$options.filters.toUSD(language, 'Free')}}
       </button>
       <button
@@ -46,7 +41,7 @@
             <p>Паспорт {{this.$options.filters.toUSD(language, 'Участка')}} № {{currentRegion.otherInfo.number}}</p>
           </div>
           <div>
-            <a href="#" id="closer"><img src="../static/closerModal.svg" alt="close"></a>
+            <a @click="hideAll" href="#" id="closer"><img src="../static/closerModal.svg" alt="close"></a>
           </div>
         </div>
         <hr class="p-0 mt-1">
@@ -73,7 +68,7 @@
                     <p class="p-description">{{currentRegion.otherInfo.square}} га</p></div>
                   <div class="d-flex list">
                     <p class="p-title"> Статус: </p>
-                    <p :style="{borderBottom: `2px solid ${currentRegion.modelView.fill}`}" class="p-description">
+                    <p :style="{borderBottom: `2px solid ${currentRegion.modelView.stroke}`}" class="p-description">
                       {{ language==='ru' ? currentRegion.status.ru_name : currentRegion.status.ua_name}}</p>
                   </div>
                   <div class="d-flex list">
@@ -82,17 +77,15 @@
                       {{currentRegion.otherInfo.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}}</p></div>
                 </div>
               </div>
+
+
+
               <div class="d-flex mt-3">
-                <div style="width: 325px;">
-                  <p class="mb-2" style="color:black;">{{this.$options.filters.toUSD(language, 'Кадастровый план')}} </p>
-                  <a href="#" class="plan-img">
-                    <img :src="currentRegion.image" alt="plan">
-                  </a>
-                  <a href="#" @click.prevent="print()" class="save-link text-right" style="cursor: pointer">{{this.$options.filters.toUSD(language,
-                    'Распечатать')}}</a>
-<!--                  <input type="button" id="bt" onclick="print(currentRegion.plan)" class="save-link text-right" style="cursor: pointer" :value="this.$options.filters.toUSD(language,-->
-<!--                    'Распечатать')" />-->
-                </div>
+                <turntable
+                  :rotateCounter="rotateCounter"
+                  @setLastIndexToCounter="setLastIndexToCounter"
+                  @setZeroIndexToCounter="setZeroIndexToCounter"
+                />
                 <div class=" pl-4">
                   <p class="mb-2" style="color:black;">{{this.$options.filters.toUSD(language, 'Геодезическая съемкa')}}</p>
                   <div>
@@ -106,29 +99,33 @@
                     </a>
                   </div>
                 </div>
+                <div class="model-controls d-flex justify-content-between">
+                  <div
+                    @mousedown="startTurntableMouseDown('left')"
+                    @mouseup="stopTurntable()"
+                    @click="startTurntable('left')"
+                  >
+                    <img src="/prev.svg" alt="prev">
+                  </div>
+                  <div
+                    @mouseup="stopTurntable()"
+                    @mousedown="startTurntableMouseDown('right')"
+                    @click="startTurntable('right')"
+                  >
+                    <img src="/next.svg" alt="next">
+                  </div>
+                </div>
               </div>
             </div>
             <div class="w-50 position-relative">
-              <turntable
-                :rotateCounter="rotateCounter"
-                @setLastIndexToCounter="setLastIndexToCounter"
-                @setZeroIndexToCounter="setZeroIndexToCounter"
-              />
-              <div class="model-controls d-flex justify-content-between">
-                <div
-                  @mousedown="startTurntableMouseDown('left')"
-                  @mouseup="stopTurntable()"
-                  @click="startTurntable('left')"
-                >
-                  <img src="/prev.svg" alt="prev">
-                </div>
-                <div
-                  @mouseup="stopTurntable()"
-                  @mousedown="startTurntableMouseDown('right')"
-                  @click="startTurntable('right')"
-                >
-                  <img src="/next.svg" alt="next">
-                </div>
+              <div style="width: 100%;">
+                <p class="mb-2" style="color:black;">{{this.$options.filters.toUSD(language, 'Кадастровый план')}} </p>
+                <a href="#" class="plan-img">
+                  <img :src="currentRegion.image" alt="plan">
+                </a>
+
+                <a :href="foof(currentRegion)" target="_blank"  class="save-link text-right" style="cursor: pointer">{{this.$options.filters.toUSD(language,
+                  'Распечатать')}}</a>
               </div>
             </div>
           </div>
@@ -140,9 +137,9 @@
 
     <div class="wrapper min-container">
       <img v-if="getWindowWidth<=1281" class="big-img min-container" id="bigImg3" src="/12801.jpg" alt="big">
-      <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681 && getWindowHeight<1024" class="big-img min-container"
+      <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681 && getWindowHeight<978" class="big-img min-container"
            id="bigImg8" src="/1680.jpg" alt="big">
-      <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681  && getWindowHeight>=1024"
+      <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681  && getWindowHeight>=978"
            class="big-img min-container" id="bigImg7" src="/16801.jpg" alt="big">
       <img v-else-if="getWindowWidth>1681 && getWindowWidth<1921" class="big-img min-container" id="bigImg2"
            src="/19201.jpg" alt="big">
@@ -161,7 +158,6 @@
     </div>
   </section>
 </template>
-
 <script>
     import turntable from "../components/turntable";
     import vClickOutside from 'v-click-outside';
@@ -173,7 +169,7 @@
         name: "Sales",
         components: {
             turntable,
-            vClickOutside
+            vClickOutside,
         },
         head: {
             script: [
@@ -1712,7 +1708,7 @@
                             {x: 476, y: 163},
                             {x: 388, y: 113},
                             {x: 435, y: 85},
-                            {x: 524, y: 134}
+                            {x: 524, y: 136}
                         ],
                         fill: 'rgba(250, 214, 29, 0.5)',
                         stroke: '#FAD61D'
@@ -2453,14 +2449,14 @@
                         let r = parseInt(color.substring(0, 2), 16)
                         let g = parseInt(color.substring(2, 4), 16)
                         let b = parseInt(color.substring(4, 6), 16)
-                        let result = 'rgba(' + r + ',' + g + ',' + b + ',' + 0.5 + ')'
+                        let result = 'rgba(' + r + ',' + g + ',' + b + ',' + 0.4 + ')'
                         return result
                     }
 
                     // convertHex end
                     const fetchAreas = res.data.data.map(a => {
                             if(a.modelView.fill=='red'){
-                                a.modelView.fill = '#D10D0D'
+                                a.modelView.fill = '#FF4809'
                             } else if(a.modelView.fill=='yellow'){
                                 a.modelView.fill = '#FAD61D'
                             } else if (a.modelView.fill=='green'){
@@ -2493,14 +2489,9 @@
             ])
         },
         methods: {
-            print() {
-                const file = this.$axios.post(`http://sweews.herokuapp.com/get-drive-file`, {
-                    link: 'https://drive.google.com/uc?id=1MrzCAWCRkdELxY9Of6-tBalvULmIDsxm&export=download'
-                }).then((i)=>{
-                    console.log(i)
-                    let w = window.open(i)
-                    w.print()
-                })
+            foof(foo){
+              let sas = foo.plan ? foo.plan.split('&export=download')[0] : '';
+                return sas
             },
             setLastIndexToCounter(index) {
                 this.rotateCounter = index - 1;
@@ -2612,12 +2603,12 @@
                 if (this.getWindowWidth <= 1281) {
                     this.widthMap = this.getWidthD3(mapImg) * 0.92;
                     this.heightMap = this.getHeightD3(mapImg) * 0.92;
-                } else if (this.getWindowWidth > 1280 && this.getWindowWidth < 1681 && this.getWindowHeight < 1024) {
+                } else if (this.getWindowWidth > 1280 && this.getWindowWidth < 1681 && this.getWindowHeight < 978) {
                     this.widthMap = this.getWidthD3(mapImg) * 0.86;
                     this.heightMap = this.getHeightD3(mapImg) * 0.86;
-                } else if (this.getWindowWidth > 1280 && this.getWindowWidth < 1681 && this.getWindowHeight >= 1024) {
-                    this.widthMap = this.getWidthD3(mapImg) * 1.1;
-                    this.heightMap = this.getHeightD3(mapImg) * 1.1;
+                } else if (this.getWindowWidth > 1280 && this.getWindowWidth < 1681 && this.getWindowHeight >= 978) {
+                    this.widthMap = this.getWidthD3(mapImg) * 1.07;
+                    this.heightMap = this.getHeightD3(mapImg) * 1.07;
                 } else if (this.getWindowWidth >= 1681 && this.getWindowWidth < 1921) {
                     // this.widthMap = this.getWidthD3(mapImg) * 1.15489583;
                     // this.heightMap = this.getHeightD3(mapImg) * 1.15489583;
@@ -2900,7 +2891,8 @@
           width: 1.042vw;
           height: 1.042vw;
           margin-right: 0.260vw;
-          background-color: #D10D0D;
+          background-color: rgba(255, 72, 9, 0.4);
+          border:1px solid #CF2F02;
         }
       }
 
@@ -2908,7 +2900,8 @@
         @extend .status-red;
 
         &:before {
-          background-color: #FAD61D;
+          background-color:rgba(250, 214, 29, 0.4);
+          border:1px solid #FAFF00;
         }
       }
 
@@ -2916,7 +2909,8 @@
         @extend .status-red;
 
         &:before {
-          background-color: #048819;
+          background-color: rgba(4, 136, 25, 0.4);
+          border:1px solid #40C32A;
         }
       }
     }
@@ -3162,13 +3156,18 @@
     }
     #modal {
       transform: scale(0.8);
+      /*transform: scale(1);*/
     }
   }
 
-  @media screen and (min-width: 1281px) and (max-width: 1681px) and (min-height: 1023px) {
+  @media screen and (min-width: 1281px) and (max-width: 1681px) and (min-height: 978px) {
     #map {
-      top: 76px;
-      left: -6px;
+      top: 70px;
+      left: 2px;
+    }
+    #modal {
+      transform: scale(0.8);
+      /*transform: scale(1.1);*/
     }
   }
 
@@ -3177,12 +3176,20 @@
       top: 83px;
       left: 2px;
     }
+    #modal {
+      transform: scale(0.8);
+      /*transform: scale(1.2);*/
+    }
   }
 
   @media screen and (min-width: 2047px) and (max-width: 2747px) {
     #map {
       top: 102px;
       left: -5px;
+    }
+    #modal {
+      transform: scale(0.8);
+      /*transform: scale(1.2);*/
     }
   }
 
@@ -3243,12 +3250,17 @@
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
-    max-width: 1050px;
+    /*max-width: 1050px;*/
+    max-width: 1200px;
     overflow: hidden;
     font-size: 16px;
     -webkit-box-shadow: -1px 0px 17px 0px rgba(0, 0, 0, 0.75);
     box-shadow: -1px 0px 17px 0px rgba(0, 0, 0, 0.75);
     background: rgba(255, 255, 255, 0.9);
+    /*#modal {*/
+    /*  !*transform: scale(0.8);*!*/
+    /*  transform: scale(1.2);*/
+    /*}*/
   }
 
   @media screen and (max-width: 768px) {
@@ -3421,8 +3433,9 @@
 
   .plan-img {
     display: block;
-    width: 330px;
-    height: 233px;
+    /*width: 330px;*/
+    /*height: 233px;*/
+    height: 479px;
     cursor: default;
 
     img {
@@ -3467,7 +3480,7 @@
     width: 50px;
     height: 20px;
     position: absolute;
-    right: 0;
+    left: 32%;
     bottom: 10px;
 
     div {

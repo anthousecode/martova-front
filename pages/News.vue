@@ -1,7 +1,5 @@
 <template>
   <div v-if="news" class="news-wrapper d-flex">
-<!--    <iframe class="iframe"></iframe>-->
-<!--    <img class="bg" src="/Новости.png" alt="news">-->
     <img v-if="getWindowWidth<=1281" class="bg" src="/news/1280News.png" alt="big">
     <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681" class="bg"
          id="bg" src="/news/1680News.png" alt="big">
@@ -11,8 +9,6 @@
          src="/news/19201News.jpg" alt="big">
     <img v-else-if="getWindowWidth>=1921 && getWindowWidth<2800" class="bg"
          src="/news/2048News.png" alt="big">
-<!--    <img v-else-if="getWindowWidth===2880" class="bg" src="/news/pro.png" alt="big">-->
-<!--    <img v-else-if="getWindowWidth===3200" class="bg" src="/news/3600.png" alt="big">-->
     <img v-else class="bg" src="/news/4kNews.png" alt="big">
     <main class="news pb-1">
       <div
@@ -32,61 +28,74 @@
               <img src="/colorLike.svg" alt="">
               <span class="ml-1"> {{item.likes_count}}</span>
             </div>
-            <span>
+            <span ref="comments" style="cursor: pointer;" @click="showAllComment(item.id)">
               {{$options.filters.toUSD(language, 'Комментарии')}}: {{item.comments_count}}
             </span>
           </div>
-              <div
-                v-if="isMore && showMoreId===item.id"
-                @click="getCutNews(item)"
-                v-html="fulledText(item)"
-                class="more-news text mb-2"
-              >
-              </div>
-              <div
-                v-else
-                @click="getFullNews(item)"
-                v-html="cuttedText(item)"
-                class="text mb-2"
-              >
-              </div>
+          <div
+            v-if="isMore && showMoreId===item.id"
+            @click="getCutNews(item)"
+            v-html="fulledText(item)"
+            class="more-news text mb-2"
+          >
+          </div>
+          <div
+            v-else
+            @click="getFullNews(item)"
+            v-html="cuttedText(item)"
+            class="text mb-2"
+          >
+          </div>
         </div>
         <div class="news-item__footer likes-container d-flex justify-content-between py-2">
 
           <v-popover v-if="!isShowModal">
-            <div tooltip-target class="likes likes__hover likes-white d-flex align-items-center">
+            <div @click="addLike(item.id)" tooltip-target
+                 class="likes likes__hover likes-white d-flex align-items-center">
               <img class="like" style="font-size: 32px; width: 18px; height: 18px;" src="/like.svg" alt="like">
               <span class="ml-1 caps">{{$options.filters.toUSD(language, 'Нравится')}}</span>
             </div>
-            <template slot="popover" style="background: rgba(0, 0, 0, 0.6)">
+            <template v-if="!isCookie" slot="popover" style="background: rgba(0, 0, 0, 0.6)">
               <p class="mt-2 mb-0 sign text-black-50">
                 {{ $options.filters.toUSD(language, 'Войти с помощью') }}:
               </p>
-              <social @authInSocial="authInSocial"  @emitOpenFormModal="showModal('like', item.id)"/>
-              <!-- You can put other components too -->
-              <!--              <ExampleComponent char="=" />-->
+              <social @emitOpenFormModal="showModal('like', item.id)"/>
             </template>
           </v-popover>
 
 
           <v-popover v-if="!isShowModal">
-            <div tooltip-target style="width: 200px;"
+            <div @click="showCommentField(item.id)"
+                 tooltip-target style="width: 200px;"
                  class="likes likes__hover d-flex align-items-center justify-content-end">
               <img style="width: 18px; height: 18px;" src="/comment11.svg" alt="search">
               <span class="ml-2 caps"> {{$options.filters.toUSD(language, 'Комментировать')}}</span>
             </div>
-            <template slot="popover" style="background: rgba(0, 0, 0, 0.6)">
+            <template v-if="!isCookie" slot="popover" style="background: rgba(0, 0, 0, 0.6)">
               <p class="mt-2 mb-0 sign text-black-50">
                 {{ $options.filters.toUSD(language, 'Войти с помощью') }}:
               </p>
-              <social @authInSocial="authInSocial" @emitOpenFormModal="showModal('comment', item.id)"/>
-              <!-- You can put other components too -->
-              <!--              <ExampleComponent char="=" />-->
+              <social @emitOpenFormModal="showModal('comment', item.id)"/>
             </template>
           </v-popover>
 
         </div>
-        <addComment v-if="showCommentInput && (currentPost==item.id)"></addComment>
+        <transition name="fade">
+          <comment
+            v-if="isShowComment && currentPost==item.id"
+            :isShowComment="isShowComment"
+            key="container">
+          </comment>
+        </transition>
+        <transition name="fade">
+          <addComment
+            v-if="showCommentInput && currentPost==item.id"
+            @addComment="addComment"
+            @emitToImageSave="imageSave"
+            :id="item.id"
+          >
+          </addComment>
+        </transition>
       </div>
     </main>
     <div
@@ -99,21 +108,23 @@
       <login
         v-if="isLogin"
         :target="target"
-        @addLike="addLike"
-        @addComment="addComment"
+        :id="currentId"
+        @addLike="addLike(currentId)"
+        @addComment="showCommentField(currentId)"
         @loginFalse="isLogin=false"
         @closeModal="closeModal"
       />
       <registration
         v-else
         :target="target"
-        @addLike="addLike"
-        @addComment="addComment"
+        :id="currentId"
+        @addLike="addLike(currentId)"
+        @addComment="showCommentField(currentId)"
         @showLogin="showLogin"
         @closeModal="closeModal"
       />
     </div>
-<!--    <button @click="AuthProvider('github')">auth Github</button>-->
+    <!--    <button @click="AuthProvider('github')">auth Github</button>-->
   </div>
 </template>
 
@@ -125,6 +136,7 @@
     import addComment from "../components/addComment";
     import {mapGetters} from 'vuex';
     import localizeFilter from "../plugins/locales/localize.filter";
+    import comment from "../components/comment";
 
     // import VueSocialauth from 'vue-social-auth'
 
@@ -135,19 +147,25 @@
             social,
             login,
             registration,
-            addComment
+            addComment,
+            comment
         },
         data: () => ({
             myHtml: null,
+            isShowComment: false,
             isShowModal: false,
             isLogin: false,
             isMore: false,
             showMoreId: null,
             target: '',
+            file:null,
+            currentId: null,
             comments_count: 7,
             likes: 185,
             news: null,
-            showCommentInput: false
+            showCommentInput: false,
+            tok: '',
+            isCookie: false
         }),
         asyncData({$axios}) {
             return $axios.get(`news`)
@@ -172,13 +190,21 @@
             ])
         },
         methods: {
-            authInSocial(html){
-              this.myHtml = html;
-                // console.log(this.myHtml)
-                // let iframe = document.getElementsByTagName('iframe')[0];
-                // let iframeDoc = iframe.contentWindow.document;
-                // iframeDoc.innerHTML =this.myHtml
-
+            showAllComment(id) {
+                this.$store.commit('SET_POST_ID', id);
+                this.isShowComment = !this.isShowComment;
+                this.showCommentField(id);
+            },
+            showAll(id) {
+                this.$store.commit('SET_POST_ID', id);
+                this.isShowComment = true;
+                this.showCommentField(id);
+            },
+            showCommentField(id) {
+                this.$store.commit('SET_POST_ID', id)
+                if (this.isCookie) {
+                    this.showCommentInput = true;
+                }
             },
             closeModal() {
                 this.isShowModal = false;
@@ -194,6 +220,19 @@
             getCutNews(val) {
                 this.showMoreId = val.id;
                 this.isMore = false;
+            },
+            getNews() {
+                this.$axios.get(`news`)
+                    .then((res) => {
+                        this.news = res.data.data;
+                    }).catch((e) => {
+                    this.$notify({
+                        group: 'top',
+                        type: 'error',
+                        title: `Ошибка`,
+                        text: e
+                    })
+                })
             },
             cuttedText(val) {
                 this.language === 'ru' ? (val = val.ru_description) : (val = val.ua_description);
@@ -212,13 +251,148 @@
                 this.showMoreId = val.id;
                 this.language === 'ru' ? (val = val.ru_description) : (val = val.ua_description);
             },
-            addLike() {
-                console.log('+1 like')
+            addLike(id) {
+                this.currentId = id;
+                if (this.isCookie) {
+                    this.$axios.$put(`news_like/${this.currentId}`, {
+                        token: this.tok,
+                        withCredentials: true,
+                        headers: {
+                            Cookie: `token=${this.tok}`
+                        }
+                    }).then(() => {
+                        this.getNews();
+                        this.$notify({
+                            group: 'top',
+                            type: 'success',
+                            title: '',
+                            text: `+1 лайк`
+                        })
+                    }).catch((e) => {
+                        this.$notify({
+                            group: 'top',
+                            type: 'error',
+                            title: ``,
+                            text: 'Лайк уже поставлен.'
+                        })
+                    })
+                }
+
             },
-            addComment() {
-                this.showCommentInput = true;
+            imageSave(image){
+                this.file = image;
+            },
+            updateComments(){
+                this.$store.commit('SET_POST_ID', this.currentPost);
+                this.isShowComment = true;
+                this.getNews();
+                this.$bus.$emit('updateChild')
+                this.showAll(this.currentPost);
+            },
+            addComment(data) {
+                let form_data = new FormData();
+                if (this.isCookie) {
+                    if(this.file){
+                        form_data.append('image', this.file)
+                        form_data.append('text', data)
+                        form_data.append('token', this.tok)
+                        form_data.append('withCredentials', true)
+                        this.$axios.$post(`add_comment/${this.currentPost}`, form_data, {
+                            crossdomain: true,
+                            mode: 'no-cors',
+                            dataType: "json",
+                            headers: {
+                                Cookie: `token=${this.tok}`
+                            }
+                        }).then(() => {
+                            this.updateComments();
+                            this.$notify({
+                                group: 'top',
+                                type: 'success',
+                                title: `Успех`,
+                                text: `Данные обновлены!`
+                            })
+                        }).catch(() => {
+                            this.$notify({
+                                group: 'top',
+                                type: 'error',
+                                title: `Ошибка`,
+                                text: `Необходимо авторизироваться!`
+                            })
+                        })
+                    }
+                    else {
+                        this.$axios.$post(`add_comment/${this.currentPost}`, {
+                            image:null,
+                            text: data,
+                            token: this.tok,
+                            withCredentials: true,
+                            headers: {
+                                Cookie: `token=${this.tok}`
+                            }
+                        }).then(() => {
+                            this.updateComments();
+                            this.$notify({
+                                group: 'top',
+                                type: 'success',
+                                title: `Успех`,
+                                text: `Данные обновлены!`
+                            })
+                        }).catch(() => {
+                            this.$notify({
+                                group: 'top',
+                                type: 'error',
+                                title: `Ошибка`,
+                                text: `Необходимо авторизироваться!`
+                            })
+                        })
+                    }
+                }
+            },
+            setCookie(cname, cvalue, exdays) {
+                document.cookie = cname + "=" + cvalue + ";";
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";";
+            },
+            // checkCookie() {
+            //     let token = this.getCookie('token');
+            //
+            //     if (token) {
+            //         this.isToken = true;
+            //     } else {
+            //         this.isToken = false;
+            //     }
+            // },
+            getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        console.log(c.substring(name.length, c.length))
+                        this.isCookie = true;
+                        this.tok = c.substring(name.length, c.length);
+                    } else {
+                        this.isCookie = false;
+                    }
+                }
+                return "";
             }
         },
+        mounted() {
+            let tok = this.$route.query.key;
+            if (tok) {
+                this.setCookie("token", this.$route.query.key, 2)
+                this.$router.push(this.$route.path)
+            }
+            this.getCookie('token')
+        }
     }
 </script>
 
@@ -249,10 +423,12 @@
     z-index: 0;
     position: relative;
     overflow: hidden;
-    .bg{
+
+    .bg {
       /*width: 100vw;*/
       /*height: 100vh;*/
     }
+
     /*background: url("/Новости.png") no-repeat;*/
     /*background-size: cover;*/
     #bg {
@@ -270,19 +446,19 @@
       position: absolute;
       width: 919px;
       overflow-y: auto;
-      @media screen and (max-width: 1281px){
+      @media screen and (max-width: 1281px) {
         top: 77.3px;
       }
-      @media screen and (min-width: 1281px) and (max-width: 1899px){
+      @media screen and (min-width: 1281px) and (max-width: 1899px) {
         top: 96.7px;
       }
-      @media screen and (min-width: 1899px) and (max-width: 2047px){
+      @media screen and (min-width: 1899px) and (max-width: 2047px) {
         top: 116px;
       }
-      @media screen and (min-width: 2047px){
+      @media screen and (min-width: 2047px) {
         top: 122px;
       }
-      @media screen and (min-width: 2200px){
+      @media screen and (min-width: 2200px) {
         top: 214px;
       }
       @media screen and (width: 2560px) {
@@ -432,12 +608,15 @@
   }
 
   .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
+    transition: opacity 1.5s;
   }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+  {
     opacity: 0;
   }
-  .iframe{
+
+  .iframe {
     width: 400px;
     height: 400px;
     position: fixed;
