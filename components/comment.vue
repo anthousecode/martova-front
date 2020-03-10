@@ -18,7 +18,7 @@
           :src="item.image"
           alt="image">
         <video
-          v-if="item.image && item.image_type!=='video'"
+          v-if="item.image && item.image_type==='video'"
           :src="item.image"
           controls
           class="img"
