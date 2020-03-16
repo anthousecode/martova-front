@@ -41,7 +41,7 @@ module.exports = {
     '@nuxtjs/axios'
   ],
   axios: {
-    baseURL: 'http://api.martovariverside.com/api/',
+    baseURL: 'https://api.martovariverside.com/api/',
     proxyHeaders: false,
     credentials: false
   },
