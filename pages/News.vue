@@ -32,20 +32,22 @@
               {{$options.filters.toUSD(language, 'Комментарии')}}: {{item.comments_count}}
             </span>
           </div>
-          <div
-            v-if="isMore && showMoreId===item.id"
-            @click="getCutNews(item)"
-            v-html="fulledText(item)"
-            class="more-news text mb-2"
-          >
-          </div>
-          <div
-            v-else
-            @click="getFullNews(item)"
-            v-html="cuttedText(item)"
-            class="text mb-2"
-          >
-          </div>
+          <template v-if="item.ru_description || item.ua_description">
+            <div
+              v-if="isMore && showMoreId===item.id"
+              @click="getCutNews(item)"
+              v-html="fulledText(item)"
+              class="more-news text mb-2"
+            >
+            </div>
+            <div
+              v-else
+              @click="getFullNews(item)"
+              v-html="cuttedText(item)"
+              class="text mb-2"
+            >
+            </div>
+          </template>
         </div>
         <div class="news-item__footer likes-container d-flex justify-content-between py-2">
 
@@ -125,37 +127,6 @@
       />
     </div>
     <!--    <button @click="AuthProvider('github')">auth Github</button>-->
-
-
-
-
-<!--    <script data-attribute="api-key" id='NJnBDcue59bvoY84AcOMKT5M6djl3nLU7yWs5hn4MyM5puVVoh2EMvm5RBP9gc6bCl9T5L1ohZLvsn5CitZSd5J7FoKZeH3l9uJrH9OplxA9yvWy4MSLS3jUK5Fr3R9weSHXczpor8V9tstoNAWQSzXF8nH9tEge0YOu3xa06i8kOn5oUAdM5vwJDHzTWw8EV3WfShvw' src='http://urist.tree-web.ru/js/pre-widget.js?widget_id=79'></script>-->
-
-
-
-<!--<div style="width: 500px; position: fixed; top: 0;right: 0;">-->
-<!--  <script defer data-attribute="api-key" id='NJnBDcue59bvoY84AcOMKT5M6djl3nLU7yWs5hn4MyM5puVVoh2EMvm5RBP9gc6bCl9T5L1ohZLvsn5CitZSd5J7FoKZeH3l9uJrH9OplxA9yvWy4MSLS3jUK5Fr3R9weSHXczpor8V9tstoNAWQSzXF8nH9tEge0YOu3xa06i8kOn5oUAdM5vwJDHzTWw8EV3WfShvw' src='http://urist.tree-web.ru/js/pre-widget.js?widget_id=93'></script>-->
-<!--</div>-->
-
-
-<!--   <div style="position: fixed; bottom:0; left: 0; width: 532px; height: 427px;">-->
-<!--     <script data-attribute="api-key" id='NJnBDcue59bvoY84AcOMKT5M6djl3nLU7yWs5hn4MyM5puVVoh2EMvm5RBP9gc6bCl9T5L1ohZLvsn5CitZSd5J7FoKZeH3l9uJrH9OplxA9yvWy4MSLS3jUK5Fr3R9weSHXczpor8V9tstoNAWQSzXF8nH9tEge0YOu3xa06i8kOn5oUAdM5vwJDHzTWw8EV3WfShvw' src='http://urist.tree-web.ru/js/pre-widget.js?widget_id=107'></script>-->
-<!--   </div>-->
-
-
-
-<!--    <div style="position: fixed; bottom:0; left: 0; width: 400px; height: 427px;">-->
-<!--      <script data-attribute="api-key" id='NJnBDcue59bvoY84AcOMKT5M6djl3nLU7yWs5hn4MyM5puVVoh2EMvm5RBP9gc6bCl9T5L1ohZLvsn5CitZSd5J7FoKZeH3l9uJrH9OplxA9yvWy4MSLS3jUK5Fr3R9weSHXczpor8V9tstoNAWQSzXF8nH9tEge0YOu3xa06i8kOn5oUAdM5vwJDHzTWw8EV3WfShvw' src='http://urist.tree-web.ru/js/pre-widget.js?widget_id=133'></script>-->
-<!--   </div>-->
-
-<!--    <div style="position: fixed; top:0; left: 0; width: 532px; height: 427px;">-->
-<!--      <script defer data-attribute="api-key" id='NJnBDcue59bvoY84AcOMKT5M6djl3nLU7yWs5hn4MyM5puVVoh2EMvm5RBP9gc6bCl9T5L1ohZLvsn5CitZSd5J7FoKZeH3l9uJrH9OplxA9yvWy4MSLS3jUK5Fr3R9weSHXczpor8V9tstoNAWQSzXF8nH9tEge0YOu3xa06i8kOn5oUAdM5vwJDHzTWw8EV3WfShvw' src='http://urist.tree-web.ru/js/pre-widget.js?widget_id=139'></script>-->
-<!--    </div>-->
-
-
-
-
-
 
   </div>
 </template>
@@ -418,12 +389,14 @@
             }
         },
         mounted() {
-            let tok = this.$route.query.key;
-            if (tok) {
-                this.setCookie("token", this.$route.query.key, 2)
-                this.$router.push(this.$route.path)
-            }
-            this.getCookie('token')
+            if (process.client) {
+              let tok = this.$route.query.key;
+              if (tok) {
+                  this.setCookie("token", this.$route.query.key, 2)
+                  this.$router.push(this.$route.path)
+              }
+              this.getCookie('token')
+          }
         }
     }
 </script>

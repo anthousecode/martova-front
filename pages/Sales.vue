@@ -2490,7 +2490,7 @@
         },
         methods: {
             foof(foo){
-              let sas = foo.plan ? foo.plan.split('&export=download')[0] : '';
+              let sas = foo.print_plan ? foo.print_plan.split('&export=download')[0] : '';
                 return sas
             },
             setLastIndexToCounter(index) {
@@ -2762,7 +2762,7 @@
             }
         },
         mounted() {
-            if (process.browser) {
+            if (process.client) {
                 this.window = window;
                 setTimeout(()=>{
                     this.init();

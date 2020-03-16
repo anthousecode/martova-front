@@ -1,8 +1,8 @@
 {
-  "name": "nuxt-proj",
+  "name": "martova_riverside",
   "version": "1.0.0",
-  "description": "Nuxt.js project",
-  "author": "Sergioramasano <razumenko.serg@gmail.com>",
+  "description": "Мартовая Риверсайд - отдых и продажа участков под Харьковом.",
+  "author": "Sergioramasano",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -16,6 +16,8 @@
     "@nuxtjs/axios": "^5.6.0",
     "bootstrap": "^4.3.1",
     "nuxt": "^2.0.0",
+    "pano": "^1.1.1",
+    "panolens.js": "0.0.0",
     "v-click-outside": "^3.0.0",
     "v-emoji-picker": "^2.0.3",
     "v-tooltip": "^2.0.3",

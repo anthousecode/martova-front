@@ -8,7 +8,8 @@ module.exports = {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: 'Мартовая Риверсайд - продажа участков'}
+      {hid: 'description', name: 'description', content: 'Мартовая Риверсайд - отдых и продажа участков под Харьковом.'},
+      {hid: 'keywords', name: 'keywords', content: 'Мартовая, мартовая, Мартова, Риверсайд, продажа, участков, покупка, отдых, Харьков'}
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
@@ -48,12 +49,12 @@ module.exports = {
     {src: '~plugins/pano.js',  ssr: false},
     {src: '~plugins/vuelidate', ssr: false},
     {src: '~plugins/vue-notifications', ssr: false},
-    {src: '~plugins/locales/localize.filter.js', mode: 'client'},
-    {src: '@plugins/eventBus'}
+    {src: '~plugins/locales/localize.filter.js', ssr: false},
+    {src: '@plugins/eventBus', ssr: false}
     // {src: '~plugins/VueSocialAuth.js', mode: 'client'}
   ],
   build: {
-    vendor: ["jquery", "/js/turntable.js", 'vuelidate', 'vue-notifications', 'localize.filter'],
+    vendor: ["jquery", "/js/turntable.js", 'vuelidate', 'vue-notifications', 'localize.filter', 'pano'],
     // babel: {
     //   presets: ['es2015', 'stage-0']
     // },

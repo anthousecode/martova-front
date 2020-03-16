@@ -29,20 +29,19 @@
         </div>
         <div class="index-title">
           <div v-if="isRus" class="h2"><img src="/h2.svg" alt="h2"></div>
-          <div v-else class="h2"><img  src="/надпись_укр.svg" alt="h2"></div>
+          <div v-else class="h2"><img src="/надпись_укр.svg" alt="h2"></div>
           <div class="h1"><img src="/h1.svg" alt="h1"></div>
         </div>
       </div>
     </div>
     <loading :isReady="!isReady" v-if="!isReady"/>
   </section>
-
 </template>
 
 
 <script>
     import {Pano} from 'vuejs-vr';
-    import { mapGetters } from 'vuex';
+    import {mapGetters} from 'vuex';
     import Loading from "../components/loading";
 
     export default {
@@ -50,31 +49,35 @@
         data: () => ({
             urls: [
                 '/bar_360_проба2.jpg',
-                '/cort.jpg',
-                '/bar_360_проба2.jpg',
-                '/cort.jpg',
+                '/beregovaya_liniya.jpg',
+                '/blokpost_360.jpg',
+                '/detskaya_ploshadka.jpg',
+                '/gidrant_360.jpg',
+                '/ohranyaemaya_teritoria_360.jpg',
+                '/smotrovaya_360.jpg',
+                '/yachtclub_360.jpg'
             ],
             index: 0,
-            isReady:false
+            isReady: false
         }),
         computed: {
             ...mapGetters([
                 'language'
             ]),
-            isRus(){
-                return this.language ==='ru'
+            isRus() {
+                return this.language === 'ru'
             },
-            isUa(){
-                return this.language ==='ua'
+            isUa() {
+                return this.language === 'ua'
             }
         },
         methods: {
-            readyChange(){
+            readyChange() {
                 requestAnimationFrame(() => this.isReady = true)
             },
             setCanvasSize() {
                 let canvas = document.getElementsByClassName('panolens-canvas')[0];
-                if(canvas){
+                if (canvas) {
                     canvas.setAttribute('width', window.innerWidth);
                     canvas.setAttribute('height', window.innerHeight);
                 }
@@ -91,15 +94,18 @@
             }
         },
         mounted() {
-            this.setCanvasSize();
+            if (process.client) {
+                this.setCanvasSize();
+            }
         }
     }
 </script>
 
 <style scoped lang="scss">
-.visible{
-  visibility: visible;
-}
+  .visible {
+    visibility: visible;
+  }
+
   .index-wrapper {
     color: white;
     height: 100vh;
