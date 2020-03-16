@@ -16,10 +16,10 @@ module.exports = {
       {rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'},
     ],
     script: [
-      {src: 'http://www.martovariverside.com/js/d3.js'},
-      {src: 'http://www.martovariverside.com/js/d3-selection.js'},
-      {src: 'http://www.martovariverside.com/js/jquery112.js'},
-      {src: 'http://www.martovariverside.com/js/turntable.js'}
+      {src: 'http://martovariverside.com/js/d3.js'},
+      {src: 'http://martovariverside.com/js/d3-selection.js'},
+      {src: 'http://martovariverside.com/js/jquery112.js'},
+      {src: 'http://martovariverside.com/js/turntable.js'}
     ]
   },
   /*
@@ -41,7 +41,7 @@ module.exports = {
     '@nuxtjs/axios'
   ],
   axios: {
-    baseURL: 'https://sweews.herokuapp.com/api/',
+    baseURL: 'http://api.martovariverside.com/api/',
     proxyHeaders: false,
     credentials: false
   },

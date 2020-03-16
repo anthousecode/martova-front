@@ -1,59 +1,60 @@
 <template>
-  <div id="myTurntableWrap" style=" display: flex;
+
+    <div  v-if="flag" id="myTurntableWrap" style=" display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 60%;
   height: 382px;">
-    <div
-      id="myTurntable"
-      class="turntable position-relative"
-    >
-      <ul>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0001.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0002.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0003.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0004.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0005.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0006.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0007.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0008.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0009.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0010.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0011.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0012.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0013.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0014.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0012.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0016.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0017.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0018.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0019.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0020.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0021.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0022.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0023.png"></li>
-        <li class="turntable-item" data-img-src="/Turntable/turnImages/70_CShading_LightMix0001.png"></li>
-      </ul>
+      <div
+        id="myTurntable"
+        class="turntable position-relative"
+      >
+        <ul>
+          <li
+            v-for="(img, index) in images"
+            :key="index"
+            :data-img-src="img"
+            class="turntable-item"
+          >
+          </li>
+        </ul>
+      </div>
+
+      <script defer>
+          setTimeout(() => {
+              $('#myTurntable').turntable();
+          }, 2000)
+      </script>
     </div>
-    <script defer>
-        setTimeout(() => {
-            $('#myTurntable').turntable();
-        }, 1000)
-    </script>
-  </div>
+
 </template>
 
 <script>
+    import {eventBus} from '../plugins/eventBus'
+    import $ from 'jquery';
+
     export default {
         name: "turntable",
         props: {
-            rotateCounter: Number
+            rotateCounter: Number,
         },
-        data: () => ({}),
+        data: () => ({
+            images: [],
+            flag: false
+        }),
         computed: {
             listItems() {
                 return Array.from(document.getElementsByClassName('turntable-item'))
+            },
+        },
+        methods: {
+            reload(val) {
+                this.images = val;
+                this.flag = true;
+            },
+            changeFlag() {
+                this.flag = false;
             }
         },
         watch: {
@@ -72,7 +73,11 @@
                     }
                 })
             },
-        }
+        },
+        mounted() {
+            this.$bus.$on('reload', this.reload)
+            this.$bus.$on('close', this.changeFlag)
+        },
     }
 </script>
 <style scoped lang="scss">

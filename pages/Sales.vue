@@ -81,11 +81,12 @@
 
 
               <div class="d-flex mt-3">
-                <turntable
-                  :rotateCounter="rotateCounter"
-                  @setLastIndexToCounter="setLastIndexToCounter"
-                  @setZeroIndexToCounter="setZeroIndexToCounter"
-                />
+                  <turntable
+                    :rotateCounter="rotateCounter"
+                    @setLastIndexToCounter="setLastIndexToCounter"
+                    @setZeroIndexToCounter="setZeroIndexToCounter"
+                  />
+
                 <div class=" pl-4">
                   <p class="mb-2" style="color:black;">{{this.$options.filters.toUSD(language, 'Геодезическая съемкa')}}</p>
                   <div>
@@ -173,7 +174,7 @@
         },
         head: {
             script: [
-                {src: 'http://www.martovariverside.com/js/app.js'}
+                {src: 'http://api.martovariverside.com'}
             ]
         },
         data: () => ({
@@ -184,6 +185,7 @@
             isFiltered: false,
             currentRegionId: null,
             alert: false,
+            images:[],
             rotateDirection: '',
             rotateCounter: 0,
             starter3D: null,
@@ -2664,10 +2666,14 @@
                         d3.event.stopPropagation();
                         this.showModal();
                         this.showLayout();
-
                         this.currentRegion = d;
                         this.currentRegionId = d.otherInfo.number;
                         this.returnRegionFillToBasicState(d.otherInfo.number);
+                        this.$axios.get(`/upload-files-for-areas/${this.currentRegionId}/d6b2d6df-b269-4575-88bd-395bff78edd6`).then((res)=>{
+                            this.images = res.data.data;
+                            this.$bus.$emit('reload', this.images)
+                            console.log( this.images)
+                        })
                     })
                     .on("mouseover", (d) => {
                     })
@@ -2687,7 +2693,8 @@
                 this.elements.layout.el.classList.add('hide')
             },
             hideModal() {
-                this.elements.modal.el.classList.add('hide')
+                this.elements.modal.el.classList.add('hide');
+                this.$bus.$emit('close')
             },
             hideAll() {
                 this.hideLayout();

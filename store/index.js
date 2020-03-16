@@ -1,7 +1,7 @@
 export const state = () => ({
   language: 'ru',
   postId: null,
-  basePath: 'https://www.martovariverside.com'
+  basePath: 'http://api.martovariverside.com',
 });
 export const mutations = {
   SET_RUS_LANGUAGE(state) {
@@ -13,7 +13,7 @@ export const mutations = {
   },
   SET_POST_ID(state, id) {
     state.postId = id
-  }
+  },
 };
 export const actions = {
   // async fetch({commit}){

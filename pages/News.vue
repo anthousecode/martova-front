@@ -25,7 +25,7 @@
           </div>
           <div class="likes-container d-flex justify-content-between pt-2 pb-3">
             <div class="likes d-flex align-items-center">
-              <img src="/colorLike.svg" alt="">
+              <img src="/colorLike.svg" alt="like_image">
               <span class="ml-1"> {{item.likes_count}}</span>
             </div>
             <span ref="comments" style="cursor: pointer;" @click="showAllComment(item.id)">
