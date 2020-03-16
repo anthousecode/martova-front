@@ -21,10 +21,10 @@
         </ul>
       </div>
 
-      <script defer>
+      <script async>
           setTimeout(() => {
               $('#myTurntable').turntable();
-          }, 0)
+          }, 1000)
       </script>
       </template>
     </div>
@@ -42,7 +42,7 @@
         },
         data: () => ({
             images: [],
-            flag: false
+            flag: true
         }),
         computed: {
             listItems() {
@@ -77,7 +77,7 @@
         },
         mounted() {
             this.$bus.$on('reload', this.reload)
-            this.$bus.$on('close', this.changeFlag)
+            // this.$bus.$on('close', this.changeFlag)
         },
     }
 </script>

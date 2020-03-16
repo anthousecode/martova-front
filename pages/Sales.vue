@@ -82,6 +82,7 @@
 
               <div class="d-flex mt-3">
                   <turntable
+                    v-if="hideTurntable"
                     :rotateCounter="rotateCounter"
                     @setLastIndexToCounter="setLastIndexToCounter"
                     @setZeroIndexToCounter="setZeroIndexToCounter"
@@ -182,6 +183,7 @@
             widthMap: 0,
             heightMap: 0,
             regionNumber: null,
+            hideTurntable:false,
             isFiltered: false,
             currentRegionId: null,
             alert: false,
@@ -2502,6 +2504,7 @@
                 this.rotateCounter = 0;
             },
             startTurntable(direction) {
+
                 direction === 'right'
                     ? (this.rotateCounter -= 1)
                     : (this.rotateCounter += 1);
@@ -2672,7 +2675,6 @@
                         this.$axios.get(`/upload-files-for-areas/${this.currentRegionId}/d6b2d6df-b269-4575-88bd-395bff78edd6`).then((res)=>{
                             this.images = res.data.data;
                             this.$bus.$emit('reload', this.images)
-                            console.log( this.images)
                         })
                     })
                     .on("mouseover", (d) => {
@@ -2685,6 +2687,7 @@
             },
             showModal() {
                 this.elements.modal.el.classList.remove('hide')
+                this.hideTurntable = true;
             },
             showLayout() {
                 this.elements.layout.el.classList.remove('hide')
@@ -2694,7 +2697,7 @@
             },
             hideModal() {
                 this.elements.modal.el.classList.add('hide');
-                this.$bus.$emit('close')
+                this.hideTurntable = false
             },
             hideAll() {
                 this.hideLayout();
