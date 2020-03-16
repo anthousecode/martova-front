@@ -1,11 +1,11 @@
 <template>
-
-    <div  v-if="flag" id="myTurntableWrap" style=" display: flex;
+    <div   id="myTurntableWrap" style=" display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 60%;
   height: 382px;">
+      <template v-if="flag">
       <div
         id="myTurntable"
         class="turntable position-relative"
@@ -24,8 +24,9 @@
       <script defer>
           setTimeout(() => {
               $('#myTurntable').turntable();
-          }, 2000)
+          }, 0)
       </script>
+      </template>
     </div>
 
 </template>

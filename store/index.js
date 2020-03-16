@@ -1,7 +1,7 @@
 export const state = () => ({
   language: 'ru',
   postId: null,
-  basePath: 'http://api.martovariverside.com',
+  basePath: 'https://api.martovariverside.com',
 });
 export const mutations = {
   SET_RUS_LANGUAGE(state) {

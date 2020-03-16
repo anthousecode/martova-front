@@ -174,7 +174,7 @@
         },
         head: {
             script: [
-                {src: 'http://api.martovariverside.com'}
+                {src: 'https://api.martovariverside.com'}
             ]
         },
         data: () => ({
