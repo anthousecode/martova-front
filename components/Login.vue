@@ -132,7 +132,6 @@
                 this.$emit('addLike')
             },
             itsComment(){
-
                 this.$emit('addComment')
             },
             closeModal() {

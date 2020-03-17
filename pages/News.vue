@@ -91,7 +91,7 @@
         </transition>
         <transition name="fade">
           <addComment
-            v-if="showCommentInput && currentPost==item.id"
+            v-if="showCommentInput && currentId==item.id"
             @addComment="addComment"
             @emitToImageSave="imageSave"
             :id="item.id"
@@ -173,9 +173,15 @@
         asyncData({$axios}) {
             return $axios.get(`news`)
                 .then((res) => {
+                    console.log(1)
                     return {news: res.data.data}
                 }).catch((e) => {
-                    console.log(e)
+                    this.$notify({
+                        group: 'top',
+                        type: 'error',
+                        title: `Ошибка`,
+                        text: e
+                    })
                 })
         },
         computed: {
@@ -201,12 +207,18 @@
             showAll(id) {
                 this.$store.commit('SET_POST_ID', id);
                 this.isShowComment = true;
-                this.showCommentField(id);
             },
             showCommentField(id) {
-                this.$store.commit('SET_POST_ID', id)
-                if (this.isCookie) {
-                    this.showCommentInput = true;
+                if(!this.showCommentInput){
+                    this.currentId = id;
+                    this.$store.commit('SET_POST_ID', id)
+                    this.getCookie('token')
+                    if (this.isCookie) {
+                        this.showCommentInput = true;
+                    }
+                } else {
+                    this.showCommentInput = false;
+                    this.isShowComment = false;
                 }
             },
             closeModal() {
@@ -315,13 +327,22 @@
                                 title: `Успех`,
                                 text: `Данные обновлены!`
                             })
-                        }).catch(() => {
-                            this.$notify({
-                                group: 'top',
-                                type: 'error',
-                                title: `Ошибка`,
-                                text: `Необходимо авторизироваться!`
-                            })
+                        }).catch((e) => {
+                            if(!this.isCookie){
+                                this.$notify({
+                                    group: 'top',
+                                    type: 'error',
+                                    title: `Ошибка`,
+                                    text: `Необходимо авторизироваться!`
+                                })
+                            } else {
+                                this.$notify({
+                                    group: 'top',
+                                    type: 'error',
+                                    title: `Ошибка`,
+                                    text: e
+                                })
+                            }
                         })
                     }
                     else {
@@ -359,15 +380,6 @@
                 var expires = "expires=" + d.toUTCString();
                 document.cookie = cname + "=" + cvalue + ";";
             },
-            // checkCookie() {
-            //     let token = this.getCookie('token');
-            //
-            //     if (token) {
-            //         this.isToken = true;
-            //     } else {
-            //         this.isToken = false;
-            //     }
-            // },
             getCookie(cname) {
                 var name = cname + "=";
                 var decodedCookie = decodeURIComponent(document.cookie);
@@ -378,7 +390,6 @@
                         c = c.substring(1);
                     }
                     if (c.indexOf(name) == 0) {
-                        console.log(c.substring(name.length, c.length))
                         this.isCookie = true;
                         this.tok = c.substring(name.length, c.length);
                     } else {

@@ -43,19 +43,18 @@
     import {Pano} from 'vuejs-vr';
     import {mapGetters} from 'vuex';
     import Loading from "../components/loading";
-
     export default {
         components: {Loading, Pano},
         data: () => ({
             urls: [
-                '/bar_360_проба2.jpg',
-                '/beregovaya_liniya.jpg',
-                '/blokpost_360.jpg',
-                '/detskaya_ploshadka.jpg',
-                '/gidrant_360.jpg',
-                '/ohranyaemaya_teritoria_360.jpg',
-                '/smotrovaya_360.jpg',
-                '/yachtclub_360.jpg'
+                '/main/bar_360_проба2.jpg',
+                '/main/beregovaya_liniya.jpg',
+                '/main/blokpost_360.jpg',
+                '/main/detskaya_ploshadka.jpg',
+                '/main/gidrant_360.jpg',
+                '/main/ohranyaemaya_teritoria_360.jpg',
+                '/main/smotrovaya_360.jpg',
+                '/main/yachtclub_360.jpg'
             ],
             index: 0,
             isReady: false

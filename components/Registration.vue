@@ -138,6 +138,12 @@
                     password: this.password
                 }).then((res)=>{
                     this.setCookie('token', res.data.key, 2);
+                    if (this.target==='like'){
+                        this.itsLike()
+                    } else {
+                        this.itsComment()
+                    }
+                    this.closeModal();
                     this.$notify({
                         group: 'foo',
                         type: 'success',
@@ -185,14 +191,7 @@
                         title: `Ошибка при регистрации`,
                         text: e.text
                     })
-                })
-
-                if (this.target==='like'){
-                    this.itsLike()
-                } else {
-                    this.itsComment()
-                }
-                this.closeModal()
+                });
                 // try {
                 //     debugger
                 //
