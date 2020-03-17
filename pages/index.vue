@@ -8,7 +8,7 @@
     height: 100vh !important;
         "
           @on-load="readyChange"
-          :source="urls[index]"
+          :source="img"
         />
         <div class="controls">
           <div class="controls-group">
@@ -56,6 +56,7 @@
                 '/shortMainPhotos/smotrovaya_360-min.jpg',
                 '/shortMainPhotos/yachtclub_360-min.jpg'
             ],
+            img:'/shortMainPhotos/bar_360_проба2-min.jpg',
             index: 0,
             isReady: false
         }),
@@ -85,16 +86,25 @@
                 this.index > 0 ?
                     (this.index += -1) :
                     (this.index += this.urls.length - 1);
+                    this.img = this.urls[this.index]
             },
             getNextSlide() {
                 this.index < this.urls.length - 1 ?
                     (this.index += 1) :
                     (this.index = 0);
+                    this.img = this.urls[this.index]
+            },
+            getOne() {
+                this.urls.forEach(a=>{
+                    this.$axios.get('http://martovariverside.com/shortMainPhotos'+a);
+                })
+
             }
         },
         mounted() {
             if (process.client) {
                 this.setCanvasSize();
+                this.getOne();
             }
         }
     }
