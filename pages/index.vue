@@ -112,7 +112,6 @@
             }
         },
         mounted() {
-            this.$axios.$get(`pages`);
             if (process.client) {
                 this.setCanvasSize();
                 this.getOne();
