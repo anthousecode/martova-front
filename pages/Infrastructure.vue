@@ -7,7 +7,7 @@
       <section>
 <!--        <button v-if="!isVideoPlaying" @click="changeVideoPlay" id="play">-->
 <!--          <img src="/play.svg" alt="play">-->
-<!--        </button>-->
+<!--        </button> -->
       </section>
       <aside class="d-flex flex-column p-4 pb-5">
           <div class="mt-0">
