@@ -95,8 +95,18 @@
                     this.img = this.urls[this.index]
             },
             getOne() {
-                this.urls.forEach(a=>{
-                    this.$axios.get('http://martovariverside.com'+a);
+                this.urls.forEach(a => {
+                    try {
+                        var imageObject = new Image();
+                        imageObject.src = `http://martovariverside.com${a}`;
+                    } catch (e) {
+                        this.$notify({
+                            group: 'top',
+                            type: 'error',
+                            title: `Ошибка`,
+                            text: e
+                        })
+                    }
                 })
 
             }
