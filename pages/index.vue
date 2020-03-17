@@ -96,12 +96,13 @@
             },
             getOne() {
                 this.urls.forEach(a=>{
-                    this.$axios.get('http://martovariverside.com/shortMainPhotos'+a);
+                    this.$axios.get('http://martovariverside.com'+a);
                 })
 
             }
         },
         mounted() {
+            this.$axios.$get(`pages`);
             if (process.client) {
                 this.setCanvasSize();
                 this.getOne();
