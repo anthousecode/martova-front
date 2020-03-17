@@ -114,7 +114,7 @@
         mounted() {
             if (process.client) {
                 this.setCanvasSize();
-                this.getOne();
+                this.getOne()
             }
         }
     }
