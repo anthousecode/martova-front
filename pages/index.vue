@@ -47,14 +47,14 @@
         components: {Loading, Pano},
         data: () => ({
             urls: [
-                '/main/bar_360_проба2.jpg',
-                '/main/beregovaya_liniya.jpg',
-                '/main/blokpost_360.jpg',
-                '/main/detskaya_ploshadka.jpg',
-                '/main/gidrant_360.jpg',
-                '/main/ohranyaemaya_teritoria_360.jpg',
-                '/main/smotrovaya_360.jpg',
-                '/main/yachtclub_360.jpg'
+                '/shortMainPhotos/bar_360_проба2.jpg',
+                '/shortMainPhotos/beregovaya_liniya.jpg',
+                '/shortMainPhotos/blokpost_360.jpg',
+                '/shortMainPhotos/detskaya_ploshadka.jpg',
+                '/shortMainPhotos/gidrant_360.jpg',
+                '/shortMainPhotos/ohranyaemaya_teritoria_360.jpg',
+                '/shortMainPhotos/smotrovaya_360.jpg',
+                '/shortMainPhotos/yachtclub_360.jpg'
             ],
             index: 0,
             isReady: false
