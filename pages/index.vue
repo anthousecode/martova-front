@@ -2,14 +2,15 @@
   <section>
     <div :class="{visible: isReady}" class="index-wrapper">
       <div class="position-relative img-container">
-        <Pano
-          style="
-           width: 100vw !important;
-    height: 100vh !important;
-        "
-          @on-load="readyChange"
-          :source="img"
-        />
+<!--        <Pano-->
+<!--          style="-->
+<!--           width: 100vw !important;-->
+<!--    height: 100vh !important;-->
+<!--        "-->
+<!--          @on-load="readyChange"-->
+<!--          :source="img"-->
+<!--        />-->
+        <iframe id="frame_id" style="width: 100vw !important; height: 100vh !important;" src="https://sferika.ru/tour/13603/29936" frameborder="0"></iframe>
         <div class="controls">
           <div class="controls-group">
             <div @click="getPrevSlide" class="controls-arrow controls-arrow__left">
@@ -44,7 +45,7 @@
     import {mapGetters} from 'vuex';
     import Loading from "../components/loading";
     export default {
-        components: {Loading, Pano},
+        components: {Loading},
         data: () => ({
             urls: [
                 '/shortMainPhotos/bar_360_проба2-min.jpg',
@@ -58,7 +59,7 @@
             ],
             img:'/shortMainPhotos/bar_360_проба2-min.jpg',
             index: 0,
-            isReady: false
+            isReady: true
         }),
         computed: {
             ...mapGetters([
@@ -111,10 +112,11 @@
 
             }
         },
-        mounted() {
+       async mounted() {
             if (process.client) {
-                this.setCanvasSize();
-                this.getOne()
+                // await  this.getOne()
+                // await  this.setCanvasSize();
+
             }
         }
     }
