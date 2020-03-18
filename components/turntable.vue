@@ -25,6 +25,10 @@
           setTimeout(() => {
               $('#myTurntable').turntable();
           }, 1000)
+          window.onload = function () { document.getElementById('buttons_block').style.display='none !important';
+          document.getElementById('top_navbar').style.display='none !important';
+          document.getElementById('tour_logo_sferika_id').style.display='none !important';
+          document.getElementsByTagName('audio')[0].style.display='none !important';  }
       </script>
       </template>
     </div>

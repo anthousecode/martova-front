@@ -13,8 +13,7 @@
         <iframe
           id="frame_id"
           style="width: 100vw !important; height: 100vh !important;"
-          onload="go()"
-          :src="link"
+          src="https://sferika.ru/tour/13603/29936"
           frameborder="0"
         >
         </iframe>
@@ -68,7 +67,6 @@
             img: '/shortMainPhotos/bar_360_проба2-min.jpg',
             index: 0,
             isReady: true,
-            link: ''
         }),
         computed: {
             ...mapGetters([
@@ -98,9 +96,6 @@
                     (this.index += this.urls.length - 1);
                 this.img = this.urls[this.index]
             },
-            go() {
-                console.log(1)
-            },
             getNextSlide() {
                 this.index < this.urls.length - 1 ?
                     (this.index += 1) :
@@ -128,12 +123,6 @@
             if (process.client) {
                 // await  this.getOne()
                 // await  this.setCanvasSize()
-                this.$axios.get('https://api.martovariverside.com/get-iframe-source-link?link=https://sferika.ru/tour/13603/29936')
-                    .then((res=>{
-                        this.link = res.data
-                    }))
-                let k = document.getElementsByTagName('iframe')[0].documentContent
-                console.log(k)
             }
         }
     }
