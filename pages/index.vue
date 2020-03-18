@@ -14,11 +14,6 @@
           id="frame_id"
           style="width: 100vw !important; height: 100vh !important;"
           src="https://sferika.ru/tour/13603/29936"
-          srcdoc="<style>
-            #buttons_block, #top_navbar, #tour_logo_sferika_id, audio {
-              display: none !important;
-            }
-          <style/>"
           frameborder="0"
         >
         </iframe>
