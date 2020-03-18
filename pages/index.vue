@@ -2,15 +2,22 @@
   <section>
     <div :class="{visible: isReady}" class="index-wrapper">
       <div class="position-relative img-container">
-<!--        <Pano-->
-<!--          style="-->
-<!--           width: 100vw !important;-->
-<!--    height: 100vh !important;-->
-<!--        "-->
-<!--          @on-load="readyChange"-->
-<!--          :source="img"-->
-<!--        />-->
-        <iframe id="frame_id" style="width: 100vw !important; height: 100vh !important;" src="https://sferika.ru/tour/13603/29936" frameborder="0"></iframe>
+        <!--        <Pano-->
+        <!--          style="-->
+        <!--           width: 100vw !important;-->
+        <!--    height: 100vh !important;-->
+        <!--        "-->
+        <!--          @on-load="readyChange"-->
+        <!--          :source="img"-->
+        <!--        />-->
+        <iframe
+          id="frame_id"
+          style="width: 100vw !important; height: 100vh !important;"
+          onload="go()"
+          :src="link"
+          frameborder="0"
+        >
+        </iframe>
         <div class="controls">
           <div class="controls-group">
             <div @click="getPrevSlide" class="controls-arrow controls-arrow__left">
@@ -44,6 +51,7 @@
     import {Pano} from 'vuejs-vr';
     import {mapGetters} from 'vuex';
     import Loading from "../components/loading";
+
     export default {
         components: {Loading},
         data: () => ({
@@ -57,9 +65,10 @@
                 '/shortMainPhotos/smotrovaya_360-min.jpg',
                 '/shortMainPhotos/yachtclub_360-min.jpg'
             ],
-            img:'/shortMainPhotos/bar_360_проба2-min.jpg',
+            img: '/shortMainPhotos/bar_360_проба2-min.jpg',
             index: 0,
-            isReady: true
+            isReady: true,
+            link: ''
         }),
         computed: {
             ...mapGetters([
@@ -87,13 +96,16 @@
                 this.index > 0 ?
                     (this.index += -1) :
                     (this.index += this.urls.length - 1);
-                    this.img = this.urls[this.index]
+                this.img = this.urls[this.index]
+            },
+            go() {
+                console.log(1)
             },
             getNextSlide() {
                 this.index < this.urls.length - 1 ?
                     (this.index += 1) :
                     (this.index = 0);
-                    this.img = this.urls[this.index]
+                this.img = this.urls[this.index]
             },
             getOne() {
                 this.urls.forEach(a => {
@@ -112,11 +124,16 @@
 
             }
         },
-       async mounted() {
+        mounted() {
             if (process.client) {
                 // await  this.getOne()
-                // await  this.setCanvasSize();
-
+                // await  this.setCanvasSize()
+                this.$axios.get('https://api.martovariverside.com/get-iframe-source-link?link=https://sferika.ru/tour/13603/29936')
+                    .then((res=>{
+                        this.link = res.data
+                    }))
+                let k = document.getElementsByTagName('iframe')[0].documentContent
+                console.log(k)
             }
         }
     }
