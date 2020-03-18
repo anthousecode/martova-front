@@ -45,7 +45,6 @@
   </section>
 </template>
 
-
 <script>
     import {Pano} from 'vuejs-vr';
     import {mapGetters} from 'vuex';
