@@ -15,10 +15,10 @@
           style="width: 100vw !important; height: 100vh !important;"
           src="https://sferika.ru/tour/13603/29936"
           srcdoc="<script>
-            window.onload = function () { document.getElementById('buttons_block').style.display='none !important';
+            document.getElementById('buttons_block').style.display='none !important';
             document.getElementById('top_navbar').style.display='none !important';
             document.getElementById('tour_logo_sferika_id').style.display='none !important';
-            document.getElementsByTagName('audio')[0].style.display='none !important';  }
+            document.getElementsByTagName('audio')[0].style.display='none !important';
           <script/>"
           frameborder="0"
         >
