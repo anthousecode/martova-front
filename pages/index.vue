@@ -10,6 +10,7 @@
         <!--          @on-load="readyChange"-->
         <!--          :source="img"-->
         <!--        />-->
+
         <iframe
           id="frame_id"
           style="width: 100vw !important; height: 100vh !important;"
