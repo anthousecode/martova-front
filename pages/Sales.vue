@@ -95,6 +95,7 @@
                       <img src="../static/dwg.svg" alt="doc">
                       <span>{{this.$options.filters.toUSD(language, 'Скачать')}}</span>
                     </a>
+
                     <a :href="currentRegion.plan" class="save-link d-flex align-items-center mt-3" download>
                       <img src="../static/pdf.svg" alt="doc">
                       <span>{{this.$options.filters.toUSD(language, 'Скачать')}}</span>

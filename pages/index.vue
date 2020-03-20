@@ -13,7 +13,7 @@
         <iframe
           id="frame_id"
           style="width: 100vw !important; height: 100vh !important;"
-          src="https://sferika.ru/tour/13603/29936"
+          src="https://api.martovariverside.com/3d/index.htm"
           frameborder="0"
         >
         </iframe>
@@ -44,7 +44,7 @@
     <loading :isReady="!isReady" v-if="!isReady"/>
   </section>
 </template>
-
+      <!--https://www.youtube.com/watch?v=TZmdPZGAbdU-->
 <script>
     import {Pano} from 'vuejs-vr';
     import {mapGetters} from 'vuex';
