@@ -5,7 +5,8 @@
   align-items: center;
   width: 60%;
   height: 382px;">
-      <template v-if="flag">
+
+      <template v-if="isImagesLoad&&flag">
       <div
         id="myTurntable"
         class="turntable position-relative"
@@ -28,8 +29,12 @@
 
       </script>
       </template>
+      <transition name="fade">
+      <div v-if="!isImagesLoad" class="turntable position-absolute d-flex justify-content-center align-items-center">
+        <img style="display:block; width: 100px; height: 100px;" src="../static/preloaderPassport.gif" alt="Загрузка...">
+      </div>
+      </transition>
     </div>
-
 </template>
 
 <script>
@@ -43,7 +48,8 @@
         },
         data: () => ({
             images: [],
-            flag: true
+            flag: true,
+            isImagesLoad: false
         }),
         computed: {
             listItems() {
@@ -78,9 +84,20 @@
         },
         mounted() {
             this.$bus.$on('reload', this.reload)
+            setTimeout(()=>{
+                this.isImagesLoad = true;
+            }, 2000)
             // this.$bus.$on('close', this.changeFlag)
         },
     }
 </script>
 <style scoped lang="scss">
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 1.5s;
+  }
+
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+  {
+    opacity: 0;
+  }
 </style>

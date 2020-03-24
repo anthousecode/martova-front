@@ -87,7 +87,6 @@
                     @setLastIndexToCounter="setLastIndexToCounter"
                     @setZeroIndexToCounter="setZeroIndexToCounter"
                   />
-
                 <div class=" pl-4">
                   <p class="mb-2" style="color:black;">{{this.$options.filters.toUSD(language, 'Геодезическая съемкa')}}</p>
                   <div>
