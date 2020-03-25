@@ -4,12 +4,12 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'Мартовая Риверсайд',
+    title: 'Мартова Риверсайд',
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: 'Мартовая Риверсайд - отдых и продажа участков под Харьковом.'},
-      {hid: 'keywords', name: 'keywords', content: 'Мартовая, мартовая, Мартова, Риверсайд, продажа, участков, покупка, отдых, Харьков'}
+      {hid: 'description', name: 'description', content: 'Мартова Риверсайд - отдых и продажа участков под Харьковом.'},
+      {hid: 'keywords', name: 'keywords', content: 'Мартова, мартова, мартова риверсайд, мартовая, Мартовая, martova, martova riverside, mahnjdf, Мартова, Риверсайд, продажа, участков, покупка, отдых, Харьков'}
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},

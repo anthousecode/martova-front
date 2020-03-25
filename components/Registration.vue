@@ -4,7 +4,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header moda-header">
-            <h3>{{$options.filters.toUSD(language, 'Мартовая Риверсайд')}}</h3>
+            <h3>{{$options.filters.toUSD(language, 'Мартова Риверсайд')}}</h3>
             <button
               @click.prevent="closeModal"
               type="button"
