@@ -22,7 +22,7 @@
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/?hl=ru" target="_blank" class="soc soc-insta">
+            <a href="https://instagram.com/martova_riverside?igshid=ryb4azq1zx9" target="_blank" class="soc soc-insta">
               <i class="fab fa-instagram">
               </i>
             </a>
