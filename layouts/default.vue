@@ -1,7 +1,7 @@
 <template>
   <main class="p-0 m-0">
     <notifications group="top" position="top"/>
-    <Navbar/>
+    <Navbar key="navbar"/>
     <div style="width: 100vw;" class="container-fluid">
       <div class="row justify-content-center align-items-center">
         <nuxt/>
@@ -16,6 +16,14 @@
         components: {
             Navbar
         },
+        data:()=>({
+            startPosition: false
+        }),
+        methods:{
+            setStart(){
+                this.startPosition = true;
+            }
+        }
     }
 </script>
 <style scoped lang="scss">

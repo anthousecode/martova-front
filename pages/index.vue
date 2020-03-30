@@ -12,11 +12,14 @@
         <!--        />-->
         <iframe
           id="frame_id"
-          style="width: 100vw !important; height: 100vh !important;"
+          style="width: 100vw !important; height: 100vh !important; z-index: 1; position: relative;"
           src="https://api.martovariverside.com/3d/index.htm"
           frameborder="0"
         >
         </iframe>
+        <img v-if="isShowControls" src="../static/preload.jpg" alt="loading" style="width: 100%;
+    height: 100vh;
+    object-fit: cover; position: fixed;top: 0; left: 0; right: 0; bottom: 0;z-index: 2;">
         <template v-if="isShowControls">
         <div  @click="playClick()" class="controls">
           <div class="controls-group">
@@ -67,16 +70,16 @@
     export default {
         components: {Loading},
         data: () => ({
-            urls: [
-                '/shortMainPhotos/bar_360_проба2-min.jpg',
-                '/shortMainPhotos/beregovaya_liniya-min.jpg',
-                '/shortMainPhotos/blokpost_360-min.jpg',
-                '/shortMainPhotos/detskaya_ploshadka-min.jpg',
-                '/shortMainPhotos/gidrant_360-min.jpg',
-                '/shortMainPhotos/ohranyaemaya_teritoria_360-min.jpg',
-                '/shortMainPhotos/smotrovaya_360-min.jpg',
-                '/shortMainPhotos/yachtclub_360-min.jpg'
-            ],
+            // urls: [
+            //     '/shortMainPhotos/bar_360_проба2-min.jpg',
+            //     '/shortMainPhotos/beregovaya_liniya-min.jpg',
+            //     '/shortMainPhotos/blokpost_360-min.jpg',
+            //     '/shortMainPhotos/detskaya_ploshadka-min.jpg',
+            //     '/shortMainPhotos/gidrant_360-min.jpg',
+            //     '/shortMainPhotos/ohranyaemaya_teritoria_360-min.jpg',
+            //     '/shortMainPhotos/smotrovaya_360-min.jpg',
+            //     '/shortMainPhotos/yachtclub_360-min.jpg'
+            // ],
             img: '/shortMainPhotos/bar_360_проба2-min.jpg',
             index: 0,
             isReady: true,
@@ -115,41 +118,46 @@
                     canvas.setAttribute('height', window.innerHeight);
                 }
             },
+            startPositionSet(){
+              this.isShowControls = true;
+              this.stopClick();
+            },
             getPrevSlide() {
-                this.index > 0 ?
-                    (this.index += -1) :
-                    (this.index += this.urls.length - 1);
-                this.img = this.urls[this.index]
+                // this.index > 0 ?
+                //     (this.index += -1) :
+                //     (this.index += this.urls.length - 1);
+                // this.img = this.urls[this.index]
             },
             getNextSlide() {
-                this.index < this.urls.length - 1 ?
-                    (this.index += 1) :
-                    (this.index = 0);
-                this.img = this.urls[this.index]
+                // this.index < this.urls.length - 1 ?
+                //     (this.index += 1) :
+                //     (this.index = 0);
+                // this.img = this.urls[this.index]
             },
             getOne() {
-                this.urls.forEach(a => {
-                    try {
-                        var imageObject = new Image();
-                        imageObject.src = `http://martovariverside.com${a}`;
-                    } catch (e) {
-                        this.$notify({
-                            group: 'top',
-                            type: 'error',
-                            title: `Ошибка`,
-                            text: e
-                        })
-                    }
-                })
-
+                // this.urls.forEach(a => {
+                //     try {
+                //         var imageObject = new Image();
+                //         imageObject.src = `http://martovariverside.com${a}`;
+                //     } catch (e) {
+                //         this.$notify({
+                //             group: 'top',
+                //             type: 'error',
+                //             title: `Ошибка`,
+                //             text: e
+                //         })
+                //     }
+                // })
             }
         },
         mounted() {
             if (process.client) {
+                // this.$axios.get('https://api.martovariverside.com/3d/index.htm')
                 // await  this.getOne()
                 // await  this.setCanvasSize()
+                this.$bus.$on('start', this.startPositionSet)
             }
-        }
+        },
     }
 </script>
 
@@ -195,7 +203,7 @@
       position: absolute;
       bottom: 51px;
       left: 81px;
-
+      z-index: 10;
       .h1 {
         width: 45.052vw;
         height: 3.646vw;
@@ -234,6 +242,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 10;
     transform: translate(-50%, -50%);
     -moz-user-select: none;
     -webkit-user-select: none;

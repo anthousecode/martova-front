@@ -1,7 +1,7 @@
 <template>
   <nav id="nav" class="navbar navbar-expand-lg navbar-dark navbar-custom col">
-    <nuxt-link to="/" class="navbar-brand logo">
-      <img src="/logo.svg" alt="logo">
+    <nuxt-link to="/"  class="navbar-brand logo">
+      <img  @click="startPosition" src="/logo.svg" alt="logo">
     </nuxt-link>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,9 +103,15 @@
             },
             isUa() {
                 return this.language === 'ua'
+            },
+            currentSlug() {
+                return this.$route
             }
         },
         methods: {
+            startPosition(){
+                this.$bus.$emit('start')
+            },
             setRuLanguage() {
                 this.$store.commit('SET_RUS_LANGUAGE')
             },
@@ -115,7 +121,22 @@
         },
         async beforeCreate() {
             this.menuItems = await this.$axios.$get(`pages`);
-        }
+        },
+        watch: {
+            currentSlug: function (val) {
+                if (val.path === '/' || val.path === '/About' || val.path === '/Contacts' || val.path === '/Gallery' || val.path === '/Infrastructure' || val.path === '/News' || val.path === '/Sales') {
+                    this.$router.push(val.path)
+                } else {
+                    let c = this.menuItems.pages.find(a => a.slug.toLowerCase() === val.path.toLowerCase().slice(1));
+                    setTimeout(()=>{
+                        this.$store.commit('SET_DYNAMIC_PAGE_RU', c.ru_content)
+                        this.$store.commit('SET_DYNAMIC_PAGE_UA', c.ua_content)
+                        this.$router.push('/Dynamic')
+                    }, 100)
+
+                }
+            }
+        },
     }
 </script>
 
