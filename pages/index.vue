@@ -17,7 +17,7 @@
           frameborder="0"
         >
         </iframe>
-        <img v-if="isShowControls" src="../static/preload.jpg" alt="loading" style="width: 100%;
+        <img @click="playClick()" v-if="isShowControls" src="../static/preload.jpg" alt="loading" style="width: 100%;
     height: 100vh;
     object-fit: cover; position: fixed;top: 0; left: 0; right: 0; bottom: 0;z-index: 2;">
         <template v-if="isShowControls">
