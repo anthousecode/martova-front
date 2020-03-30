@@ -8,7 +8,7 @@ module.exports = {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: 'Мартова Риверсайд - отдых и продажа участков под Харьковом.'},
+      {hid: 'description', name: 'description', content: 'Мартова Риверсайд - Ваш загородный клуб.'},
       {hid: 'keywords', name: 'keywords', content: 'Мартова, мартова, мартова риверсайд, мартовая, Мартовая, martova, martova riverside, mahnjdf, Мартова, Риверсайд, продажа, участков, покупка, отдых, Харьков'}
     ],
     link: [

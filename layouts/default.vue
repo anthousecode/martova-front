@@ -15,7 +15,7 @@
     export default {
         components: {
             Navbar
-        }
+        },
     }
 </script>
 <style scoped lang="scss">

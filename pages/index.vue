@@ -10,7 +10,6 @@
         <!--          @on-load="readyChange"-->
         <!--          :source="img"-->
         <!--        />-->
-
         <iframe
           id="frame_id"
           style="width: 100vw !important; height: 100vh !important;"
@@ -18,7 +17,8 @@
           frameborder="0"
         >
         </iframe>
-        <div class="controls">
+        <template v-if="isShowControls">
+        <div  @click="playClick()" class="controls">
           <div class="controls-group">
             <div @click="getPrevSlide" class="controls-arrow controls-arrow__left">
               &#10092;
@@ -40,9 +40,22 @@
           <div v-else class="h2"><img src="/надпись_укр.svg" alt="h2"></div>
           <div class="h1"><img src="/h1.svg" alt="h1"></div>
         </div>
+        </template>
       </div>
     </div>
     <loading :isReady="!isReady" v-if="!isReady"/>
+<!--    music-->
+    <button v-if="isPlay" class="stopButton" @click="stopClick()">
+      <img src="../static/speaker.jpg" alt="vol">
+    </button>
+    <button v-else class="stopButton mute" @click="playClick()">
+      <img src="../static/mute.png" alt="mute">
+    </button>
+    <audio v-show="false" muted ref="ID" loop>
+      <source src="planet.mp3">
+      <p>Ваш браузер не поддерживает аудио</p>
+    </audio>
+    <!--    music end-->
   </section>
 </template>
       <!--https://www.youtube.com/watch?v=TZmdPZGAbdU-->
@@ -67,6 +80,8 @@
             img: '/shortMainPhotos/bar_360_проба2-min.jpg',
             index: 0,
             isReady: true,
+            isPlay:false,
+            isShowControls:true
         }),
         computed: {
             ...mapGetters([
@@ -80,6 +95,16 @@
             }
         },
         methods: {
+            playClick() {
+                this.$refs.ID.play();
+                this.$refs.ID.muted=false;
+                this.isPlay = true;
+                this.isShowControls = false;
+            },
+            stopClick() {
+                this.$refs.ID.muted=true;
+                this.isPlay = false;
+            },
             readyChange() {
                 requestAnimationFrame(() => this.isReady = true)
             },
@@ -132,6 +157,31 @@
   .visible {
     visibility: visible;
   }
+  .stopButton{
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 2000;
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    outline: none;
+    img{
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+    }
+  }
+  .mute{
+    padding: 11px 9px;
+    padding-top: 10px;
+  }
 
   .index-wrapper {
     color: white;
@@ -154,17 +204,24 @@
           width: 100%;
           height: 100%;
           display: block;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
         }
       }
 
       .h2 {
         width: 25.302vw;
         height: 4.063vw;
-
         img {
           width: 100%;
           height: 100%;
           display: block;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
         }
       }
     }
@@ -178,7 +235,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
     .controls-group {
       display: flex;
       justify-content: space-around;
@@ -197,15 +258,6 @@
         font-weight: normal;
         font-size: 1.823vw;
         line-height: 3.177vw;
-      }
-
-      .controls-arrow {
-        cursor: pointer;
-
-        &:hover {
-          color: lightseagreen;
-          transition: 1s ease-in-outs;
-        }
       }
     }
 
