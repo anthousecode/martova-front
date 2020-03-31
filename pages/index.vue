@@ -10,11 +10,13 @@
         >
         </iframe>
         <!--you can add playClick() to img if you need-->
+        <transition name="fade">
         <img
           v-if="isShowControls"
-          src="../static/preload.jpg"
+          src="../static/bar_360test.jpg"
           alt="loading"
           class="preloadImage">
+        </transition>
         <template v-if="isShowControls">
         <div  @click="playClick()" class="controls">
           <div class="controls-group">
@@ -189,32 +191,29 @@
     top: 0; left: 0;
     right: 0; bottom: 0;
     z-index: 2;
-    @media screen and (max-width: 1400px) {
-     transform: scale(1);
-    }
     @media screen and (width: 1280px) {
-      transform: scale(1.14);
+      transform: scale(2.5);
+    }
+    @media screen and (min-width: 1281px) and (max-width: 1400px) {
+      transform: scale(2.5);
     }
     @media screen and (min-width: 1440px) and (max-width: 1899px) {
-      transform: scale(1.14);
+      transform: scale(3);
     }
     @media screen and (min-width: 1899px) and (max-width: 2047px) {
-      transform: scale(1.14);
-    }
-    @media screen and (width: 1920px) {
-      transform: scale(1.12);
+      transform: scale(3.05);
     }
     @media screen and (min-width: 2047px) {
-      transform: scale(1.14);
-    }
-    @media screen and (min-width: 2200px) {
-      transform: scale(1.07);
+      transform: scale(3.1);
     }
     @media screen and (width: 2560px) {
-      transform: scale(1.14);
+      transform: scale(3.1);
     }
     @media screen and (width: 2880px) {
-      transform: scale(1.14);
+      transform: scale(2.7);
+    }
+    @media screen and (min-width: 3500px) {
+      transform: scale(2.8);
     }
   }
   .visible {
@@ -343,6 +342,14 @@
       text-align: center;
       padding-top: 0.365vw;
     }
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .3s;
+  }
+
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+  {
+    opacity: 0;
   }
 </style>
 
