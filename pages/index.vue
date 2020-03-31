@@ -192,6 +192,9 @@
     @media screen and (max-width: 1400px) {
      transform: scale(1);
     }
+    @media screen and (width: 1280px) {
+      transform: scale(1.14);
+    }
     @media screen and (min-width: 1440px) and (max-width: 1899px) {
       transform: scale(1.14);
     }
