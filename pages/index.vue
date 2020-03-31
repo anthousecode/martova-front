@@ -2,6 +2,13 @@
   <section>
     <div :class="{visible: isReady}" class="index-wrapper">
       <div class="position-relative img-container">
+        <transition name="fade">
+          <img
+            v-if="isShowControls"
+            src="../static/bar_360test-min.jpg"
+            alt="loading"
+            class="preloadImage">
+        </transition>
         <iframe
           id="frame_id"
           style="width: 100vw !important; height: 100vh !important; z-index: 1; position: relative;"
@@ -10,13 +17,7 @@
         >
         </iframe>
         <!--you can add playClick() to img if you need-->
-        <transition name="fade">
-        <img
-          v-if="isShowControls"
-          src="../static/bar_360test.jpg"
-          alt="loading"
-          class="preloadImage">
-        </transition>
+
         <template v-if="isShowControls">
         <div  @click="playClick()" class="controls">
           <div class="controls-group">
@@ -198,7 +199,7 @@
       transform: scale(2.5);
     }
     @media screen and (min-width: 1440px) and (max-width: 1899px) {
-      transform: scale(3);
+      transform: scale(2.75);
     }
     @media screen and (min-width: 1899px) and (max-width: 2047px) {
       transform: scale(3.05);
