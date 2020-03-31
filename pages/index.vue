@@ -189,14 +189,17 @@
     top: 0; left: 0;
     right: 0; bottom: 0;
     z-index: 2;
-    @media screen and (max-width: 1281px) {
+    @media screen and (max-width: 1400px) {
      transform: scale(1);
     }
-    @media screen and (min-width: 1281px) and (max-width: 1899px) {
+    @media screen and (min-width: 1440px) and (max-width: 1899px) {
       transform: scale(1.14);
     }
     @media screen and (min-width: 1899px) and (max-width: 2047px) {
       transform: scale(1.14);
+    }
+    @media screen and (width: 1920px) {
+      transform: scale(1.12);
     }
     @media screen and (min-width: 2047px) {
       transform: scale(1.14);
