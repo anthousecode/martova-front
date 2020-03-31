@@ -43,10 +43,10 @@
     </div>
     <loading :isReady="!isReady" v-if="!isReady"/>
 <!--    music-->
-    <button v-if="isPlay" class="stopButton" @click="stopClick()">
+    <button v-if="isPlay&&!isShowControls" class="stopButton" @click="stopClick()">
       <img src="../static/speaker.jpg" alt="vol">
     </button>
-    <button v-else class="stopButton mute" @click="playClick()">
+    <button v-if="!isPlay&&!isShowControls" class="stopButton mute" @click="playClick()">
       <img src="../static/mute.png" alt="mute">
     </button>
     <audio v-show="false" muted ref="ID" loop>
