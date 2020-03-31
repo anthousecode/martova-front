@@ -21,7 +21,7 @@
         </div>
         <div class="news-item__body">
           <div class="img-container">
-            <img src="/cort.jpg" alt="news">
+            <img :src="item.image" alt="news">
           </div>
           <div class="likes-container d-flex justify-content-between pt-2 pb-3">
             <div class="likes d-flex align-items-center">
