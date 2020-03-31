@@ -153,21 +153,20 @@
                 //     (this.index = 0);
                 // this.img = this.urls[this.index]
             },
-           async getOne() {
-               await this.urls.forEach(a => {
-                    try {
-                        var imageObject = new Image();
-                        imageObject.src = `http://martovariverside.com${a}`;
-                    } catch (e) {
-                        this.$notify({
-                            group: 'top',
-                            type: 'error',
-                            title: `Ошибка`,
-                            text: e
-                        })
-                    }
-                })
-               await window.localStorage.setItem('loaded', 'loaded')
+           getOne() {
+               // await this.urls.forEach(a => {
+               //      try {
+               //          var imageObject = new Image();
+               //          imageObject.src = `http://martovariverside.com${a}`;
+               //      } catch (e) {
+               //          this.$notify({
+               //              group: 'top',
+               //              type: 'error',
+               //              title: `Ошибка`,
+               //              text: e
+               //          })
+               //      }
+               //  })
             }
         },
         mounted() {
@@ -175,10 +174,6 @@
                 // this.$axios.get('https://api.martovariverside.com/3d/index.htm')
                 // await  this.getOne()
                 // await  this.setCanvasSize()
-               let loaded = window.localStorage.getItem('loaded');
-               if (!loaded){
-                   setTimeout(()=> this.getOne(), 4000);
-               }
                 this.$bus.$on('start', this.startPositionSet);
             }
         },
@@ -194,6 +189,27 @@
     top: 0; left: 0;
     right: 0; bottom: 0;
     z-index: 2;
+    @media screen and (max-width: 1281px) {
+     transform: scale(1);
+    }
+    @media screen and (min-width: 1281px) and (max-width: 1899px) {
+      transform: scale(1.14);
+    }
+    @media screen and (min-width: 1899px) and (max-width: 2047px) {
+      transform: scale(1.14);
+    }
+    @media screen and (min-width: 2047px) {
+      transform: scale(1.14);
+    }
+    @media screen and (min-width: 2200px) {
+      transform: scale(1.07);
+    }
+    @media screen and (width: 2560px) {
+      transform: scale(1.14);
+    }
+    @media screen and (width: 2880px) {
+      transform: scale(1.14);
+    }
   }
   .visible {
     visibility: visible;
