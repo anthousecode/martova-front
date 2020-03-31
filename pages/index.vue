@@ -50,7 +50,7 @@
       <img src="../static/mute.png" alt="mute">
     </button>
     <audio v-show="false" muted ref="ID" loop>
-      <source src="planet.mp3">
+      <source src="Purple.mp3">
       <p>Ваш браузер не поддерживает аудио</p>
     </audio>
     <!--    music end-->
