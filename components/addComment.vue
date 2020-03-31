@@ -166,8 +166,8 @@
 
     #EmojiPicker {
       position: absolute;
-      top: 45px;
-      right: 25px;
+      top: -369px;
+      right: 29px;
     }
   }
 

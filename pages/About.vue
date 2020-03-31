@@ -7,7 +7,7 @@
       <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681" class="bg"
            id="bg" src="/about/1680About.jpg" alt="big">
       <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921)&& getWindowHeight<1090" class="bg"
-           src="about/1920About.jpg" alt="big">
+           src="/about/1920About.jpg" alt="big">
       <!--    <img v-else-if="(getWindowWidth>1681 && getWindowWidth<1921) && getWindowHeight>1091" class="bg"-->
       <!--         src="/about/19201About.jpg" alt="big">-->
       <img v-else-if="getWindowWidth>=1921 && getWindowWidth<2800" class="bg"

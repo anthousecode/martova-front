@@ -184,6 +184,21 @@
           line-height: 25px;
           color: #000000;
         }
+        @media screen and (min-width: 2500px){
+          width: 25%;
+          .text-wrap{
+            font-size: 48px;
+            padding-bottom: 30px;
+            img{
+              display: block;
+              width: 46px;
+            }
+          }
+          li{
+            font-size: 30px;
+            line-height: 45px;
+          }
+        }
       }
     }
   }

@@ -78,7 +78,8 @@
     export default {
         name: "Login",
         props:{
-            target: String
+            target: String,
+            id: Number
         },
         data: () => ({
             email: '',
@@ -113,13 +114,16 @@
                     password: this.password
                 }).then((res)=>{
                     this.setCookie('token', res.data.key, 2);
-                });
-                if (this.target==='like'){
-                    this.itsLike()
-                } else {
-                    this.itsComment()
-                }
-                this.closeModal()
+                }).then(()=>{
+                    if (this.target==='like'){
+                        console.log('like', this.id)
+                        this.itsLike()
+                    } else {
+                        this.itsComment()
+                    }
+                    this.closeModal()
+                })
+
                 // try {
                 //     debugger
                 //
@@ -129,7 +133,7 @@
                 // }
             },
             itsLike(){
-                this.$emit('addLike')
+                this.$bus.$emit('addLike', this.id)
             },
             itsComment(){
                 this.$emit('addComment')

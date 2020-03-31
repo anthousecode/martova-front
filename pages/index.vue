@@ -2,14 +2,6 @@
   <section>
     <div :class="{visible: isReady}" class="index-wrapper">
       <div class="position-relative img-container">
-        <!--        <Pano-->
-        <!--          style="-->
-        <!--           width: 100vw !important;-->
-        <!--    height: 100vh !important;-->
-        <!--        "-->
-        <!--          @on-load="readyChange"-->
-        <!--          :source="img"-->
-        <!--        />-->
         <iframe
           id="frame_id"
           style="width: 100vw !important; height: 100vh !important; z-index: 1; position: relative;"
@@ -17,9 +9,12 @@
           frameborder="0"
         >
         </iframe>
-        <img @click="playClick()" v-if="isShowControls" src="../static/preload.jpg" alt="loading" style="width: 100%;
-    height: 100vh;
-    object-fit: cover; position: fixed;top: 0; left: 0; right: 0; bottom: 0;z-index: 2;">
+        <!--you can add playClick() to img if you need-->
+        <img
+          v-if="isShowControls"
+          src="../static/preload.jpg"
+          alt="loading"
+          class="preloadImage">
         <template v-if="isShowControls">
         <div  @click="playClick()" class="controls">
           <div class="controls-group">
@@ -70,16 +65,38 @@
     export default {
         components: {Loading},
         data: () => ({
-            // urls: [
+            urls: [
             //     '/shortMainPhotos/bar_360_проба2-min.jpg',
             //     '/shortMainPhotos/beregovaya_liniya-min.jpg',
             //     '/shortMainPhotos/blokpost_360-min.jpg',
             //     '/shortMainPhotos/detskaya_ploshadka-min.jpg',
             //     '/shortMainPhotos/gidrant_360-min.jpg',
             //     '/shortMainPhotos/ohranyaemaya_teritoria_360-min.jpg',
-            //     '/shortMainPhotos/smotrovaya_360-min.jpg',
+                '/about/1280About.jpg',
+                '/about/1680About.jpg',
+                '/about/1920About.jpg',
+                '/about/2048About.jpg',
+                '/gallery/1280Gallery.jpg',
+                '/gallery/1680Gallery.jpg',
+                '/gallery/1920Gallery.jpg',
+                '/gallery/2048Gallery.jpg',
+                '/gallery/4kGallery.jpg',
+                '/12801.jpg',
+                '/1680.jpg',
+                '/16801.jpg',
+                '/19201.jpg',
+                '/2048.jpg',
+                '/pro.jpg',
+                '/3600.jpg',
+                '/4k.jpg',
+                '/news/1280News.png',
+                '/news/1680News.png',
+                '/news/1920News.jpg',
+                '/news/19201News.jpg',
+                '/news/2048News.png',
+                '/news/4kNews.png'
             //     '/shortMainPhotos/yachtclub_360-min.jpg'
-            // ],
+            ],
             img: '/shortMainPhotos/bar_360_проба2-min.jpg',
             index: 0,
             isReady: true,
@@ -105,8 +122,10 @@
                 this.isShowControls = false;
             },
             stopClick() {
-                this.$refs.ID.muted=true;
-                this.isPlay = false;
+                setTimeout(()=>{
+                    this.isPlay = false;
+                    this.$refs.ID.muted=true;
+                }, 0)
             },
             readyChange() {
                 requestAnimationFrame(() => this.isReady = true)
@@ -119,8 +138,8 @@
                 }
             },
             startPositionSet(){
-              this.isShowControls = true;
-              this.stopClick();
+                this.isShowControls = true;
+                this.stopClick();
             },
             getPrevSlide() {
                 // this.index > 0 ?
@@ -134,20 +153,21 @@
                 //     (this.index = 0);
                 // this.img = this.urls[this.index]
             },
-            getOne() {
-                // this.urls.forEach(a => {
-                //     try {
-                //         var imageObject = new Image();
-                //         imageObject.src = `http://martovariverside.com${a}`;
-                //     } catch (e) {
-                //         this.$notify({
-                //             group: 'top',
-                //             type: 'error',
-                //             title: `Ошибка`,
-                //             text: e
-                //         })
-                //     }
-                // })
+           async getOne() {
+               await this.urls.forEach(a => {
+                    try {
+                        var imageObject = new Image();
+                        imageObject.src = `http://martovariverside.com${a}`;
+                    } catch (e) {
+                        this.$notify({
+                            group: 'top',
+                            type: 'error',
+                            title: `Ошибка`,
+                            text: e
+                        })
+                    }
+                })
+               await window.localStorage.setItem('loaded', 'loaded')
             }
         },
         mounted() {
@@ -155,13 +175,26 @@
                 // this.$axios.get('https://api.martovariverside.com/3d/index.htm')
                 // await  this.getOne()
                 // await  this.setCanvasSize()
-                this.$bus.$on('start', this.startPositionSet)
+               let loaded = window.localStorage.getItem('loaded');
+               if (!loaded){
+                   setTimeout(()=> this.getOne(), 4000);
+               }
+                this.$bus.$on('start', this.startPositionSet);
             }
         },
     }
 </script>
 
 <style scoped lang="scss">
+  .preloadImage{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    z-index: 2;
+  }
   .visible {
     visibility: visible;
   }
@@ -179,6 +212,11 @@
     padding: 5px;
     border: none;
     outline: none;
+    @media screen and (min-width: 2049px){
+      width: 80px;
+      height: 80px;
+      padding: 10px;
+    }
     img{
       width: 100%;
       height: 100%;
@@ -189,6 +227,10 @@
   .mute{
     padding: 11px 9px;
     padding-top: 10px;
+    @media screen and (min-width: 2049px){
+      padding: 22px 18px;
+      padding-top: 20px;
+    }
   }
 
   .index-wrapper {

@@ -272,6 +272,7 @@
             },
             addLike(id) {
                 this.currentId = id;
+                this.getCookie('token')
                 if (this.isCookie) {
                     this.$axios.$put(`news_like/${this.currentId}`, {
                         token: this.tok,
@@ -280,6 +281,7 @@
                             Cookie: `token=${this.tok}`
                         }
                     }).then(() => {
+                        console.log('hey')
                         this.getNews();
                         this.$notify({
                             group: 'top',
@@ -310,6 +312,7 @@
             },
             addComment(data) {
                 let form_data = new FormData();
+                this.getCookie('token')
                 if (this.isCookie) {
                     if(this.file){
                         form_data.append('image', this.file)
@@ -405,6 +408,9 @@
         },
         mounted() {
             if (process.client) {
+                this.$bus.$on('addLike',
+                    this.addLike
+                )
               let tok = this.$route.query.key;
               if (tok) {
                   this.setCookie("token", this.$route.query.key, 2)
@@ -412,6 +418,9 @@
               }
               this.getCookie('token')
           }
+        },
+        beforeDestroy() {
+            this.$bus.$off('addLike')
         }
     }
 </script>
