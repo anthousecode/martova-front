@@ -251,19 +251,19 @@
             },
             cuttedText(val) {
                 this.language === 'ru' ? (val = val.ru_description) : (val = val.ua_description);
-                if (val.length > 250) {
-                    return val.slice(0, 250) + '...' + `<a class="moreLink">${this.$options.filters.toUSD(this.language, 'ещё')}</a>`;
-                } else if (val.length <20) {
+                if (val.length > 100) {
+                    return val.slice(0, 100) + '...' + `<a class="moreLink">${this.$options.filters.toUSD(this.language, 'ещё')}</a>`;
+                } else if (val.length <100) {
                     return val;
                 }
-
                 else {
-                    return val + '...' + '<a class="moreLink">Еще</a>';
+                    return val + '...' + `<a class="moreLink">${this.$options.filters.toUSD(this.language, 'ещё')}</a>`;
                 }
             },
             fulledText(val) {
                 this.language === 'ru' ? (val = val.ru_description) : (val = val.ua_description);
-                return val + `<a class="moreLink">${this.$options.filters.toUSD(this.language, 'Скрыть')}</a>`;
+                    return val + `<a class="moreLink">${this.$options.filters.toUSD(this.language, 'Скрыть')}</a>`;
+
             },
             getFullNews(val) {
                 this.isMore = true;
