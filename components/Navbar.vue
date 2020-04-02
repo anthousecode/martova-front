@@ -129,8 +129,9 @@
                 } else {
                     let c = this.menuItems.pages.find(a => a.slug.toLowerCase() === val.path.toLowerCase().slice(1));
                     setTimeout(()=>{
-                        this.$store.commit('SET_DYNAMIC_PAGE_RU', c.ru_content)
-                        this.$store.commit('SET_DYNAMIC_PAGE_UA', c.ua_content)
+                        this.$store.commit('SET_DYNAMIC_PAGE_RU', c.ru_content);
+                        this.$store.commit('SET_DYNAMIC_PAGE_UA', c.ua_content);
+                        this.$store.commit('SET_SLUG', c.slug);
                         this.$router.push('/Dynamic')
                     }, 100)
 

@@ -3,11 +3,15 @@ export const state = () => ({
   postId: null,
   basePath: 'https://api.martovariverside.com',
   dynamicPageRu: '',
-  dynamicPageUa: ''
+  dynamicPageUa: '',
+  slug: ''
 });
 export const mutations = {
   SET_RUS_LANGUAGE(state) {
     state.language = 'ru'
+  },
+  SET_SLUG(state, slug){
+    state.slug = slug
   },
   SET_UA_LANGUAGE(state) {
     state.language = 'ua'
@@ -34,5 +38,6 @@ export const getters = {
   postId: s => s.postId,
   basePath: s => s.basePath,
   dynamicPageRu: s => s.dynamicPageRu,
-  dynamicPageUa: s => s.dynamicPageUa
+  dynamicPageUa: s => s.dynamicPageUa,
+  slug: s => s.slug,
 };
