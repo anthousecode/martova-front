@@ -50,7 +50,7 @@
     padding-top: 200px;
     font-size: 30px;
     font-family: sans-serif;
-    z-index: 99999;
+    z-index: 999;
 
     .spinner-grow {
       width: 100px;
