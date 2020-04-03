@@ -4,7 +4,7 @@
       <div class="position-relative img-container">
         <iframe
           id="frame_id"
-          style="width: 100vw !important; height: 100vh !important; z-index: 1; position: relative;"
+          style="width: 100vw !important; height: 100vh !important; z-index: 1; position: relative; top:0; left: 0; overflow: hidden;"
           src="https://api.martovariverside.com/3d/index.htm"
           frameborder="0"
         >
@@ -172,12 +172,19 @@
                //  })
             }
         },
+        beforeCreate(){
+          this.$axios.get('http://martovariverside.com/_nuxt/img/6e9ccf0.jpg')
+        },
         mounted() {
             if (process.client) {
                 // this.$axios.get('https://api.martovariverside.com/3d/index.htm')
                 // await  this.getOne()
                 // await  this.setCanvasSize()
+                this.isReady = false;
                 this.$bus.$on('start', this.startPositionSet);
+                setTimeout(()=>{
+                    this.readyChange()
+                }, 1000)
             }
         },
     }
