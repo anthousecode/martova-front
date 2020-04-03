@@ -127,16 +127,6 @@
                 $('.owl-prev').click()
             }
         },
-        beforeCreate() {
-            const urlsImg = [
-                'http://martovariverside.com/gallery/1280Gallery.jpg',
-                'http://martovariverside.com/gallery/1680Gallery.jpg',
-                'http://martovariverside.com/gallery/1920Gallery.jpg',
-                'http://martovariverside.com/gallery/2048Gallery.jpg',
-                'http://martovariverside.com/gallery/4kGallery.jpg'
-            ];
-            urlsImg.forEach((link)=>this.$axios.get(link));
-        }
     }
 </script>
 

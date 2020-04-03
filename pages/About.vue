@@ -58,14 +58,6 @@
                 return window.innerHeight;
             },
         },
-        beforeCreate(){
-            const urlsImg = [
-                'http://martovariverside.com/about/1280About.jpg',
-                'http://martovariverside.com/about/1680About.jpg',
-                'http://martovariverside.com/about/1920About.jpg',
-                'http://martovariverside.com/about/2048About.jpg'];
-            urlsImg.forEach((link)=>this.$axios.get(link));
-        },
         mounted() {
             this.isReady = true;
         }

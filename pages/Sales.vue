@@ -2771,20 +2771,6 @@
                     .text("10");
             }
         },
-        beforeCreate(){
-            const urlsImg = [
-                'http://martovariverside.com/12801.jpg',
-                'http://martovariverside.com/1680.jpg',
-                'http://martovariverside.com/16801.jpg',
-                'http://martovariverside.com/19201.jpg',
-                'http://martovariverside.com/2048.jpg',
-                'http://martovariverside.com/pro.jpg',
-                'http://martovariverside.com/3600.jpg',
-                'http://martovariverside.com/4k.jpg',
-                'http://martovariverside.com/smallD.jpg'
-                ];
-            urlsImg.forEach((link)=>this.$axios.get(link));
-        },
         mounted() {
             if (process.client) {
                 this.window = window;

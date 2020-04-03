@@ -406,17 +406,6 @@
                 return "";
             }
         },
-        beforeCreate() {
-            const urlsImg = [
-                'http://martovariverside.com/news/1280News.png',
-                'http://martovariverside.com/news/1680News.png',
-                'http://martovariverside.com/news/1920News.jpg',
-                'http://martovariverside.com/news/19201News.jpg',
-                'http://martovariverside.com/news/2048News.png',
-                'http://martovariverside.com/news/4kNews.png'
-            ];
-            urlsImg.forEach((link)=>this.$axios.get(link));
-        },
         mounted() {
             if (process.client) {
                 this.$bus.$on('addLike',

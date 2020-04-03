@@ -184,7 +184,7 @@
                 this.$bus.$on('start', this.startPositionSet);
                 setTimeout(()=>{
                     this.readyChange()
-                }, 1000)
+                }, 1500)
             }
         },
     }
