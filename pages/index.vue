@@ -174,6 +174,9 @@
         },
         beforeCreate(){
           this.$axios.get('http://martovariverside.com/_nuxt/img/6e9ccf0.jpg')
+          this.$axios.get('https://api.foursquare.com/v2/venues/search?ll=40.7,-74').then((res)=>{
+              console.log(res)
+          })
         },
         mounted() {
             if (process.client) {
