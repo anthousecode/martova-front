@@ -3416,18 +3416,12 @@
     transition: 1s ease-in-out;
   }
 
-  /*.zoom {*/
-  /*  -webkit-transform: scale(1.1);*/
-  /*  -ms-transform: scale(1.1);*/
-  /*  transform: scale(1.1);*/
-  /*  overflow: auto;*/
-  /*}*/
-
   @media screen and (min-width: 1600px) {
     .zoom {
       -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
       transform: scale(1.2);
+      transition: .5s ease;
       overflow: auto;
     }
   }
@@ -3437,6 +3431,7 @@
       -webkit-transform: scale(1.25);
       -ms-transform: scale(1.25);
       transform: scale(1.25);
+      transition: .5s ease;
       overflow: auto;
     }
   }

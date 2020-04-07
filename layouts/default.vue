@@ -29,9 +29,6 @@
 <style scoped lang="scss">
   main {
     font-family: 'Open Sans', sans-serif;
-    @media screen and (width: 375px){
-      transform: scale(0.56) rotate(90deg);
-    }
   }
 </style>
 

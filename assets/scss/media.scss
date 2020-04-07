@@ -1,0 +1,54 @@
+@media screen and (width: 375px){
+  #bigImg3{
+    transform: scale(0.57) rotate(90deg);
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+  #map{
+    transform: scale(0.37) rotate(90deg);
+    left: -21px!important;
+    top: 0!important;
+    position: absolute;
+  }
+  #mapImg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  body{
+    overflow: hidden!important;
+  }
+  .zoom {
+    transform: scale(1.5);
+    transition: .5s ease;
+  }
+}
+//667
+@media screen and (width: 667px){
+  #bigImg3{
+    transform: scale(0.57) rotate(0deg);
+    width: 100%;
+    height: 100%;
+    object-fit: fill!important;
+  }
+  #map{
+    transform: scale(0.41) rotate(0deg);
+    left: 0!important;
+    top: 12px!important;
+    position: absolute;
+  }
+  #mapImg{
+    width: 100%;
+    height: 100%;
+  }
+  body{
+    overflow: hidden!important;
+  }
+  .zoom {
+    transform: scale(1.4);
+    transition: .5s ease;
+    margin-left: 100px;
+  }
+}
+
