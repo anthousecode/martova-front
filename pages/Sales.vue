@@ -138,7 +138,8 @@
     <!--New  -->
 
     <div class="wrapper min-container">
-      <img v-if="getWindowWidth<=1281" class="big-img min-container" id="bigImg3" src="/12801.jpg" alt="big">
+      <img v-if="getWindowWidth<=1202" class="big-img min-container" id="bigImg3" src="/uchastki_top.jpg" alt="big">
+      <img v-else-if="getWindowWidth>1203 && getWindowWidth<=1281" class="big-img min-container" id="bigImg3" src="/12801.jpg" alt="big">
       <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681 && getWindowHeight<978" class="big-img min-container"
            id="bigImg8" src="/1680.jpg" alt="big">
       <img v-else-if="getWindowWidth>1280 && getWindowWidth<1681  && getWindowHeight>=978"
@@ -492,6 +493,2219 @@
                         stroke: '#048819'
                     }
                 },
+                {
+                    id: '13',
+                    status: 'Свободен',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 416, "y": 477},
+                            {"x": 360, "y": 459},
+                            {"x": 382.5, "y": 435},
+                            {"x": 438, "y": 453},
+
+                        ],
+                        fill: 'rgba(4, 136, 25, 0.5)',
+                        stroke: '#048819'
+                    }
+                },
+                {
+                    id: '14',
+                    status: 'Свободен',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 438, "y": 453},
+                            {"x": 382.5, "y": 435},
+                            {"x": 405, "y": 408},
+                            {"x": 460, "y": 429},
+
+
+                        ],
+                        fill: 'rgba(4, 136, 25, 0.5)',
+                        stroke: '#048819'
+                    }
+                },
+                {
+                    id: '15',
+                    status: 'Свободен',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 460, "y": 429},
+                            {"x": 405, "y": 408},
+                            {"x": 428, "y": 381},
+                            {"x": 484, "y": 402},
+                        ],
+                        fill: 'rgba(4, 136, 25, 0.5)',
+                        stroke: '#048819'
+                    }
+                },
+                {
+                    id: '16',
+                    status: 'Свободен',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 484, "y": 402},
+                            {"x": 427, "y": 382},
+                            {"x": 461, "y": 342},
+                            {"x": 520, "y": 359},
+                        ],
+                        fill: 'rgba(4, 136, 25, 0.5)',
+                        stroke: '#048819'
+                    }
+                },
+                {
+                    id: '17',
+                    status: 'Свободен',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 544, "y": 415},
+                            {"x": 488, "y": 397},
+                            {"x": 518, "y": 359},
+                            {"x": 580.5, "y": 374},
+                        ],
+                        fill: 'rgba(4, 136, 25, 0.5)',
+                        stroke: '#048819'
+                    }
+                },
+                {
+                    id: '18',
+                    status: 'Свободен',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 521, "y": 443},
+                            {"x": 466, "y": 422},
+                            {"x": 488, "y": 397},
+                            {"x": 544, "y": 415},
+                        ],
+                        fill: 'rgba(4, 136, 25, 0.5)',
+                        stroke: '#048819'
+                    }
+                },
+                {
+                    id: '19',
+                    status: 'Свободен',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 500, "y": 467},
+                            {"x": 444, "y": 448},
+                            {"x": 466, "y": 422},
+                            {"x": 521, "y": 443},
+
+                        ],
+                        fill: 'rgba(4, 136, 25, 0.5)',
+                        stroke: '#048819'
+                    }
+                },
+                {
+                    id: '20',
+                    status: 'Свободен',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 420, "y": 473},
+                            {"x": 477, "y": 492.5},
+                            {"x": 500, "y": 467},
+                            {"x": 444, "y": 448},
+                        ],
+                        fill: 'rgba(4, 136, 25, 0.5)',
+                        stroke: '#048819'
+                    }
+                },
+                {
+                    id: '21',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 460, "y": 529},
+                            {"x": 385, "y": 509},
+                            {"x": 421, "y": 473},
+                            {"x": 477, "y": 492},
+                            {"x": 460, "y": 507},
+                            {"x": 478, "y": 513},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+// endpoint
+
+                {
+                    id: '22',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 535, "y": 548.5},
+                            {"x": 461, "y": 529},
+                            {"x": 476, "y": 513},
+                            {"x": 491, "y": 517},
+                            {"x": 516, "y": 490},
+                            {x: 572, y: 508},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '23',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 572, y: 508},
+                            {x: 516, y: 490},
+                            {x: 539, y: 466},
+                            {x: 595, y: 484},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '24',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 595, y: 484},
+                            {x: 539, y: 466},
+                            {x: 560, y: 441},
+                            {x: 617, y: 460},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '25',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 617, y: 460},
+                            {x: 560, y: 441},
+                            {x: 584, y: 415},
+                            {x: 640.5, y: 435},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '26',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 640.5, y: 435},
+                            {x: 584, y: 415},
+                            {x: 615.5, y: 381},
+                            {x: 678.5, y: 392}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '27',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 703.5, y: 446},
+                            {x: 648, y: 427},
+                            {x: 678, y: 392},
+                            {x: 745, y: 402}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '28',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 680, y: 471},
+                            {x: 624, y: 453},
+                            {x: 648, y: 427},
+                            {x: 703.5, y: 446}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '29',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 658, y: 495},
+                            {x: 602, y: 477},
+                            {x: 624, y: 453},
+                            {x: 680, y: 471}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '30',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 578, y: 501},
+                            {x: 634, y: 520},
+                            {x: 658, y: 495},
+                            {x: 602, y: 477}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '31',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 607, y: 568},
+                            {x: 535, y: 548},
+                            {x: 578, y: 501},
+                            {x: 634, y: 520},
+                            {x: 613, y: 542},
+                            {x: 627, y: 548}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '32',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 682, "y": 587.5},
+                            {x: 607, y: 568},
+                            {x: 627, y: 548},
+                            {"x": 641, "y": 553},
+                            {x: 656, y: 538.5},
+                            {x: 713, y: 556.5},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '33',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 713, y: 556.5},
+                            {x: 656, y: 538.5},
+                            {x: 679.5, y: 513.5},
+                            {x: 735, y: 532.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '34',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 734, y: 532.5},
+                            {x: 679.5, y: 513.5},
+                            {x: 702, y: 489.5},
+                            {x: 757, y: 507.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '35',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 757, y: 507.5},
+                            {x: 702, y: 489.5},
+                            {x: 725, y: 467},
+                            {x: 781, y: 483.5},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '36',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 748, y: 440},
+                            {x: 725, y: 466.5},
+                            {x: 781, y: 483.5},
+                            {x: 803, y: 459.5},
+
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '37',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 803, y: 459.5},
+                            {x: 749, y: 440},
+                            {x: 778, y: 407},
+                            {x: 843, y: 413.5},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+
+                {
+                    id: '38',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 870.5, y: 462.5},
+                            {x: 816, y: 445.5},
+                            {x: 843, y: 413.5},
+                            {x: 913, y: 418.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+
+
+                {
+                    id: '39',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 846, y: 487},
+                            {x: 790, y: 471.5},
+                            {x: 816, y: 445.5},
+                            {x: 870.5, y: 462.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '40',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 823, y: 512},
+                            {x: 768, y: 495.5},
+                            {x: 790, y: 471.5},
+                            {x: 846, y: 487}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '41',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 799, y: 537.5},
+                            {x: 745, y: 520.5},
+                            {x: 768, y: 495.5},
+                            {x: 823, y: 512}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '42',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 721, y: 545.5},
+                            {x: 775.5, y: 562.5},
+                            {x: 799, y: 537.5},
+                            {x: 745, y: 520.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '43',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 757, y: 607},
+                            {x: 720, y: 598},
+                            {x: 682, y: 587},
+                            {x: 721, y: 545.5},
+                            {x: 775.5, y: 562.5},
+                            {x: 759, y: 581.2},
+                            {x: 773.5, y: 585.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '44',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 826, y: 625},
+                            {x: 758, y: 607.5},
+                            {x: 773, y: 585.5},
+                            {x: 788, y: 590.5},
+                            {x: 803, y: 575.5},
+                            {x: 857, y: 593.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '45',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 857, y: 593.5},
+                            {x: 803, y: 575.5},
+                            {x: 826.5, y: 549},
+                            {x: 880, y: 568}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '46',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 880, y: 568},
+                            {x: 826.5, y: 549},
+                            {x: 849, y: 525},
+                            {x: 905, y: 542}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '47',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 905, y: 542},
+                            {x: 849, y: 525},
+                            {x: 872, y: 499.5},
+                            {x: 928, y: 519}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '48',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 897, y: 472.5},
+                            {x: 872, y: 499},
+                            {x: 927, y: 520},
+                            {x: 952, y: 495}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '49',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 952, y: 495},
+                            {x: 897, y: 472.5},
+                            {x: 921, y: 450},
+                            {x: 975, y: 469}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '50',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 975, y: 469},
+                            {x: 921, y: 450},
+                            {x: 948, y: 420},
+                            {x: 1018, y: 425.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '51',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1020.5, y: 497},
+                            {x: 965, y: 481},
+                            {x: 990, y: 453},
+                            {x: 1045, y: 471}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '52',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1045, y: 471},
+                            {x: 990, y: 453},
+                            {x: 1020, y: 425},
+                            {x: 1090, y: 423}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '53',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 996, y: 521},
+                            {x: 941, y: 504},
+                            {x: 965, y: 481},
+                            {x: 1020.5, y: 497},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '54',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 972, y: 545.5},
+                            {x: 919, y: 528},
+                            {x: 942, y: 504},
+                            {x: 996, y: 521},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '55',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 949, y: 571},
+                            {x: 895, y: 554},
+                            {x: 919, y: 528},
+                            {x: 972, y: 545.5},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '56',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 925.5, y: 595},
+                            {x: 872, y: 578},
+                            {x: 895, y: 553},
+                            {x: 949, y: 571},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '57',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 902, y: 646.5},
+                            {x: 850, y: 632.5},
+                            {x: 827, y: 625.5},
+                            {x: 872, y: 578},
+                            {x: 926, y: 595},
+                            {x: 906, y: 620},
+                            {x: 920.5, y: 625}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '58',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 972, y: 666},
+                            {x: 902, y: 646.5},
+                            {x: 920, y: 625.5},
+                            {x: 934, y: 629.5},
+                            {x: 950, y: 613.5},
+                            {x: 1003, y: 631.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '59',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1003, y: 631.5},
+                            {x: 950, y: 613},
+                            {x: 972.5, y: 586},
+                            {x: 1026, y: 605}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '60',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1026, y: 605},
+                            {x: 972.5, y: 586},
+                            {x: 999, y: 559},
+                            {x: 1050, y: 579}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '61',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1050, y: 579},
+                            {x: 999, y: 559},
+                            {x: 1022, y: 534.5},
+                            {x: 1076, y: 551.5},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '62',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1076, y: 551.5},
+                            {x: 1022, y: 534.5},
+                            {x: 1047, y: 508},
+                            {x: 1100, y: 525}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '63',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1100, y: 525},
+                            {x: 1047, y: 508},
+                            {x: 1072, y: 481.5},
+                            {x: 1124, y: 498.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '64',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1124, y: 498.5},
+                            {x: 1072, y: 481.5},
+                            {x: 1095, y: 455.5},
+                            {x: 1149, y: 471.5}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '65',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1149, y: 471.5},
+                            {x: 1095, y: 455.5},
+                            {x: 1123, y: 424.5},
+                            {x: 1194, y: 425}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                // ---------------------BOTTOM SIDE----------------------------------
+                {
+                    id: '66',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 336, "y": 247},
+                            {"x": 251, "y": 198},
+                            {"x": 295, "y": 168},
+                            {"x": 383, "y": 218},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '67',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 383, "y": 218},
+                            {"x": 295, "y": 168},
+                            {"x": 342, "y": 140},
+                            {"x": 430, "y": 190},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '68',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 430, "y": 190},
+                            {"x": 342, "y": 140},
+                            {"x": 388, "y": 113},
+                            {"x": 476, "y": 163},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '69',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 476, y: 163},
+                            {x: 388, y: 113},
+                            {x: 435, y: 85},
+                            {x: 524, y: 136}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '70',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 545, y: 148},
+                            {x: 436, y: 84},
+                            {x: 483, y: 56},
+                            {x: 565, y: 105},
+                            {x: 585, y: 118}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                // experiment
+                {
+                    id: '71',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 462, y: 299},
+                            {x: 363, y: 257},
+                            {x: 412, y: 227},
+                            {x: 498, y: 271},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '72',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 498, y: 271},
+                            {x: 412, y: 227},
+                            {x: 456, y: 200},
+                            {x: 533, y: 242}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '73',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 532, y: 242},
+                            {x: 456, y: 201},
+                            {x: 500, y: 174},
+                            {x: 572, y: 210},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '74',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 572, y: 210},
+                            {x: 499, y: 175},
+                            {x: 545, y: 148},
+                            {x: 609, y: 181},
+                            {x: 587, y: 200},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '75',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 637, y: 194},
+                            {x: 590, y: 173},
+                            {x: 545, y: 148},
+                            {x: 585, y: 118},
+                            {x: 682, y: 157}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '76',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 741, y: 221},
+                            {x: 645, y: 188},
+                            {x: 683, y: 157},
+                            {x: 767, y: 190}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '77',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 642, y: 242},
+                            {x: 598, y: 226},
+                            {x: 645, y: 188},
+                            {x: 685, y: 202}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '78',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 599, y: 281},
+                            {x: 550, y: 265},
+                            {x: 598, y: 226},
+                            {x: 642, y: 242},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '79',
+                    status: 'Продан',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 553, y: 326},
+                            {x: 497, y: 310},
+                            {x: 550, y: 265},
+                            {x: 599, y: 281},
+                        ],
+                        fill: 'rgba(209, 13, 13, 0.5)',
+                        stroke: '#D10D0D'
+                    }
+                },
+
+
+                {
+                    id: '80',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 688, y: 257},
+                            {x: 642, y: 242},
+                            {x: 685, y: 202},
+                            {x: 724, y: 215}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '81',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 650, y: 297},
+                            {x: 599, y: 281},
+                            {x: 642, y: 242},
+                            {x: 688, y: 257}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '82',
+                    status: 'Продан',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 611, y: 340},
+                            {x: 553, y: 326},
+                            {x: 599, y: 281},
+                            {x: 650, y: 297}
+                        ],
+                        fill: 'rgba(209, 13, 13, 0.5)',
+                        stroke: '#D10D0D'
+                    }
+                },
+
+
+                {
+                    id: '83',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 811, y: 243},
+                            {x: 741, y: 220},
+                            {x: 767, y: 190},
+                            {x: 836, y: 215}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '84',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 788, y: 271},
+                            {x: 732, y: 251},
+                            {x: 754, y: 225},
+                            {x: 811, y: 243},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '85',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 764, y: 297},
+                            {x: 708, y: 277},
+                            {x: 731, y: 251},
+                            {x: 788, y: 271},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '86',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 741, y: 323},
+                            {x: 684, y: 303},
+                            {x: 708, y: 277},
+                            {x: 764, y: 297},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '87',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 719, y: 347},
+                            {x: 661, y: 328},
+                            {x: 684, y: 303},
+                            {x: 741, y: 323},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '88',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 708, y: 358},
+                            {x: 645, y: 346},
+                            {x: 661, y: 328},
+                            {x: 719, y: 347},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '89',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 773, y: 370},
+                            {x: 708, y: 358},
+                            {x: 749, y: 315},
+                            {x: 804, y: 335},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '90',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 804, y: 335},
+                            {x: 749, y: 315},
+                            {x: 774, y: 288},
+                            {x: 830, y: 307}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '91',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 830, y: 307},
+                            {x: 774, y: 288},
+                            {x: 797, y: 261},
+                            {x: 854, y: 279}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '92',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 854, y: 279},
+                            {x: 797, y: 261},
+                            {x: 836, y: 215},
+                            {x: 905, y: 242},
+                            {x: 889, y: 262},
+                            {x: 872, y: 257},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '93',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+
+                            {x: 904, y: 267},
+                            {x: 874, y: 300},
+                            {x: 930, y: 320},
+                            {x: 974, y: 270},
+                            {x: 905, y: 242},
+                            {x: 889, y: 262},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '94',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 907, y: 347},
+                            {x: 850, y: 328},
+                            {x: 874, y: 300},
+                            {x: 930, y: 320},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '95',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 875, y: 381},
+                            {x: 809, y: 375},
+                            {x: 850, y: 328},
+                            {x: 907, y: 347},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '96',
+                    status: 'Продан',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 941, y: 388},
+                            {x: 875, y: 381},
+                            {x: 918, y: 334},
+                            {x: 975, y: 353}
+                        ],
+                        fill: 'rgba(209, 13, 13, 0.5)',
+                        stroke: '#D10D0D'
+                    }
+                },
+                {
+                    id: '97',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 975, y: 353},
+                            {x: 918, y: 334},
+                            {x: 942, y: 306},
+                            {x: 997, y: 326}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '98',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 998, y: 326},
+                            {x: 941, y: 306},
+                            {x: 974, y: 270},
+                            {x: 1043, y: 297},
+                            {x: 1026, y: 316},
+                            {x: 1012, y: 311}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '99',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1041, y: 321},
+                            {x: 1022, y: 342},
+                            {x: 1079, y: 359},
+                            {x: 1114, y: 325},
+                            {x: 1043, y: 297},
+                            {x: 1026, y: 316},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '100',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1050, y: 391},
+                            {x: 981, y: 389},
+                            {x: 1022, y: 342},
+                            {x: 1079, y: 359}
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '101',
+                    status: 'Продан',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1120, y: 391},
+                            {x: 1050, y: 391},
+                            {x: 1087, y: 352},
+                            {x: 1141, y: 369}
+                        ],
+                        fill: 'rgba(209, 13, 13, 0.5)',
+                        stroke: '#D10D0D'
+                    }
+                },
+                {
+                    id: '102',
+                    status: 'Продан',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {x: 1141, y: 369},
+                            {x: 1087, y: 352},
+                            {x: 1114, y: 324},
+                            {x: 1167, y: 344}
+                        ],
+                        fill: 'rgba(209, 13, 13, 0.5)',
+                        stroke: '#D10D0D'
+                    }
+                },
+
+            ],
+            objectsMobile: [
+                {
+                    id: '1',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 166, "y": 440},
+                            {"x": 89, "y": 420},
+                            {"x": 5, "y": 392},
+                            {"x": 16, "y": 352},
+                            {"x": 18, "y": 351},
+                            {"x": 104, "y": 380},
+                            {"x": 193, "y": 413},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '2',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '11',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 169, "y": 401},
+                            {"x": 141, "y": 394},
+                            {"x": 18, "y": 351},
+                            {"x": 59, "y": 319},
+                            {"x": 199, "y": 370},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '3',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 199, "y": 370},
+                            {"x": 56, "y": 321},
+                            {"x": 89, "y": 307},
+                            {"x": 118, "y": 298},
+                            {"x": 128, "y": 305},
+                            {"x": 160, "y": 313},
+                            {"x": 227, "y": 337},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '4',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            // {"x": 212, "y": 350},
+                            {"x": 227, "y": 337},
+                            {"x": 118, "y": 298},
+                            {"x": 152, "y": 294},
+                            {"x": 171, "y": 275},
+                            {"x": 257, "y": 304},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '5',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 257, "y": 304},
+                            {"x": 171, "y": 275},
+                            {"x": 210, "y": 245},
+                            {"x": 243, "y": 257},
+                            {"x": 287, "y": 273},
+
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '6',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 222, "y": 459},
+                            {"x": 173, "y": 445},
+                            {"x": 166, "y": 440},
+                            {"x": 223, "y": 384},
+                            {"x": 275, "y": 402},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '7',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 275, "y": 402},
+                            {"x": 266, "y": 402},
+                            {"x": 223, "y": 384},
+                            {"x": 266, "y": 332},
+                            {"x": 318, "y": 353},
+
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '8',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 318, "y": 353},
+                            {"x": 290, "y": 340},
+                            {"x": 266, "y": 332},
+                            {"x": 314, "y": 283},
+                            {"x": 368, "y": 302},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '9',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 372, "y": 369},
+                            {"x": 357, "y": 366},
+                            {"x": 318, "y": 353},
+                            {"x": 368, "y": 302},
+                            {"x": 421, "y": 317},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '10',
+                    status: 'Зарезервирован',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 325, "y": 424},
+                            {"x": 275, "y": 402},
+                            {"x": 318, "y": 353},
+                            {"x": 372, "y": 369},
+                        ],
+                        fill: 'rgba(250, 214, 29, 0.5)',
+                        stroke: '#FAD61D'
+                    }
+                },
+                {
+                    id: '11',
+                    status: 'Свободен',
+                    // TODO if need this or add new field
+                    otherInfo: {
+                        number: '10',
+                        kadNumber: '43342347343:67346:888',
+                        square: '0,536',
+                        price: '15000'
+                    },
+                    modelView: {
+                        polygon: [
+                            {"x": 295, "y": 481},
+                            {"x": 222, "y": 459},
+                            {"x": 272, "y": 405},
+                            {"x": 325, "y": 424},
+                            {"x": 297, "y": 455},
+                            {"x": 311, "y": 463},
+
+                        ],
+                        fill: 'rgba(4, 136, 25, 0.5)',
+                        stroke: '#048819'
+                    }
+                },
+                // {
+                //     id: '12',
+                //     status: 'Свободен',
+                //     // TODO if need this or add new field
+                //     otherInfo: {
+                //         number: '10',
+                //         kadNumber: '43342347343:67346:888',
+                //         square: '0,536',
+                //         price: '15000'
+                //     },
+                //     modelView: {
+                //         polygon: [
+                //             {"x": 385, "y": 510},
+                //             {"x": 311, "y": 491.5},
+                //             {"x": 327, "y": 473},
+                //             {"x": 341, "y": 480},
+                //             {"x": 360, "y": 459},
+                //             {"x": 416, "y": 477},
+                //
+                //         ],
+                //         fill: 'rgba(4, 136, 25, 0.5)',
+                //         stroke: '#048819'
+                //     }
+                // },
                 {
                     id: '13',
                     status: 'Свободен',

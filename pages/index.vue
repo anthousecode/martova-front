@@ -69,12 +69,6 @@
         components: {Loading},
         data: () => ({
             urls: [
-            //     '/shortMainPhotos/bar_360_проба2-min.jpg',
-            //     '/shortMainPhotos/beregovaya_liniya-min.jpg',
-            //     '/shortMainPhotos/blokpost_360-min.jpg',
-            //     '/shortMainPhotos/detskaya_ploshadka-min.jpg',
-            //     '/shortMainPhotos/gidrant_360-min.jpg',
-            //     '/shortMainPhotos/ohranyaemaya_teritoria_360-min.jpg',
                 '/about/1280About.jpg',
                 '/about/1680About.jpg',
                 '/about/1920About.jpg',
@@ -144,19 +138,9 @@
                 this.isShowControls = true;
                 this.stopClick();
             },
-            getPrevSlide() {
-                // this.index > 0 ?
-                //     (this.index += -1) :
-                //     (this.index += this.urls.length - 1);
-                // this.img = this.urls[this.index]
-            },
-            getNextSlide() {
-                // this.index < this.urls.length - 1 ?
-                //     (this.index += 1) :
-                //     (this.index = 0);
-                // this.img = this.urls[this.index]
-            },
-           getOne() {
+            getPrevSlide() {},
+            getNextSlide() {},
+            getOne() {
                // await this.urls.forEach(a => {
                //      try {
                //          var imageObject = new Image();
@@ -174,9 +158,7 @@
         },
         beforeCreate(){
           this.$axios.get('http://martovariverside.com/_nuxt/img/6e9ccf0.jpg')
-          this.$axios.get('https://api.foursquare.com/v2/venues/search?ll=40.7,-74').then((res)=>{
-              console.log(res)
-          })
+            // this.getOne();
         },
         mounted() {
             if (process.client) {

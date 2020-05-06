@@ -67,6 +67,7 @@
             class="nav-link"
             :class="{activeClass : $route.name===item.slug}"
             :to="'/'+item.slug"
+            prefetch
           >
             {{item.ru_title}}
           </nuxt-link>
@@ -75,6 +76,7 @@
             class="nav-link"
             :class="{activeClass : $route.name===item.slug}"
             :to="'/'+item.slug"
+            prefetch
           >
             {{item.ua_title}}
           </nuxt-link>
