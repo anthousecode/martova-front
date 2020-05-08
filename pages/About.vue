@@ -117,6 +117,10 @@
         width: 47.865vw;
         height: 78.6vh;
         min-height: 848px;
+        @media screen and (max-width: 1025px){
+          min-width: 335px;
+          min-height: 550px;
+        }
         position: relative;
         z-index: 100;
 
@@ -136,7 +140,7 @@
         }
       }
 
-      @media screen and (max-width: 1900px) {
+      @media screen and (min-width: 1025px) and (max-width: 1900px) {
         .about-modal {
           min-width: 600px;
           min-height: 500px;

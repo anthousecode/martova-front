@@ -4851,9 +4851,6 @@
                     this.heightMap = this.getHeightD3(mapImg) * 2.7;
                 }
                 // settings for some coords on mobile phones
-                // if (this.getWindowWidth === 375 && this.getWindowHeight === 667) {
-                //     console.log(this.fetchAreas.filter(a=>a.otherInfo.number==60))
-                // }
 
             },
             initView() {
