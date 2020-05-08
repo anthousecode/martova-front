@@ -182,11 +182,6 @@
       display: block;
       padding-top: 0.981vw;
       margin-left: -0.781vw;
-
-      /*&:hover {*/
-      /*  transform: scale(1.01);*/
-      /*  transition: .4s ease-in-out;*/
-      /*}*/
     }
 
     .tel {

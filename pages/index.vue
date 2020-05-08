@@ -221,7 +221,7 @@
     right: 50px;
     background-color: white;
     border-radius: 50%;
-    z-index: 2000;
+    z-index: 9000;
     cursor: pointer;
     padding: 5px;
     border: none;
@@ -260,9 +260,17 @@
       bottom: 51px;
       left: 81px;
       z-index: 10;
+      @media screen and (max-width: 1025px){
+        left: 20px;
+        bottom: 60px;
+      }
       .h1 {
         width: 45.052vw;
         height: 3.646vw;
+        @media screen and (max-width: 1025px){
+          width: 335px;
+          height: 27px;
+        }
 
         img {
           width: 100%;
@@ -278,6 +286,10 @@
       .h2 {
         width: 25.302vw;
         height: 4.063vw;
+        @media screen and (max-width: 1025px){
+          width: 196px;
+          height: 30px;
+        }
         img {
           width: 100%;
           height: 100%;
@@ -305,6 +317,10 @@
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
+    @media screen and (max-width: 1025px){
+      width: 150px;
+      height: 141px;
+    }
     .controls-group {
       display: flex;
       justify-content: space-around;
@@ -317,12 +333,23 @@
         border: 0.156vw solid white;
         width: 5.729vw;
         height: 5.729vw;
+        @media screen and (max-width: 1025px){
+          width: 98px;
+          height: 98px;
+          border: 3px solid white;
+        }
 
         font-family: Open Sans;
         font-style: normal;
         font-weight: normal;
         font-size: 1.823vw;
         line-height: 3.177vw;
+
+
+        @media screen and (max-width: 1025px){
+          font-size: 36px;
+          line-height: 49px;
+        }
       }
     }
 
@@ -334,6 +361,11 @@
       line-height: 1.563vw;
       text-align: center;
       padding-top: 0.365vw;
+      @media screen and (max-width: 1025px){
+        font-size: 17px;
+        line-height: 23px;
+        padding-top: 20px;
+      }
     }
   }
   .fade-enter-active, .fade-leave-active {
