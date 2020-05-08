@@ -4850,6 +4850,11 @@
                     this.widthMap = this.getWidthD3(mapImg) * 2.7;
                     this.heightMap = this.getHeightD3(mapImg) * 2.7;
                 }
+                // settings for some coords on mobile phones
+                // if (this.getWindowWidth === 375 && this.getWindowHeight === 667) {
+                //     console.log(this.fetchAreas.filter(a=>a.otherInfo.number==60))
+                // }
+
             },
             initView() {
                 this.appendSvg();
@@ -4860,13 +4865,21 @@
                 this.getElId('map').addEventListener('wheel', w => {
                     if (w.deltaY < 0) {
                         w.preventDefault();
-                        this.getElId('nav').classList.add('hide');
-                        this.getElId('search-bar').classList.add('hide');
+                        if(this.getElId('nav')){
+                            this.getElId('nav').classList.add('hide');
+                        }
+                        if(this.getElId('search-bar')){
+                            this.getElId('search-bar').classList.add('hide');
+                        }
                         this.getElId('sales-wrapper').classList.add('zoom')
                     } else {
                         this.getElId('sales-wrapper').classList.remove('zoom')
-                        this.getElId('nav').classList.remove('hide');
-                        this.getElId('search-bar').classList.remove('hide');
+                        if(this.getElId('nav')){
+                            this.getElId('nav').classList.remove('hide');
+                        }
+                        if(this.getElId('search-bar')){
+                            this.getElId('search-bar').classList.remove('hide');
+                        }
                     }
                 });
 

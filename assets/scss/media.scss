@@ -65,8 +65,9 @@
     top: 25px;
   }
   #map {
-    transform: scaleY(0.547) scaleX(0.685) skew(-1.5deg, 20deg) rotate(290deg) translateX(-7px) translateY(7px);
+    transform: scaleY(0.547) scaleX(0.675) skew(-1.5deg, 20deg) rotate(290deg) translateX(-7px) translateY(7px);
     top: 27px!important;
+    left: 11px!important;
   }
   .zoom {
     transform: scale(1.04);
@@ -85,8 +86,8 @@
   }
   #map {
     transform: scaleY(1.27) scaleX(0.475) skew(-60deg, 10deg) rotate(180deg) translateX(10px) translateY(7px);
-    left: 27px !important;
-    top: 0 !important;
+    left: 30px !important;
+    top: -2px !important;
   }
 }
 
@@ -128,6 +129,7 @@
   #map {
     transform: scaleY(0.479) scaleX(0.687) skew(1.6deg, 25deg) rotate(290deg) translateX(-6px) translateY(4px);
     top: 22px!important;
+    left: 8px!important;
   }
 }
 
@@ -181,7 +183,7 @@
   #map {
     transform: scaleY(0.673) scaleX(0.72) skew(1deg, 5deg) rotate(297deg) translateX(-6px) translateY(4px);
     top: 30px !important;
-    left: 15px !important;
+    left: 17px !important;
   }
 }
 
