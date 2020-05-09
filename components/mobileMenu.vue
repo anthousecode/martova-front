@@ -1,7 +1,7 @@
 <template>
   <div
-       :class="{'index-z' : showMenu, 'left-menu-hide':  !showMenu, 'left-menu-show' : showMenu}"
-       class="layer shows container-fluid position-fixed"
+    :class="{'index-z' : showMenu, 'left-menu-hide':  !showMenu, 'left-menu-show' : showMenu}"
+    class="layer shows container-fluid position-fixed"
   >
     <div class="row">
       <div class="material-menu">
@@ -24,6 +24,7 @@
                 <li
                   v-for="item of menuItems.pages"
                   :key="item.id"
+                  @click="hideLeftMenu"
                   class="nav-item"
                 >
                   <nuxt-link
@@ -110,7 +111,7 @@
         directives: {
             clickOutside: vClickOutside.directive
         },
-        props:{
+        props: {
             showMenu: false
         },
         data: () => ({
@@ -135,7 +136,8 @@
         },
         methods: {
             startPosition() {
-                this.$bus.$emit('start')
+                this.$bus.$emit('start');
+                this.hideLeftMenu();
             },
             setRuLanguage() {
                 this.$store.commit('SET_RUS_LANGUAGE')
@@ -143,7 +145,7 @@
             setUaLanguage() {
                 this.$store.commit('SET_UA_LANGUAGE')
             },
-            hideLeftMenu(){
+            hideLeftMenu() {
                 this.$emit('hideLeftMenu');
             }
         },
@@ -171,8 +173,9 @@
 
 <style scoped lang="scss">
   .underlined {
-    text-decoration: underline!important;
+    text-decoration: underline !important;
   }
+
   .layer {
     background-color: rgba(0, 0, 0, 0);
     top: 0;
@@ -182,6 +185,7 @@
     display: block;
     opacity: 1;
     height: 100vh;
+
     .left-menu {
       height: 100vh;
       color: white;
@@ -412,23 +416,28 @@
       }
     }
   }
+
   .activeClass {
-    color: red!important;
+    color: red !important;
     transition: 1s ease-in-out;
   }
-  .index-z{
+
+  .index-z {
     z-index: 9002;
   }
+
   .active-lang {
     text-decoration: underline;
     transition: 1s ease-in-out;
   }
-  .left-menu-show{
+
+  .left-menu-show {
     display: block;
     left: 0;
     transition: .5s ease-in-out;
   }
-  .left-menu-hide{
+
+  .left-menu-hide {
     left: -1000px;
     transition: .5s ease-in-out;
   }
