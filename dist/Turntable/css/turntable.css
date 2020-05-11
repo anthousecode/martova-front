@@ -1,0 +1,25 @@
+
+.turntable {
+  display: block;
+  margin: 0px;
+}
+
+.turntable ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.turntable ul li {
+  list-style-type: none;
+  visibility: hidden;
+  transition: .2s ease-out;
+}
+
+.turntable ul li img {
+  width: 100%;
+}
+
+.turntable ul li.active {
+  visibility: visible;
+  transition: .2s ease-in;
+}
