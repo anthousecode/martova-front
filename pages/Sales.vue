@@ -4851,7 +4851,12 @@
                     this.heightMap = this.getHeightD3(mapImg) * 2.7;
                 }
                 // settings for some coords on mobile phones
-
+               // if(this.getWindowWidth === 375 && this.getWindowHeight === 812){
+               //      this.fetchAreas.map(a=>{
+               //          if(a.otherInfo.number == 1){
+               //            a.modelView.polygon = null;
+               //          }})}
+               // }
             },
             initView() {
                 this.appendSvg();
