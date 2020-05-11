@@ -4851,12 +4851,49 @@
                     this.heightMap = this.getHeightD3(mapImg) * 2.7;
                 }
                 // settings for some coords on mobile phones
-               // if(this.getWindowWidth === 375 && this.getWindowHeight === 812){
-               //      this.fetchAreas.map(a=>{
-               //          if(a.otherInfo.number == 1){
-               //            a.modelView.polygon = null;
-               //          }})}
-               // }
+               if(this.getWindowWidth === 375 && this.getWindowHeight === 812){
+                    this.fetchAreas.forEach(a=>{
+                        if(a.otherInfo.number == 1){
+                          a.modelView.polygon = [
+                              {x: 545, y: 148},
+                              {x: 449, y: 101},
+                              {x: 492, y: 75},
+                              {x: 585, y: 118}
+                          ];
+                        }
+                        if(a.otherInfo.number == 2){
+                            a.modelView.polygon = [
+                                {x: 483, y: 168},
+                                {x: 401, y: 129},
+                                {x: 449, y: 101},
+                                {x: 530, y: 140}
+                            ];
+                        }
+                        if(a.otherInfo.number == 3){
+                            a.modelView.polygon = [
+                                {x: 435, y: 196},
+                                {x: 353, y: 157},
+                                {x: 401, y: 129},
+                                {x: 482, y: 168}
+                            ];
+                        }
+                        if(a.otherInfo.number == 4){
+                            a.modelView.polygon = [
+                                {x: 387, y: 224},
+                                {x: 305, y: 185},
+                                {x: 353, y: 157},
+                                {x: 434, y: 196}
+                            ];
+                        }
+                        if(a.otherInfo.number == 5){
+                            a.modelView.polygon = [
+                                {x: 339, y: 252},
+                                {x: 257, y: 211},
+                                {x: 305, y: 185},
+                                {x: 386, y: 224}
+                            ];
+                        }
+                    })}
             },
             initView() {
                 this.appendSvg();
