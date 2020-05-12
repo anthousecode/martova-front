@@ -13,8 +13,8 @@
   }
   #map {
     transform: scaleY(0.54) scaleX(0.685) skew(-1.5deg, 20deg) rotate(290deg) translateX(-7px) translateY(7px);
-    left: 6px !important;
-    top: 52px !important;
+    left: 6px;
+    top: 52px;
     position: absolute;
   }
   #mapImg {
@@ -105,13 +105,13 @@ and (device-height: 896px)
 {
   #bigImg3 {
     transform: scale(1.3) rotate(0deg);
-    top: 25px;
-    left: -5px;
+    top: 34px;
+    left: 5px;
   }
   #map {
-    transform: scaleY(0.6) scaleX(0.675) skew(-1.5deg, 17deg) rotate(291.5deg) translateX(-7px) translateY(7px);
-    top: 30px!important;
-    left: 7px!important;
+    transform: scaleY(.56) scaleX(.675) skew(-0.5deg,18deg) rotate(291.5deg) translateX(-7px) translateY(7px);
+    top: 40px!important;
+    left: 14px!important;
   }
   .zoom {
     transform: scale(1.05);
