@@ -4851,7 +4851,7 @@
                     this.heightMap = this.getHeightD3(mapImg) * 2.7;
                 }
                 // settings for some coords on mobile phones
-               if(this.getWindowWidth === 375 && this.getWindowHeight === 812){
+               if(this.getWindowWidth <= 1024){
                     this.fetchAreas.forEach(a=>{
                         if(a.otherInfo.number == 1){
                           a.modelView.polygon = [

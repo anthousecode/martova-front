@@ -91,6 +91,39 @@
   }
 }
 
+//iphone11
+@media screen and (width: 414px) and (height: 896px) {
+  #bigImg3 {
+    transform: scale(1.3) rotate(0deg);
+    top: 25px;
+    left: -5px;
+  }
+  #map {
+    transform: scaleY(0.6) scaleX(0.675) skew(-1.5deg, 17deg) rotate(291.5deg) translateX(-7px) translateY(7px);
+    top: 30px!important;
+    left: 7px!important;
+  }
+  .zoom {
+    transform: scale(1.05);
+    transition: .5s ease;
+  }
+}
+
+//iphone11 раком
+@media screen and (width: 896px) and (height: 414px) {
+  #bigImg3 {
+    transform: scale(1.7, 1.5) rotate(-90deg);
+    -o-object-fit: contain;
+    object-fit: contain;
+    top: 0;
+    left: 25px;
+  }
+  #map {
+    transform: scaleY(1.2) scaleX(0.49) skew(-55deg, 10deg) rotate(180.9deg) translateX(10px) translateY(7px);
+    left: 33px !important;
+    top: -3px !important;
+  }
+}
 
 //iphone320*568
 @media screen and (width: 320px) and (height: 568px) {
@@ -119,6 +152,38 @@
     top: 2px !important;
   }
 }
+//iphone411*731
+@media screen and (width: 411px) and (height: 731px) {
+  #bigImg3 {
+    transform: scale(1.3) rotate(0deg);
+    top: 25px;
+  }
+  #map {
+    transform: scaleY(0.51) scaleX(0.69) skew(-1.5deg, 22.5deg) rotate(288.5deg) translateX(-7px) translateY(7px);
+    top: 29px!important;
+    left: 9px!important;
+  }
+  .zoom {
+    transform: scale(1.04);
+    transition: .5s ease;
+  }
+}
+
+//iphone411*731 раком
+@media screen and (width: 731px) and (height: 411px) {
+  #bigImg3 {
+    transform: scale(1.45, 1.2) rotate(-90deg);
+    top: 0;
+    left: 18px;
+  }
+  #map {
+    transform: scaleY(1.03) scaleX(0.38) skew(-60deg, 15deg) rotate(176deg) translateX(10px) translateY(7px);
+    left: 30px !important;
+    top: -1px !important;
+  }
+}
+
+
 
 //iphone678
 @media screen and (width: 375px) and (height: 667px) {
@@ -155,7 +220,8 @@
   }
   #map {
     transform: scaleY(0.519) scaleX(0.69) skew(1.6deg, 21deg) rotate(291deg) translateX(-6px) translateY(4px);
-    top: 28px !important;
+    top: 29px !important;
+    left: 11px!important;
   }
 }
 
@@ -167,9 +233,9 @@
     left: 18px;
   }
   #map {
-    transform: scaleY(0.95) scaleX(0.461) skew(-55deg, 9.4deg) rotate(181.9deg) translateX(10px) translateY(7px);
-    left: 23px !important;
-    top: 2px !important;
+    transform: scaleY(0.97) scaleX(0.461) skew(-57deg, 9.4deg) rotate(182deg) translateX(10px) translateY(7px);
+    left: 27px !important;
+    top: -2px !important;
   }
 }
 
@@ -211,25 +277,85 @@
     left: 10px;
   }
   #map {
-    transform: scaleY(0.87) scaleX(0.8) skew(-5deg, -5deg) rotate(301deg) translateX(-6px) translateY(4px);
-    top: 56px !important;
-    left: 27px !important;
+    transform: scaleY(0.875) scaleX(0.78) skew(-5deg, -5deg) rotate(300deg) translateX(-6px) translateY(4px);
+    top: 61px !important;
+    left: 31px !important;
   }
 }
 
 ////ipad_Pro раком
-//@media screen and (width: 1366px) and (height: 1024px){
-//  //#bigImg3{
-//  //  transform: scale(2) rotate(-90deg);
-//  //  top: 0;
-//  //  left: 18px;
-//  //  -o-object-fit: contain;
-//  //  object-fit: contain;
-//  //}
-//  #map{
-//    //transform: scaleY(1) scaleX(0.72) skew(-28deg, 3deg) rotate(-5deg) translateX(10px) translateY(7px);
-//    left: 30px !important;
-//    top: 50px !important;
-//  }
-//}
+@media screen and (width: 1366px) and (height: 1024px){
+  #bigImg3{
+    transform: scale(2) rotate(-90deg);
+    top: 0;
+    left: 18px;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+  #map{
+    //transform: scaleY(1) scaleX(0.72) skew(-28deg, 3deg) rotate(-5deg) translateX(10px) translateY(7px);
+    transform: scaleY(1.54) scaleX(1.09) skew(-26deg, 2deg) rotate(196deg) translateX(10px) translateY(7px);
+    left: 38px !important;
+    top: -10px !important;
+  }
+}
+
+
+//Galaxy Note 10
+@media screen and (width: 800px) and (height: 1280px) {
+  #bigImg3 {
+    transform: scale(1.3) rotate(0deg);
+    top: 25px;
+    left: 0px;
+  }
+  #map {
+    transform: scaleY(0.8) scaleX(0.72) skew(-5deg, 1deg) rotate(297deg) translateX(-6px) translateY(4px);
+    top: 34px !important;
+    left: 22px !important;
+  }
+}
+
+//Galaxy Note 10 раком
+@media screen and (width: 1280px) and (height: 800px) {
+  #bigImg3 {
+    transform: scale(1.8, 1.5) rotate(-90deg);
+    top: 0;
+    left: 25px;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+  #map {
+    transform: scaleY(0.884) scaleX(0.779) skew(-27deg, 3deg) rotate(195.9deg) translateX(10px) translateY(7px);
+    left: 43px !important;
+    top: -3px !important;
+  }
+}
+
+
+//411*823
+@media screen and (width: 411px) and (height: 823px) {
+  #bigImg3 {
+    transform: scale(1.3) rotate(0deg);
+    top: 25px;
+  }
+  #map {
+    transform: scaleY(0.555) scaleX(0.69) skew(-1.5deg, 18deg) rotate(290deg) translateX(-7px) translateY(7px);
+    top: 29px!important;
+    left: 11px!important;
+  }
+}
+
+//411*823 раком
+@media screen and (width: 823px) and (height: 411px) {
+  #bigImg3 {
+    transform: scale(1.45, 1.2) rotate(-90deg);
+    top: 0;
+    left: 18px;
+  }
+  #map {
+    transform: scaleY(1.03) scaleX(0.38) skew(-60deg, 15deg) rotate(176deg) translateX(10px) translateY(7px);
+    left: 30px !important;
+    top: -1px !important;
+  }
+}
 
