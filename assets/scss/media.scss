@@ -73,9 +73,13 @@ and (orientation : portrait)
     //transform: scaleY(0.547) scaleX(0.675) skew(-1.5deg, 20deg) rotate(290deg) translateX(-7px) translateY(7px);
     //top: 27px!important;
     //left: 11px!important;
-    transform: scaleY(.53) scaleX(.675) skew(-1deg,20deg) rotate(290deg) translateX(-7px) translateY(7px);
+    //transform: scaleY(.53) scaleX(.675) skew(-1deg,20deg) rotate(290deg) translateX(-7px) translateY(7px);
+    //top: 14px!important;
+    //left: 8px!important;
+
+    transform: scaleY(.52) scaleX(.675) skew(0.9deg,20deg) rotate(290.5deg) translateX(-7px) translateY(7px);
     top: 14px!important;
-    left: 8px!important;
+    left: 10px!important;
   }
   .zoom {
     transform: scale(1.04);
@@ -85,9 +89,8 @@ and (orientation : portrait)
 
 //iphoneX раком
 @media only screen
-and (device-width: 375px)
-and (device-height: 812px)
-and (orientation : landscape) {
+and (device-width: 812px)
+and (device-height: 375px) {
   #bigImg3 {
     transform: scale(1.7, 1.5) rotate(-90deg);
     -o-object-fit: contain;
@@ -119,9 +122,9 @@ and (device-height: 896px)
     //transform: scaleY(.56) scaleX(.675) skew(-0.5deg,18deg) rotate(291.5deg) translateX(-7px) translateY(7px);
     //top: 30px!important;
     //left: 14px!important;
-    transform: scaleY(0.575) scaleX(.675) skew(-3.6deg,18deg) rotate(289.5deg) translateX(-7px) translateY(7px);
-    top: 35px!important;
-    left: 16px!important;
+    transform: scaleY(0.56) scaleX(.682) skew(-2.6deg,18deg) rotate(289.5deg) translateX(-7px) translateY(7px);
+    top: 34px!important;
+    left: 17px!important;
   }
   .zoom {
     transform: scale(1.05);
