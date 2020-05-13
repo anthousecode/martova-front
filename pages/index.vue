@@ -264,6 +264,18 @@
         left: 20px;
         bottom: 60px;
       }
+      @media only screen
+      and (device-width: 414px) {
+        bottom: 120px;
+      }
+      @media only screen
+      and (device-width: 375px) {
+        bottom: 120px;
+      }
+      @media only screen
+      and (device-width: 411px) {
+        bottom: 120px;
+      }
       .h1 {
         width: 45.052vw;
         height: 3.646vw;
