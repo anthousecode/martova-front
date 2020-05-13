@@ -194,6 +194,7 @@
       position: fixed;
       z-index: 200;
       padding: 20px;
+      padding-bottom: 40px;
       background-color: rgba(30, 30, 30, 0.6);
     }
   }
