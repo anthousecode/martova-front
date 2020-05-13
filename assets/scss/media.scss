@@ -66,18 +66,10 @@ and (orientation : portrait)
 {
   #bigImg3 {
     transform: scale(1.3) rotate(0deg);
-    //top: 25px;
     top: 10px;
   }
   #map {
-    //transform: scaleY(0.547) scaleX(0.675) skew(-1.5deg, 20deg) rotate(290deg) translateX(-7px) translateY(7px);
-    //top: 27px!important;
-    //left: 11px!important;
-    //transform: scaleY(.53) scaleX(.675) skew(-1deg,20deg) rotate(290deg) translateX(-7px) translateY(7px);
-    //top: 14px!important;
-    //left: 8px!important;
-
-    transform: scaleY(.52) scaleX(.675) skew(0.9deg,20deg) rotate(290.5deg) translateX(-7px) translateY(7px);
+    transform: scaleY(.524) scaleX(.675) skew(0.9deg,20deg) rotate(290.5deg) translateX(-7px) translateY(7px);
     top: 14px!important;
     left: 10px!important;
   }
@@ -111,20 +103,14 @@ and (device-width: 414px)
 and (device-height: 896px)
 {
   #bigImg3 {
-    //transform: scale(1.3) rotate(0deg);
-    //top: 23px;
-    //left: 5px;
     transform: scale(1.3) rotate(0deg);
-    top: 30px;
-    left: 6px;
+    top: 18px;
+    left: 4px;
   }
   #map {
-    //transform: scaleY(.56) scaleX(.675) skew(-0.5deg,18deg) rotate(291.5deg) translateX(-7px) translateY(7px);
-    //top: 30px!important;
-    //left: 14px!important;
-    transform: scaleY(0.56) scaleX(.682) skew(-2.6deg,18deg) rotate(289.5deg) translateX(-7px) translateY(7px);
-    top: 34px!important;
-    left: 17px!important;
+    transform: scaleY(0.57) scaleX(.682) skew(-2.6deg,18deg) rotate(289.5deg) translateX(-7px) translateY(7px);
+    top: 24px!important;
+    left: 15px!important;
   }
   .zoom {
     transform: scale(1.05);
@@ -212,20 +198,26 @@ and (device-height: 414px)
 
 
 //iphone678
-@media screen and (width: 375px) and (height: 667px) {
+
+@media only screen
+and (device-width: 375px)
+and (device-height: 667px) {
   #bigImg3 {
-    transform: scale(1.5) rotate(0deg);
-    top: 22px;
+    transform: scale(1.55) rotate(0deg);
+    top: 15px;
   }
   #map {
-    transform: scaleY(.543) scaleX(.782) skew(3deg,22deg) rotate(291deg) translateX(-7px) translateY(7px);
-    left: 8px!important;
-    top: 22px!important;
+    transform: scaleY(.58) scaleX(.84) skew(4deg,28deg) rotate(290deg) translateX(-7px) translateY(7px);
+    left: 10px!important;
+    top: 18px!important;
   }
 }
 
 //iphone678 раком
-@media screen and (width: 667px) and (height: 375px) {
+
+@media only screen
+and (device-width: 667px)
+and (device-height: 375px){
   #bigImg3 {
     transform: scale(1.45, 1.2) rotate(-90deg);
     top: 0;
@@ -239,20 +231,25 @@ and (device-height: 414px)
 }
 
 //iphone+
-@media screen and (width: 414px) and (height: 736px) {
+
+@media only screen
+and (device-width: 414px)
+and (device-height: 736px) {
   #bigImg3 {
-    transform: scale(1.32) rotate(0deg);
+    transform: scale(1.52) rotate(0deg);
     top: 25px;
   }
   #map {
-    transform: scaleY(0.519) scaleX(0.69) skew(1.6deg, 21deg) rotate(291deg) translateX(-6px) translateY(4px);
-    top: 29px !important;
+    transform: scaleY(0.565) scaleX(0.79) skew(2.0deg, 23deg) rotate(290.4deg) translateX(-6px) translateY(4px);
+    top: 30px !important;
     left: 11px!important;
   }
 }
 
 //iphone+ раком
-@media screen and (width: 736px) and (height: 414px) {
+@media only screen
+and (device-width: 736px)
+and (device-height: 414px) {
   #bigImg3 {
     transform: scale(1.55, 1.2) rotate(-90deg);
     top: 0;
