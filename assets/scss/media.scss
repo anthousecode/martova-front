@@ -87,7 +87,9 @@ and (orientation : portrait)
 //iphoneX раком
 @media only screen
 and (device-width: 812px)
-and (device-height: 375px) {
+and (device-height: 375px)
+and (orientation: landscape)
+{
   #bigImg3 {
     transform: scale(1.7, 1.5) rotate(-90deg);
     -o-object-fit: contain;
@@ -127,6 +129,7 @@ and (device-height: 896px)
 @media only screen
 and (device-width: 896px)
 and (device-height: 414px)
+and (orientation: landscape)
 {
   #bigImg3 {
     transform: scale(1.7, 1.5) rotate(-90deg);
@@ -148,13 +151,13 @@ and (device-height: 414px)
 and (device-width: 320px)
 and (device-height: 568px) {
   #bigImg3 {
-    transform: scale(1.4) rotate(0deg);
+    transform: scale(1.2) rotate(0deg);
     top: 25px;
   }
   #map {
-    transform: scaleY(0.53) scaleX(0.94) skew(4deg, 35deg) rotate(287deg) translateX(37px) translateY(-40px);
-    left: 43px !important;
-    top: 67px !important;
+    transform: scaleY(0.456) scaleX(0.808) skew(4deg, 35deg) rotate(287deg) translateX(37px) translateY(-40px);
+    left: 38px !important;
+    top: 63px !important;
   }
 }
 
@@ -162,7 +165,8 @@ and (device-height: 568px) {
 
 @media only screen
 and (device-width: 568px)
-and (device-height: 320px) {
+and (device-height: 320px)
+and (orientation: landscape){
   #bigImg3 {
     transform: scale(1.45, 1.2) rotate(-90deg);
     top: 0;
@@ -198,7 +202,8 @@ and (device-height: 731px) {
 //iphone411*731 раком
 @media only screen
 and (device-width: 731px)
-and (device-height: 414px) {
+and (device-height: 414px)
+and (orientation: landscape){
   #bigImg3 {
     transform: scale(1.45, 1.2) rotate(-90deg);
     top: 0;
@@ -233,7 +238,8 @@ and (device-height: 667px) {
 
 @media only screen
 and (device-width: 667px)
-and (device-height: 375px){
+and (device-height: 375px)
+and (orientation: landscape){
   #bigImg3 {
     transform: scale(1.45, 1.2) rotate(-90deg);
     top: 0;
@@ -265,7 +271,8 @@ and (device-height: 736px) {
 //iphone+ раком
 @media only screen
 and (device-width: 736px)
-and (device-height: 414px) {
+and (device-height: 414px)
+and (orientation: landscape){
   #bigImg3 {
     transform: scale(1.55, 1.2) rotate(-90deg);
     top: 0;
@@ -289,8 +296,8 @@ and (device-height: 1024px) {
   }
   #map {
     transform: scaleY(0.673) scaleX(0.72) skew(1deg, 5deg) rotate(297deg) translateX(-6px) translateY(4px);
-    top: 30px !important;
-    left: 17px !important;
+    top: 40px !important;
+    left: 13px !important;
   }
 }
 
@@ -298,7 +305,8 @@ and (device-height: 1024px) {
 
 @media only screen
 and (device-width: 1024px)
-and (device-height: 768px) {
+and (device-height: 768px)
+and (orientation: landscape){
   #bigImg3 {
     transform: scale(1.8, 1.5) rotate(-90deg);
     top: 0;
@@ -332,7 +340,8 @@ and (device-height: 1366px) {
 ////ipad_Pro раком
 @media only screen
 and (device-width: 1366px)
-and (device-height: 1024px){
+and (device-height: 1024px)
+and (orientation: landscape){
   #bigImg3{
     transform: scale(2) rotate(-90deg);
     top: 0;
@@ -370,7 +379,8 @@ and (device-height: 1280px) {
 
 @media only screen
 and (device-width: 1280px)
-and (device-height: 800px) {
+and (device-height: 800px)
+and (orientation: landscape){
   #bigImg3 {
     transform: scale(1.8, 1.5) rotate(-90deg);
     top: 0;
@@ -406,7 +416,9 @@ and (device-height: 823px) {
 
 @media only screen
 and (device-width: 823px)
-and (device-height: 411px) {
+and (device-height: 411px)
+and (orientation: landscape)
+{
   #bigImg3 {
     transform: scale(1.45, 1.2) rotate(-90deg);
     top: 0;
@@ -418,4 +430,6 @@ and (device-height: 411px) {
     top: -1px !important;
   }
 }
+
+
 
