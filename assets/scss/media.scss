@@ -87,7 +87,7 @@ and (orientation : portrait)
 //iphoneX раком
 @media screen
 //and (width: 812px)
-and (width: 734px)
+and (width: 812px)
 and (orientation: landscape)
 //and (height: 375px)
 {
@@ -130,7 +130,7 @@ and (device-height: 896px)
 @media
 screen
 and (width: 896px)
-//and (height: 414px)
+and (height: 414px)
 and (orientation: landscape)
 {
   #bigImg3 {
@@ -248,9 +248,9 @@ and (orientation: landscape){
     left: 18px;
   }
   #map {
-    transform: scaleY(1.16) scaleX(.429) skew(-63deg,8.4deg) rotate(181deg) translateX(10px) translateY(7px);
-    left: 25px!important;
-    top: 1px!important;
+    transform: scaleY(1.0) scaleX(0.429) skew(-59deg, 9.4deg) rotate(181deg) translateX(10px) translateY(7px);
+    left: 27px !important;
+    top: -1px !important;
   }
 }
 
