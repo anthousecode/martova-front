@@ -125,9 +125,11 @@ and (device-height: 896px)
 }
 
 //iphone11 раком
-@media screen
-and (width: 896px)
-and (height: 414px)
+@media
+//screen
+//and (width: 896px)
+//and (height: 414px)
+only screen and (min-width: 812px) and (orientation: landscape)
 {
   #bigImg3 {
     transform: scale(1.7, 1.5) rotate(-90deg);
