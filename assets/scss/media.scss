@@ -91,14 +91,14 @@ and (device-height: 375px)
 and (orientation: landscape)
 {
   #bigImg3 {
-    transform: scale(1.7, 1.5) rotate(-90deg);
-    -o-object-fit: contain;
-    object-fit: contain;
-    top: 0;
-    left: 25px;
+    transform: scale(1.7, 1.5) rotate(-90deg)!important;
+    -o-object-fit: contain!important;
+    object-fit: contain!important;
+    top: 0!important;
+    left: 25px!important;
   }
   #map {
-    transform: scaleY(1.27) scaleX(0.475) skew(-60deg, 10deg) rotate(180deg) translateX(10px) translateY(7px);
+    transform: scaleY(1.27) scaleX(0.475) skew(-60deg, 10deg) rotate(180deg) translateX(10px) translateY(7px)!important;
     left: 30px !important;
     top: -2px !important;
   }
@@ -132,14 +132,14 @@ and (device-height: 414px)
 and (orientation: landscape)
 {
   #bigImg3 {
-    transform: scale(1.7, 1.5) rotate(-90deg);
-    -o-object-fit: contain;
-    object-fit: contain;
-    top: 0;
-    left: 25px;
+    transform: scale(1.7, 1.5) rotate(-90deg)!important;
+    -o-object-fit: contain!important;
+    object-fit: contain!important;
+    top: 0!important;
+    left: 25px!important;
   }
   #map {
-    transform: scaleY(1.2) scaleX(0.49) skew(-55deg, 10deg) rotate(180.9deg) translateX(10px) translateY(7px);
+    transform: scaleY(1.2) scaleX(0.49) skew(-55deg, 10deg) rotate(180.9deg) translateX(10px) translateY(7px)!important;
     left: 33px !important;
     top: -3px !important;
   }
