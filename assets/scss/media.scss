@@ -87,7 +87,7 @@ and (orientation : portrait)
 //iphoneX раком
 @media screen
 //and (width: 812px)
-and (width: 812px)
+and (device-width: 812px)
 and (orientation: landscape)
 //and (height: 375px)
 {
