@@ -86,8 +86,9 @@ and (orientation : portrait)
 
 //iphoneX раком
 @media screen
-and (width: 812px)
-and (height: 375px)
+//and (width: 812px)
+and (width: 734px)
+//and (height: 375px)
 {
   #bigImg3 {
     transform: scale(1.7, 1.5) rotate(-90deg);
@@ -126,10 +127,9 @@ and (device-height: 896px)
 
 //iphone11 раком
 @media
-//screen
-//and (width: 896px)
-//and (height: 414px)
-only screen and (min-width: 812px) and (orientation: landscape)
+screen
+and (width: 896px)
+and (height: 414px)
 {
   #bigImg3 {
     transform: scale(1.7, 1.5) rotate(-90deg);
@@ -237,8 +237,8 @@ and (device-height: 667px) {
 //iphone678 раком
 
 @media only screen
-and (device-width: 667px)
-and (device-height: 375px)
+and (width: 667px)
+//and (device-height: 375px)
 and (orientation: landscape){
   #bigImg3 {
     transform: scale(1.45, 1.2) rotate(-90deg);
@@ -271,8 +271,9 @@ and (device-height: 736px) {
 //iphone+ раком
 @media only screen
 and (device-width: 736px)
-and (device-height: 414px)
-and (orientation: landscape){
+//and (device-height: 414px)
+//and (orientation: landscape)
+{
   #bigImg3 {
     transform: scale(1.55, 1.2) rotate(-90deg);
     top: 0;
