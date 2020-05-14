@@ -5052,10 +5052,8 @@
                         this.startTurntable('right')
                     }
                 })
-                alert( window.innerWidth)
-                alert( window.innerHeight)
-                alert( document.documentElement.clientWidth)
-                alert( document.documentElement.clientHeight)
+                // alert( document.documentElement.clientWidth)
+                // alert( document.documentElement.clientHeight)
             }
 
         }
