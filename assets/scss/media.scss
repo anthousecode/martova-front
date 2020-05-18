@@ -12,10 +12,10 @@
     top: 50px;
   }
   #map {
-    transform: scaleY(0.54) scaleX(0.685) skew(-1.5deg, 20deg) rotate(290deg) translateX(-7px) translateY(7px);
-    left: 6px;
-    top: 52px;
-    position: absolute;
+    //transform: scaleY(0.54) scaleX(0.685) skew(-1.5deg, 20deg) rotate(290deg) translateX(-7px) translateY(7px);
+    //left: 6px;
+    //top: 52px;
+    //position: absolute;
   }
   #mapImg {
     width: 100%;
@@ -37,12 +37,12 @@
 and (width: 360px) {
   #bigImg3 {
     transform: scale(1.4) rotate(0deg);
-    top: 15px;
+    top: 40px;
   }
   #map {
-    transform: scaleY(0.505) scaleX(0.74) skew(1.7deg, 25deg) rotate(289.1deg) translateX(37px) translateY(-40px);
-    left: 31px !important;
-    top: 52px !important;
+    transform: scaleY(0.99) scaleX(1.04) skew(1.7deg, 3deg) rotate(289.1deg) translateX(37px) translateY(-40px);
+    left: 92px !important;
+    top: 120px !important;
   }
 }
 
@@ -74,7 +74,8 @@ and (orientation : portrait)
     top: 10px;
   }
   #map {
-    transform: scaleY(.524) scaleX(.675) skew(0.9deg,20deg) rotate(290.5deg) translateX(-7px) translateY(7px);
+    //transform: scaleY(.524) scaleX(.675) skew(0.9deg,20deg) rotate(290.5deg) translateX(-7px) translateY(7px);
+    transform: rotate(290.5deg) translateX(-7px) translateY(7px);
     top: 14px!important;
     left: 10px!important;
   }
@@ -156,9 +157,9 @@ and (device-height: 568px) {
     top: 25px;
   }
   #map {
-    transform: scaleY(0.456) scaleX(0.808) skew(4deg, 35deg) rotate(287deg) translateX(37px) translateY(-40px);
-    left: 38px !important;
-    top: 63px !important;
+    transform: scaleY(0.846) scaleX(0.948) skew(1deg, 5deg) rotate(288deg) translateX(37px) translateY(-40px);
+    left: 82px !important;
+    top: 93px !important;
   }
 }
 
@@ -225,13 +226,20 @@ and (orientation: landscape){
 and (device-width: 375px)
 and (device-height: 667px) {
   #bigImg3 {
-    transform: scale(1.55) rotate(0deg);
-    top: 16px;
+    //transform: scale(1.55) rotate(0deg);
+    transform: scale(1.45) rotate(0deg);
+    top: 36px;
   }
   #map {
-    transform: scaleY(.58) scaleX(.84) skew(4deg,28deg) rotate(290deg) translateX(-7px) translateY(7px);
-    left: 10px!important;
-    top: 18px!important;
+    //transform: scaleY(.58) scaleX(.84) skew(4deg,28deg) rotate(290deg) translateX(-7px) translateY(7px);
+    transform: scaleX(1.09) skew(-3deg,7deg)  rotate(284deg) translateX(-7px) translateY(7px);
+    left: 3px!important;
+    top: 38px!important;
+    svg{
+      position: relative;
+      top: 58px;
+      left: 1px;
+    }
   }
 }
 
@@ -247,9 +255,9 @@ and (orientation: landscape){
     left: 18px;
   }
   #map {
-    transform: scaleY(1.0) scaleX(0.429) skew(-59deg, 9.4deg) rotate(181deg) translateX(10px) translateY(7px);
-    left: 27px !important;
-    top: -1px !important;
+    transform: scaleY(1.4) scaleX(1.01) skew(-22deg, 1.5deg) rotate(189deg) translateX(10px) translateY(7px);
+    left: 49px !important;
+    top: -48px !important;
   }
 }
 
@@ -340,7 +348,7 @@ and (height: 1366px) {
 
 ////ipad_Pro раком
 @media only screen
-and (device-width: 1366px)
+and (width: 1366px)
 //and (device-height: 1024px)
 and (orientation: landscape){
   #bigImg3{
@@ -427,7 +435,7 @@ and (orientation: landscape)
   #map {
     transform: scaleY(1.03) scaleX(0.38) skew(-60deg, 15deg) rotate(176deg) translateX(10px) translateY(7px);
     left: 30px !important;
-    top: -1px !important;
+    top: 0px !important;
   }
 }
 

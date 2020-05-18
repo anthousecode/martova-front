@@ -194,7 +194,18 @@
       position: fixed;
       z-index: 200;
       padding: 20px;
-      padding-bottom: 120px;
+      @media only screen
+      and (device-width: 414px)
+      and (device-height: 896px){
+        padding-bottom: 120px;
+      }
+      @media only screen
+      and (device-width: 375px)
+      and (device-height: 812px)
+      and (orientation : portrait)
+      {
+        padding-bottom: 120px;
+      }
       background-color: rgba(30, 30, 30, 0.6);
     }
   }

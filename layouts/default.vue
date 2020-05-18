@@ -1,7 +1,7 @@
 <template>
   <main class="p-0 m-0">
     <notifications group="top" position="top"/>
-    <Navbar v-if="getWindowWidth>1025" key="navbar"/>
+    <Navbar v-if="getWindowWidth>1027 && (getWindowHeight !== 1366)" key="navbar"/>
     <template v-else>
       <mobile-menu
         @hideLeftMenu="hideLeftMenu"
@@ -36,6 +36,9 @@
         computed: {
             getWindowWidth() {
                 return window.innerWidth;
+            },
+            getWindowHeight() {
+                return window.innerHeight;
             },
         },
         methods: {
