@@ -1,6 +1,6 @@
 <template>
   <section id="sales-wrapper">
-    <div id="search-bar" class="search-bar d-flex justify-content-around align-items-center">
+    <div v-if="getWindowWidth>1025" id="search-bar" class="search-bar d-flex justify-content-around align-items-center">
       <notifications group="foo" position="center"/>
       <button @click="filterByStatus('rgba(255, 72, 9, 0.4)')" class="status status-red">
         {{this.$options.filters.toUSD(language, 'Sales')}}
@@ -22,6 +22,23 @@
         <div class="inp-group">
           <button @click="searchRegionByNumber">
             <img src="/lupa.svg" alt="lupa">
+          </button>
+          <input
+            @keyup.enter="searchRegionByNumber"
+            v-click-outside="clearRegionNumber"
+            v-model="regionNumber"
+            type="number"
+            :placeholder="`№ ${this.$options.filters.toUSD(language, 'Участка')}`"
+          >
+        </div>
+      </client-only>
+    </div>
+    <div v-else id="search-bar__mob" class="d-flex justify-content-center align-items-center">
+      <notifications group="foo" position="center"/>
+      <client-only>
+        <div class="inp-group d-flex flex-row-reverse">
+          <button @click="searchRegionByNumber">
+            <img src="/lupa_white.svg" alt="lupa">
           </button>
           <input
             @keyup.enter="searchRegionByNumber"
@@ -4201,7 +4218,7 @@
                     })
             },
             clearRegionNumber() {
-                this.regionNumber = '';
+                setTimeout(()=>this.regionNumber = '', 200)
             },
             showModal() {
                 this.elements.modal.el.classList.remove('hide')
@@ -5038,5 +5055,40 @@
       -o-object-fit: fill;
       object-fit: fill;
     }
+  }
+  /*mob*/
+  #search-bar__mob{
+    width: 100%;
+    position: fixed;
+    bottom: 50px;
+    z-index: 3000;
+    left: 0;
+    font-size: 12px;
+    .inp-group{
+      width: 100%;
+      max-width: 335px;
+      input{
+        padding: 7px 10px;
+        flex-grow: 1;
+        font-family: "Open Sans", sans-serif;
+        color:#575757;
+        border: none;
+      }
+      button{
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        background-color: #575757;
+        img{
+          width: 16px;
+          height: 16px;
+          display: block;
+        }
+      }
+    }
+
   }
 </style>
