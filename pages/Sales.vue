@@ -42,7 +42,6 @@
           </button>
           <input
             @keyup.enter="searchRegionByNumber"
-            v-click-outside="clearRegionNumber"
             v-model="regionNumber"
             type="number"
             :placeholder="`№ ${this.$options.filters.toUSD(language, 'Участка')}`"
