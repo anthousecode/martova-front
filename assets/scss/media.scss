@@ -71,7 +71,7 @@ and (orientation: landscape)
 }
 
 @media screen
-and (width: 720px)
+and (width: 719px)
 and (orientation: landscape)
 {
   #bigImg3 {
@@ -81,8 +81,8 @@ and (orientation: landscape)
   }
   #map {
     transform: scaleY(1.28) scaleX(0.84) skew(-40deg, 21deg) rotate(170.5deg) translateX(10px) translateY(7px);
-    left: 41px !important;
-    top: -52px !important;
+    left: 46px !important;
+    top: -57px !important;
   }
   #search-bar__mob{
     bottom: 20px!important;
@@ -256,13 +256,13 @@ and (width: 667px)
 and (orientation: landscape){
   #bigImg3 {
     transform: scale(1.45, 1.2) rotate(-90deg);
-    top: 0;
+    top: -10px;
     left: 18px;
   }
   #map {
     transform: scaleY(1.4) scaleX(1.01) skew(-22deg, 1.5deg) rotate(189deg) translateX(10px) translateY(7px);
-    left: 28px !important;
-    top: 32px !important;
+    left: 23px !important;
+    top: 22px !important;
   }
   #search-bar__mob{
     bottom: 5px!important;
