@@ -4320,8 +4320,8 @@
                         this.startTurntable('right')
                     }
                 })
-                // alert(document.documentElement.clientWidth)
-                // alert(document.documentElement.clientHeight)
+                alert(document.documentElement.clientWidth)
+                alert(document.documentElement.clientHeight)
             }
 
         }
