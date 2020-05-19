@@ -70,24 +70,12 @@ and (orientation: landscape)
   }
 }
 
-@media screen
-and (width: 719px)
-and (orientation: landscape)
-{
-  #bigImg3 {
-    transform: scale(1.45, 1.2) rotate(-90deg);
-    top: -10px;
-    left: 8px;
-  }
-  #map {
-    transform: scaleY(1.28) scaleX(0.84) skew(-40deg, 21deg) rotate(170.5deg) translateX(10px) translateY(7px);
-    left: 46px !important;
-    top: -57px !important;
-  }
-  #search-bar__mob{
-    bottom: 20px!important;
-  }
-}
+//@media screen
+//and (width: 719px)
+//and (orientation: landscape)
+//{
+//
+//}
 
 //iphoneX
 @media only screen
@@ -138,8 +126,32 @@ and (orientation: landscape)
     bottom: 8px!important;
   }
 }
+//11просто раком
+@media only screen
+and (device-width: 896px)
+and (device-height: 414px)
+and (-webkit-device-pixel-ratio: 2)
+and (orientation : landscape)
+{
+  #bigImg3 {
+    transform: scale(1.45, 1.2) rotate(-90deg);
+    top: -10px;
+    left: 8px;
+  }
+  #map {
+    transform: scaleY(1.28) scaleX(0.84) skew(-40deg, 21deg) rotate(170.5deg) translateX(10px) translateY(7px);
+    left: 46px !important;
+    top: -57px !important;
+  }
+  #search-bar__mob{
+    bottom: 20px!important;
+  }
+}
 
-//iphone11
+
+
+
+//iphone11pro
 @media only screen
 and (device-width: 414px)
 and (device-height: 896px)
@@ -163,7 +175,7 @@ and (device-height: 896px)
   }
 }
 
-//iphone11 раком
+//iphone11pro раком
 @media
 screen
 and (width: 896px)
@@ -262,10 +274,10 @@ and (orientation: landscape){
   #map {
     transform: scaleY(1.4) scaleX(1.01) skew(-22deg, 1.5deg) rotate(189deg) translateX(10px) translateY(7px);
     left: 23px !important;
-    top: 22px !important;
+    top: 24px !important;
   }
   #search-bar__mob{
-    bottom: 5px!important;
+    bottom: 2px!important;
   }
 }
 
