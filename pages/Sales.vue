@@ -4180,7 +4180,7 @@
                     }
                 });
 
-                if(this.getWindowWidth>1025 && this.getWindowWidth!==1366){
+                if(this.getWindowWidth>1025){
                     this.createPolygon(this.fetchAreas);
                 } else {
                     this.fetchAreas.forEach(a=>{
@@ -5058,11 +5058,12 @@
   }
   /*mob*/
   #search-bar__mob{
-    width: 100%;
+    width: 335px;
     position: fixed;
     bottom: 50px;
     z-index: 3000;
-    left: 0;
+    left: 50%;
+    margin-left: -167px;
     font-size: 12px;
     .inp-group{
       width: 100%;
