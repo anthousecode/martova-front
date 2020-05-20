@@ -286,7 +286,7 @@
 
   @media screen and (max-height: 591px) {
     .left-menu {
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 

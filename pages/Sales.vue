@@ -1,6 +1,6 @@
 <template>
   <section id="sales-wrapper">
-    <div v-if="getWindowWidth>1025" id="search-bar" class="search-bar d-flex justify-content-around align-items-center">
+    <div v-if="getWindowWidth>1112" id="search-bar" class="search-bar d-flex justify-content-around align-items-center">
       <notifications group="foo" position="center"/>
       <button @click="filterByStatus('rgba(255, 72, 9, 0.4)')" class="status status-red">
         {{this.$options.filters.toUSD(language, 'Sales')}}
@@ -4320,8 +4320,8 @@
                         this.startTurntable('right')
                     }
                 })
-                alert(document.documentElement.clientWidth)
-                alert(document.documentElement.clientHeight)
+                // alert(document.documentElement.clientWidth)
+                // alert(document.documentElement.clientHeight)
             }
 
         }
@@ -5060,7 +5060,7 @@
     width: 335px;
     position: fixed;
     bottom: 50px;
-    z-index: 3000;
+    z-index: 800;
     left: 50%;
     margin-left: -167px;
     font-size: 12px;

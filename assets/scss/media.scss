@@ -1,21 +1,14 @@
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1113px) {
   .navbar-custom {
     //display: none;
   }
   #bigImg3 {
-    //transform: scale(1.3) rotate(0deg);
     -o-object-fit: fill;
     object-fit: contain;
     width: 100%;
     height: 100%;
     position: relative;
     top: 50px;
-  }
-  #map {
-    //transform: scaleY(0.54) scaleX(0.685) skew(-1.5deg, 20deg) rotate(290deg) translateX(-7px) translateY(7px);
-    //left: 6px;
-    //top: 52px;
-    //position: absolute;
   }
   #mapImg {
     width: 100%;
@@ -70,12 +63,26 @@ and (orientation: landscape)
   }
 }
 
-//@media screen
-//and (width: 719px)
-//and (orientation: landscape)
-//{
-//
-//}
+@media screen
+and (width: 719px)
+and (orientation: landscape)
+{
+  #bigImg3 {
+    transform: scale(1.4) rotate(-90deg);
+    -o-object-fit: contain;
+    object-fit: contain;
+    top: -10px;
+    left: 25px;
+  }
+  #map {
+    transform: scaleY(1.56) scaleX(0.89) skew(-32deg, 11deg) rotate(180deg) translateX(10px) translateY(7px);
+    left: 60px !important;
+    top: -68px !important;
+  }
+  #search-bar__mob{
+    bottom: 8px!important;
+  }
+}
 
 //iphoneX
 @media only screen
@@ -126,27 +133,7 @@ and (orientation: landscape)
     bottom: 8px!important;
   }
 }
-//11просто раком
-@media only screen
-and (device-width: 896px)
-and (device-height: 414px)
-and (-webkit-device-pixel-ratio: 2)
-and (orientation : landscape)
-{
-  #bigImg3 {
-    transform: scale(1.45, 1.2) rotate(-90deg);
-    top: -10px;
-    left: 8px;
-  }
-  #map {
-    transform: scaleY(1.28) scaleX(0.84) skew(-40deg, 21deg) rotate(170.5deg) translateX(10px) translateY(7px);
-    left: 46px !important;
-    top: -57px !important;
-  }
-  #search-bar__mob{
-    bottom: 20px!important;
-  }
-}
+
 
 
 
@@ -242,13 +229,13 @@ and (device-height: 667px) {
   #bigImg3 {
     //transform: scale(1.55) rotate(0deg);
     transform: scale(1.35) rotate(0deg);
-    top: 36px;
+    top: 31px;
   }
   #map {
     //transform: scaleX(0.99) scaleY(0.9) skew(-3deg,7deg)  rotate(284deg) translateX(-7px) translateY(7px);
     transform: scaleX(0.99) scaleY(0.93) skew(-3deg,6deg)  rotate(284deg) translateX(-7px) translateY(7px);
     left: 7px!important;
-    top: 33px!important;
+    top: 31px!important;
     svg{
       position: relative;
       top: 54px;
@@ -256,7 +243,7 @@ and (device-height: 667px) {
     }
   }
   #search-bar__mob{
-    bottom: 10px!important;
+    bottom: 14px!important;
   }
 }
 
@@ -292,8 +279,11 @@ and (device-height: 736px) {
   }
   #map {
     transform: scale(0.9)  rotate(288.4deg) translateX(-6px) translateY(4px);
-    top: 40px !important;
-    left: 63px!important;
+    top: 42px !important;
+    left: 62px!important;
+  }
+  #search-bar__mob{
+    bottom: 25px!important;
   }
 }
 
@@ -304,14 +294,14 @@ and (width: 736px)
 and (orientation: landscape)
 {
   #bigImg3 {
-    transform: scale(1.45) rotate(-90deg);
-    top: 0;
+    transform: scale(1.35) rotate(-90deg);
+    top: -15px;
     left: 18px;
   }
   #map {
-    transform: scaleX(0.95) scaleY(1.6) skew(-28deg, 10.5deg) rotate(181deg) translateX(10px) translateY(7px);
-    left: 52px !important;
-    top: -59px !important;
+    transform: scaleX(0.88) scaleY(1.54) skew(-30deg, 10.5deg) rotate(181deg) translateX(10px) translateY(7px);
+    left: 49px !important;
+    top: -64px !important;
   }
   #search-bar__mob{
     bottom: 5px!important;
@@ -363,9 +353,12 @@ and (height: 1366px) {
     left: 10px;
   }
   #map {
-    transform: scaleY(1.6) scaleX(0.78) skew(-5deg, -20deg) rotate(300deg) translateX(-6px) translateY(4px);
-    top: 61px !important;
-    left: 31px !important;
+    transform: scaleY(1.7) scaleX(1.08) skew(-4deg, -20deg) rotate(300deg) translateX(-6px) translateY(4px);
+    top: 92px !important;
+    left: 146px !important;
+  }
+  #search-bar__mob{
+    bottom: 85px!important;
   }
 }
 
@@ -375,7 +368,7 @@ and (width: 1366px)
 //and (device-height: 1024px)
 and (orientation: landscape){
   #bigImg3{
-    transform: scale(2) rotate(-90deg);
+    transform: scale(1.5) rotate(-90deg);
     top: 0;
     left: 18px;
     -o-object-fit: contain;
@@ -383,12 +376,49 @@ and (orientation: landscape){
   }
   #map{
     //transform: scaleY(1) scaleX(0.72) skew(-28deg, 3deg) rotate(-5deg) translateX(10px) translateY(7px);
-    transform: scaleY(1.54) scaleX(1.09) skew(-26deg, 2deg) rotate(196deg) translateX(10px) translateY(7px);
-    left: 38px !important;
-    top: -10px !important;
+    transform: scaleY(1.02) scaleX(0.71) skew(-26deg, 1deg) rotate(197deg) translateX(10px) translateY(7px);
+    left: 34px !important;
+    top: -6px !important;
   }
 }
 
+//ipad_Pro_Max
+@media screen
+and (width: 1112px)
+and (height: 725px) {
+  #bigImg3{
+    transform: scale(1.6) rotate(-90deg);
+    top: 0;
+    left: 18px;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+  #map{
+    transform: scaleY(0.829) scaleX(0.61) skew(-25deg, 2.5deg) rotate(197deg) translateX(10px) translateY(7px);
+    left: 31px !important;
+    top: -5px !important;
+  }
+}
+
+////ipad_Pro_Max раком
+@media only screen
+and (width: 725px)
+  //and (device-height: 1024px)
+{
+  #bigImg3 {
+    transform: scale(1.3) rotate(0deg);
+    top: 50px;
+    left: 10px;
+  }
+  #map {
+    transform: scaleY(0.725) scaleX(0.723) skew(3deg, -2deg) rotate(302deg) translateX(-6px) translateY(4px);
+    top: 59px !important;
+    left: 25px !important;
+  }
+  #search-bar__mob{
+    bottom: 20px!important;
+  }
+}
 
 //Galaxy Note 10
 
@@ -464,3 +494,24 @@ and (orientation: landscape)
 
 
 
+//11просто раком
+@media only screen
+and (device-width: 896px)
+and (device-height: 414px)
+and (-webkit-device-pixel-ratio: 2)
+and (orientation : landscape)
+{
+  #bigImg3 {
+    transform: scale(1.45, 1.2) rotate(-90deg);
+    top: -10px;
+    left: 8px;
+  }
+  #map {
+    transform: scaleY(1.28) scaleX(0.84) skew(-40deg, 21deg) rotate(170.5deg) translateX(10px) translateY(7px);
+    left: 46px !important;
+    top: -57px !important;
+  }
+  #search-bar__mob{
+    bottom: 20px!important;
+  }
+}
