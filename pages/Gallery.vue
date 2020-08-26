@@ -210,6 +210,7 @@
     max-width: 100%;
     height: 260px;
     width: 100%;
+    object-fit: contain;
   }
 
 </style>

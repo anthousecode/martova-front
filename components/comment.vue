@@ -8,7 +8,7 @@
     </button>
     <div class="my-2" v-for="item in arrayToShow" :key="item.id">
       <div class="comment">
-        <div class="d-flex">
+        <div class="d-flex flex-column">
           <p style="color:#0069d9; white-space: nowrap;" class="mr-2">{{item.author.name}}:</p>
           <p>{{item.text}}</p>
         </div>
@@ -110,7 +110,7 @@
       padding: 7px 18px;
       border-radius: 30px;
       width: fit-content;
-      max-width: 500px;
+      max-width: 436px;
       min-width: 180px;
       box-sizing: border-box;
       word-break: break-word;
@@ -134,6 +134,7 @@
         max-height: 300px;
         max-width: 400px;
         display: block;
+        object-fit: contain;
       }
     }
 
